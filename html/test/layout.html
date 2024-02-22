@@ -1,0 +1,1385 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+	<title>atoncorp</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+	<link rel="stylesheet" href="../../css/reset.css">
+	<link rel="stylesheet" href="../../css/atoncorp.css">
+	<script src="../../js/jquery-1.12.4.min.js"></script>
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=block" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css">
+
+<style>
+/* html {scroll-behavior:smooth;} */
+
+.header-fix .header_wrap {background-color:#fff; box-shadow:0 0 10px rgba(0,0,0,0.1);}
+.header_wrap {position:fixed; top:0; z-index:2; width:100%; transition:all 0.2s ease;}
+.header-fix header h1 svg {fill:#000;}
+.header-fix header nav > ul > li > a {color:#888;}
+.header-fix header nav > ul > li > a:hover {color:#009ddf;}
+
+header {display:flex; justify-content:space-between; align-items:center; width:100%; max-width:1480px; margin:0 auto; padding:0 90px 0; transition:all 0.2s;}
+header h1 svg {width:106px; fill:#fff;}
+
+header .main_nav {margin-left:50px;}
+header nav > ul {display:flex;}
+header nav > ul li + li {font-size:16px;}
+header nav > ul > li > a {display:block; padding:2px 1em 2em; line-height:24px;}
+header nav a {text-decoration:none; color:#fff;}
+header nav a:hover {color:#009ddf;}
+.full_menu {display:none; position:absolute; top:88px; left:0; width:100%; border-top:1px solid #ddd;}
+.full_menu > ul {box-sizing:content-box; display:table; width:1300px; margin:0 auto; padding:30px calc(calc(100% - 1300px) / 2); background-color:#fff;}
+.full_menu > ul > li {display:table-cell; width:33.33%;}
+header nav > ul > li:hover .full_menu {display:block;}
+
+header nav > ul > li .itemmenu {display:none;}
+header nav > ul > li:hover .itemmenu {display:block; position:absolute; top:88px; padding:1em; border:1px solid #ddd; background-color:#fff;}
+header nav > ul > li .itemmenu li + li {margin-top:10px;}
+.header_mobile {display:none;}
+
+header .main_nav {padding-top:30px;}
+
+
+.header_wrap.active {background-color:#fff;}
+.header_wrap.active h1 svg {fill:#222;}
+.header_wrap.active nav > ul > li > a {color:#222}
+
+.sub_nav {padding-top:2px;}
+.sub_nav li a {padding:0.5em 1em; font-size:0.875em;}
+.sub_nav li:last-of-type {border:1px solid rgba(0,0,0,0.25)}
+
+@media screen and (max-width:1000px) {
+	.header_wrap {position:relative;}
+	.header_wrap::before {content:""; display:block; width:100%; height:62px;}
+	.header_wrap header {display:flex; align-items:center; position:fixed; top:0; left:0; width:100%; height:62px; padding-top:0; background-color:#fff;}
+	.header_wrap header h1 svg {fill:#222;}
+	.header_wrap nav {display:none;}
+	.header_wrap nav > ul > li > a {color:#222}
+
+	.aside_close, .main_nav, .sub_nav {display:none;}
+
+	.open_aside {position:relative; width:40px; height:40px; overflow:hidden;}
+	.open_aside::before,
+	.open_aside::after,
+	.open_aside span {content:""; display:block; position:absolute; left:50%; width:64%; height:2px; background-color:#222; border-radius:2px; transform:translateX(-50%);}
+	.open_aside::before {top:25%}
+	.open_aside::after {bottom:25%;}
+	.open_aside span {white-space:nowrap; color:transparent; top:50%; transform:translate(-50%,-50%);}
+}
+@media screen and (max-width:690px) {
+	header {padding:0 1.25em;}
+}
+</style>
+
+
+</head>
+<body>
+
+<div class="wrap">
+	<!-- <div class="header_mobile">
+		<h1><img src="../../img/common/logo_aton.png" alt="ATON 로고"></h1>
+		<button class="aside_triger"><span>열기</span></button>
+	</div> -->
+	<div class="header_wrap">
+		<header>
+			<!-- <h1><img src="../../img/common/logo_aton.png" alt="ATON 로고"></h1> -->
+			<h1>
+				<a href="../index.html">
+					<svg id="header_logo" class="img_logo" data-name="img_logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 230.9515 58.6165">
+						<path transform="translate(-181.9035 -391.1745)" d="M241.6073,449.7068H229.9008l-5.3516-10.4522L211.755,414.1692l-12.7934,25.0854L193.61,449.7068H181.9035l5.3516-10.4522,24.5-48.08,24.5008,48.08Z" />
+						<path transform="translate(-181.9035 -391.1745)" d="M288.5161,391.2578V401.71H264.5179v48.081H254.0656V401.71h-23.999V391.2578Z" />
+						<path transform="translate(-181.9035 -391.1745)" d="M347.9673,420.4405a29.266,29.266,0,1,1-29.2664-29.266A29.2979,29.2979,0,0,1,347.9673,420.4405Zm-10.4522,0a18.8138,18.8138,0,1,0-18.8142,18.8141A18.8422,18.8422,0,0,0,337.5151,420.4405Z" />
+						<path transform="translate(-181.9035 -391.1745)" d="M412.8551,391.2578V449.791l-10.4522-8.0277-37.6284-29.0155V449.791H354.3223V391.4254l10.4522,8.0273,37.6284,29.0155V391.1745Z" />
+					</svg>
+				</a>
+			</h1>
+
+			<a href="#sidewidgetarea" class="open_aside"><span>메뉴보기</span></a>
+
+			<div class="main_nav" style="flex:1">
+				<nav>
+					<ul>
+						<li><a href="../page/aton_info.html">아톤 소개</a></li>
+						<li><a href="#g">주요 사업</a>
+							<div class="full_menu">
+								<ul>
+									<li>
+										<a href="#g">핀테크 보안 솔루션</a>
+										<ul>
+											<li><a href="../page/core_technology.html">핵심 기술 소개</a></li>
+											<li><a href="../page/msafebox.html">ATON mSafeBox</a></li>
+											<li><a href="../page/motp.html">ATON mOTP</a></li>
+											<li><a href="../page/mpki.html">ATON mPKI</a></li>
+											<!-- <li><a href="../page/u-otp.html">U-OTP</a></li> -->
+										</ul>
+									</li>
+									<li>
+										<a href="#g">핀테크 플랫폼</a>
+										<ul>
+											<li><a href="../page/service_info-2.html">서비스 소개</a></li>
+											<li><a href="../page/pass.html">PASS</a></li>
+											<li><a href="../page/pass_certificate.html">PASS 인증서</a></li>
+											<!-- <li><a href="../page/pass_login.html">PASS 휴대폰 번호 로그인</a></li> -->
+										</ul>
+									</li>
+									<li>
+										<a href="../page/smart_finance.html">스마트 금융</a>
+										<ul>
+											<li><a href="../page/smart_finance.html">스마트 금융</a></li>
+											<li><a href="../page/t-money.html">티머니 솔루션</a></li>
+										</ul>
+									</li>
+
+
+									<li>
+										<a href="#g">핀테크 보안 솔루션</a>
+										<ul>
+											<li><a href="../page/core_technology.html">핵심 기술 소개</a></li>
+											<li><a href="../page/msafebox.html">ATON mSafeBox</a></li>
+											<li><a href="../page/motp.html">ATON mOTP</a></li>
+											<li><a href="../page/mpki.html">ATON mPKI</a></li>
+											<!-- <li><a href="../page/u-otp.html">U-OTP</a></li> -->
+										</ul>
+									</li>
+									<li>
+										<a href="#g">핀테크 플랫폼</a>
+										<ul>
+											<li><a href="../page/service_info-2.html">서비스 소개</a></li>
+											<li><a href="../page/pass.html">PASS</a></li>
+											<li><a href="../page/pass_certificate.html">PASS 인증서</a></li>
+											<!-- <li><a href="../page/pass_login.html">PASS 휴대폰 번호 로그인</a></li> -->
+										</ul>
+									</li>
+									<li>
+										<a href="../page/smart_finance.html">스마트 금융</a>
+										<ul>
+											<li><a href="../page/smart_finance.html">스마트 금융</a></li>
+											<li><a href="../page/t-money.html">티머니 솔루션</a></li>
+										</ul>
+									</li>
+								</ul>
+							</div>
+						</li>
+						<li><a href="#g">IR·PR</a>
+							<div class="itemmenu">
+								<ul>
+									<li><a href="../page/investor-relations.html">Investor Relations</a></li>
+									<li><a href="../press/press_list.html">Press</a></li>
+								</ul>
+							</div>
+						</li>
+						<li><a href="#g">인재 채용</a>
+							<div class="itemmenu">
+								<ul>
+									<li><a href="../page/recruit.html">아톤이 일하는 방식</a></li>
+									<li><a href="../recruit-2/recruit_list.html">채용중인 포지션</a></li>
+								</ul>
+							</div>
+						</li>
+						<!-- <li><a href="#g">trustin</a></li> -->
+					</ul>
+				</nav>
+			</div>
+			<div class="sub_nav">
+				<nav>
+					<ul>
+						<!-- <li><a href="#g">English</a></li> -->
+						<li class="ask"><button type="button" class="open_ask">문의하기</button></li>
+					</ul>
+				</nav>
+			</div>
+		</header>
+		<!-- // header -->
+	</div>
+	<!-- // header_wrap -->
+
+
+
+	<section>
+
+		<div class="visual">
+			<div class="visual_txt">
+				<strong class="txt">채용 중인 포지션</strong>
+				<h3>아톤은<br />IT를 통해<br />일상을 변화시키는<br /><strong class="em">Life Innovator</strong> 입니다.</h3>
+				<p class="txt">내용이 들어갑니다.<br />내용이 들어갑니다.</p>
+			</div>
+			<!-- <div class="bg"> 사파리에서만 적용 가능.
+				<div class="img guide" style="background-image:url('../../img/aton_intro_coretech.mp4');">{카테고리} 비주얼 이미지</div>
+			</div> -->
+			<video class="nectar-video-bg" preload="auto" loop="" autoplay="" muted="" playsinline="">
+				<source src="../../img/aton_intro_coretech.mp4" type="video/mp4">
+			</video>
+		</div>
+
+		<div class="visual">
+			<div class="visual_txt">
+				<strong class="txt">채용 중인 포지션</strong>
+				<h3>아톤은<br />IT를 통해<br />일상을 변화시키는<br /><strong class="em">Life Innovator</strong> 입니다.</h3>
+				<p class="txt">내용이 들어갑니다.<br />내용이 들어갑니다.</p>
+			</div>
+			<div class="bg">
+				<div class="img guide">{카테고리} 비주얼 이미지</div>
+			</div>
+		</div>
+
+		<div class="page_tab">
+			<ul>
+				<li><a href="../page/investor-relations.html"><span>공시정보</span></a></li>
+				<li class="active"><a href="#ㅎ"><span>재무정보</span></a></li>
+				<li><a href="#ㅎ"><span>IR소식</span></a></li>
+			</ul>
+		</div>
+
+		<div class="container" style="display:none;">
+
+			<aside>
+				<nav>
+					nav
+				</nav>
+			</aside>
+
+			<div class="content-wrap">
+				<div class="content-body">
+
+					section<br />section<br />section<br />section<br />section<br />section<br />section<br />section<br />section<br />section<br />section<br />section<br />section<br />section<br />section<br />section<br />section<br />section<br />section<br />section<br />section<br />section<br />section<br />section<br />section<br />section<br />section<br />section<br />section<br />section<br />section<br />section<br />section<br />section<br />section<br />section<br />section<br />section<br />section<br />section<br />section<br />section<br />section<br />section<br />section<br />section<br />section<br />section<br />section<br />section<br />section<br />section<br />section<br />section<br />section<br />section<br />section<br />section<br />section<br />section<br />section<br />section<br />section<br />section<br />section<br />section<br />section<br />section<br />section<br />section<br />section<br />section<br />section<br />section<br />section<br />section<br />section<br />section<br />section<br />section<br />section<br />section<br />section<br />section<br />section<br />section<br />section<br />section<br />section<br />section<br />section<br />section<br />section<br />section<br />section<br />section<br />section<br />section<br />section<br />section<br />section<br />section<br />section<br />section<br />section<br />section<br />section<br />section<br />section<br />section<br />section<br />section<br />section<br />section<br />section<br />section<br />
+
+				</div>
+				<!-- // content-body -->
+
+			</div>
+			<!-- // content-wrap -->
+
+		</div><!-- // container -->
+
+
+
+		<div class="flexGroup gray">
+			<div class="inner">
+				<div class="col">
+					<div class="sectionTit">
+						<strong class="tit">1파란색 텍스트</strong>
+						<h3 class="long">
+							회사 내 중요 정보,<br>
+							높은 가치를 가진 게임 계정,<br>
+							<strong>가장 간단하게 보호하세요</strong>
+						</h3>
+						<p class="txt">U-OTP는 간단한 과정만으로<br>
+							쉽게 적용할 수 있습니다
+						</p>
+						<p class="sub_txt">서브텍스트 내용이 들어갑니다.</p>
+						<a href="#g"><span>텍스트</span></a>
+					</div>
+				</div>
+				<div class="col">
+					<div class="img">
+						<img src="../../img/img4.png" alt="이미지">
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div>
+			<div class="sectionTit tac">
+				<strong class="tit">파란색 텍스트</strong>
+				<h3 class="long">
+					회사 내 중요 정보,<br>
+					높은 가치를 가진 게임 계정,<br>
+					<strong>가장 간단하게 보호하세요</strong>
+				</h3>
+				<p class="txt">U-OTP는 간단한 과정만으로<br>
+					쉽게 적용할 수 있습니다
+				</p>
+				<p class="sub_txt">서브텍스트 내용이 들어갑니다.</p>
+				<a href="#g"><span>텍스트</span></a>
+			</div>
+
+			<div class="flex_row col3">
+				<div class="item">
+					<span class="img"><img src="../../img/ico_msafebox_01.png" alt="이미지"></span>
+					<div class="txt_wrap">
+						<div class="tit">모바일 결제 및 뱅킹 서비스</div>
+						<ul>
+							<li><p>모바일 결제 시스템</p></li>
+							<li><p>전자지갑</p></li>
+							<li><p>모바일 뱅킹</p></li>
+							<li><p>기타 핀테크 어플리케이션</p></li>
+						</ul>
+					</div>
+				</div>
+				<div class="item">
+					<span class="img"><img src="../../img/ico_msafebox_02.png" alt="이미지"></span>
+					<div class="txt_wrap">
+						<div class="tit">전자서명 서비스</div>
+						<ul>
+							<li><p>보험</p></li>
+							<li><p>헬스케어</p></li>
+							<li><p>공공기관</p></li>
+						</ul>
+					</div>
+				</div>
+				<div class="item">
+					<span class="img"><img src="../../img/ico_msafebox_03.png" alt="이미지"></span>
+					<div class="txt_wrap">
+						<div class="tit">미디어&엔터테인먼트 서비스</div>
+						<ul>
+							<li>
+								<p>디지털 콘텐츠의 저작권 보호 및 관리<br />
+									(Digital Rights Management)</p>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+
+			<div class="flex_row col3">
+				<div class="item">
+					<span class="img"><img src="../../img/1-1.png" alt="이미지"></span>
+					<div class="txt_wrap">
+						<div class="tit"><strong>안전한 보안매체 제공</strong></div>
+						<div class="txt">
+							<p>하드웨어 레벨의 통제가 필요해 보안매체<br />
+								개발은 쉽지 않지만, 아톤은 보안매체 활용을 위한<br />
+								가장 안전한 해법을 제시합니다.</p>
+						</div>
+					</div>
+				</div>
+				<div class="item">
+					<span class="img"><img src="../../img/1-1.png" alt="이미지"></span>
+					<div class="txt_wrap">
+						<div class="tit"><strong>안전한 보안매체 제공</strong></div>
+						<div class="txt">
+							<p>하드웨어 레벨의 통제가 필요해 보안매체<br />
+								개발은 쉽지 않지만, 아톤은 보안매체 활용을 위한<br />
+								가장 안전한 해법을 제시합니다.</p>
+						</div>
+					</div>
+				</div>
+				<div class="item">
+					<span class="img"><img src="../../img/1-1.png" alt="이미지"></span>
+					<div class="txt_wrap">
+						<div class="tit"><strong>안전한 보안매체 제공</strong></div>
+						<div class="txt">
+							<p>하드웨어 레벨의 통제가 필요해 보안매체<br />
+								개발은 쉽지 않지만, 아톤은 보안매체 활용을 위한<br />
+								가장 안전한 해법을 제시합니다.</p>
+						</div>
+					</div>
+				</div>
+				<div class="item">
+					<span class="img"><img src="../../img/1-1.png" alt="이미지"></span>
+					<div class="txt_wrap">
+						<div class="tit"><strong>안전한 보안매체 제공</strong></div>
+						<div class="txt">
+							<p>하드웨어 레벨의 통제가 필요해 보안매체<br />
+								개발은 쉽지 않지만, 아톤은 보안매체 활용을 위한<br />
+								가장 안전한 해법을 제시합니다.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+
+		<ul class="partners">
+			<li><img src="../../img/logo_kbank.png" alt="케이뱅크"></li>
+			<li><img src="../../img/logo_skt.png" alt="SK텔레콤"></li>
+			<li><img src="../../img/logo_kt.png" alt="KT"></li>
+			<li><img src="../../img/logo_lg.png" alt="LG U플러스"></li>
+			<li><img src="../../img/logo_kp.png" alt="한국포스증권"></li>
+			<li><img src="../../img/logo_kcpi.png" alt="(주)한국문화진흥"></li>
+		</ul>
+
+
+
+
+		<div class="test123">
+			<div class="sectionTit tac">
+				<strong class="img"><img src="../../img/msafe.png" alt="mSafeBox"></strong>
+				<!-- <strong class="tit">파란색 텍스트</strong> -->
+				<h3 class="long">
+					회사 내 중요 정보,<br>
+					높은 가치를 가진 게임 계정,<br>
+					<strong>가장 간단하게 보호하세요</strong>
+				</h3>
+				<p class="txt">U-OTP는 간단한 과정만으로<br>
+					쉽게 적용할 수 있습니다
+				</p>
+				<p class="sub_txt">서브텍스트 내용이 들어갑니다.</p>
+				<a href="#g"><span>텍스트</span></a>
+			</div>
+		</div><!-- // test123 -->
+
+
+
+		<div class="flexGroup col gray">
+			<div class="sectionTit tac">
+				<strong class="tit">앱 다운로드</strong>
+				<h3 class="long">
+					무료 설치 후<br />
+					<strong>간편 본인확인하세요!</strong>
+				</h3>
+			</div>
+
+			<div class="appDown">
+				<div class="item">
+					<div class="tit">PASS by SKT</div>
+					<p class="txt">SK텔레콤 사용자</p>
+					<div class="link">
+						<a href="#g" class="google"><span>Google Play</span></a>
+						<a href="#g" class="apple"><span>App Store</span></a>
+					</div>
+				</div>
+				<div class="item">
+					<div class="tit">PASS by KT</div>
+					<p class="txt">KT 사용자</p>
+					<div class="link">
+						<a href="#g" class="google"><span>Google Play</span></a>
+						<a href="#g" class="apple"><span>App Store</span></a>
+					</div>
+				</div>
+				<div class="item">
+					<div class="tit">PASS by LG U+</div>
+					<p class="txt">LG유플러스 사용자</p>
+					<div class="link">
+						<a href="#g" class="google"><span>Google Play</span></a>
+						<a href="#g" class="apple"><span>App Store</span></a>
+					</div>
+				</div>
+			</div><!-- // appDown -->
+		</div>
+
+
+
+		<div class="flexGroup col gray top">
+			<div class="inner">
+				<div class="col">
+					<div class="sectionTit">
+						<span class="img"><img src="../../img/111.png" alt="" style="width:auto;"></span>
+						<h3 class="short">
+							가장 쉽게<br />
+							더 혁신적으로
+						</h3>
+						<p class="txt">아톤은 금융 IT 산업을 이끌며<br />
+							혁신의 역사를 만들어가고 있습니다.
+						</p>
+					</div>
+				</div>
+				<div class="col">
+					<div class="history_list">
+						<div class="item">
+							<strong class="tit">2018 ~ 현재</strong>
+							<h3>국내 대표 핀테크 보안기업</h3>
+							<ul>
+								<li><p>국내 최초 소프트웨어형 SE출시</p></li>
+								<li><p>국내 최다 금융기관 고객 확보 (모바일OTP 부문)</p></li>
+							</ul>
+						</div>
+						<div class="item">
+							<span class="tit">2015~2017</span>
+							<h3>핀테크 보안 기술 혁신</h3>
+							<ul>
+								<li><p>세계 최초 은행권 SE 상용화</p></li>
+								<li><p>세계 최초 SE OTP 출시</p></li>
+								<li><p>세계 최초 NFC OTP 출시</p></li>
+								<li><p>국내 최초 금융권 사설인증서</p></li>
+							</ul>
+						</div>
+						<div class="item">
+							<span class="tit">2009~2014</span>
+							<h3>스마트폰 시대의 금융 IT 변화 주도</h3>
+							<ul>
+								<li><p>국내 최초 안드로이드 모바일 뱅킹 개발</p></li>
+								<li><p>국내 최다 고객 대상 증권 서비스</p></li>
+							</ul>
+						</div>
+						<div class="item">
+							<span class="tit">1999~2008</span>
+							<h3>휴대폰 금융 서비스 선도</h3>
+							<ul>
+								<li><p>국내 최초 휴대폰 증권거래(MTS) 서비스</p></li>
+								<li><p>세계 최초 칩 기반 모바일 뱅킹 개발</p></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+		
+
+
+		<div class="flexGroup top">
+			<div class="inner">
+				<div class="col col-4">
+					<div class="sectionTit">
+						<h3 class="short">
+							회사와 직원이<br />
+							함께 성장합니다.
+						</h3>
+						<p class="txt">
+							아톤은 구성원의 성장을 위해<br />
+							아낌 없이 투자합니다.
+						</p>
+					</div>
+				</div>
+				<div class="col col-8">
+					<div class="company">
+						<ol class="txtwrap">
+							<li>
+								<div class="num"><strong>1</strong></div>
+								<div class="tit">아톤 세미나</div>
+								<p class="txt">
+									서로의 프로젝트 노하우를 공유하는 시간!<br />
+									매달 첬재 월요일에는 각자의 프로젝트 경험을 공유합니다.
+								</p>
+							</li>
+							<li>
+								<div class="num"><strong>2</strong></div>
+								<div class="tit">인사이트 콘서트</div>
+								<p class="txt">
+									세상을 이끌어가는 명사들로부터 통찰력 얻기!<br />
+									명사를 초청해 깊이 있는 인사이트를 공유 받습니다.
+								</p>
+							</li>
+							<li>
+								<div class="num"><strong>3</strong></div>
+								<div class="tit">실무 트레이닝</div>
+								<p class="txt">
+									직무 역량 강화를 위한 트레이닝 코스!<br />
+									일을 더 잘, 효율적으로 하기 위해 전문가들을 초청합니다.
+								</p>
+							</li>
+							<li>
+								<div class="num"><strong>4</strong></div>
+								<div class="tit">무제한 교육비 지원</div>
+								<p class="txt">
+									마음껏 성장할 수 있는 자기계발의 기회!<br />
+									다양한 온·오프라인 교육과 도서 구입비를 지원합니다.
+								</p>
+							</li>
+						</ol>
+					</div>
+				</div>
+			</div>
+		</div><!-- // flexGroup -->
+
+		<div class="flexGroup top">
+			<div class="inner">
+				<div class="col col-4">
+					<div class="sectionTit">
+						<h3 class="short">
+							최상의 환경을<br />
+							제공합니다.
+						</h3>
+						<p class="txt">
+							아톤은 구성원들이 몰입하기 위한<br />
+							최상의 환경을 제공합니다.
+						</p>
+					</div>
+				</div>
+				<div class="col col-8 left">
+					<div class="company">
+						<ul class="txtwrap">
+							<li>
+								<div class="tit"><strong>일하기 좋은 중소기업 선정!</strong> 좋은 환경에서 일해요.</div>
+								<p class="txt">
+									전국 주요 관광지 콘도 제공! 다양한 간식 무제한 제공!<br />
+									장기 근속자에게는 리프레시 휴가와 휴가비까지!
+								</p>	
+							</li>
+							<li>
+								<div class="tit"><strong>놀 때는 화끝하게 놀고,</strong>쉴 때는 달콤하게 쉬어요!</div>
+								<p class="txt">
+									우리는 직급이 없으며, 수평적 구조를 추구합니다.<br />
+									'일하기 좋은 중소기업'(대한상공회의소)에도 선정됐어요!
+								</p>	
+							</li>
+							<li>
+								<div class="tit"><strong>지하철역 바로 연결!</strong> 편한 출근길!</div>
+								<p class="txt">
+									지하철 9호선, 5호선이 연결되는<br />
+									여의도역과 바로 연결되어 편한 출근 환경!
+								</p>	
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div><!-- // flexGroup -->
+
+		<div class="flexGroup top">
+			<div class="inner">
+				<div class="col col-4">
+					<div class="sectionTit">
+						<h3 class="short">복지 혜택</h3>
+						<p class="txt">
+							아톤은 구성원의 성장을 위해<br />
+							아낌 없이 투자합니다.
+						</p>
+					</div>
+				</div>
+				<div class="col col-8 left">
+					<div class="company">
+						<ul class="benefit">
+							<li>
+								<span class="icon"><img src="../../img/1-9.png" alt="이미지"></span>
+								<div class="tit">출산/육아 휴가</div>
+								<p class="txt">
+									출산 전/후, 아기의 건강과 가족을 위한 유급 휴가를 지원합니다.
+								</p>	
+							</li>
+							<li>
+								<span class="icon"><img src="../../img/2-9a.png" alt="이미지"></span>
+								<div class="tit">청년내일채움공제 가입</div>
+								<p class="txt">
+									임직원의 장기근속과 목돈마련의 기회를
+									함께 만들어 갑니다.
+								</p>	
+							</li>
+							<li>
+								<span class="icon"><img src="../../img/3-9.png" alt="이미지"></span>
+								<div class="tit">경조휴가 및 경조금 지급</div>
+								<p class="txt">
+									명절 상여금, 결혼, 출산, 부모님 회갑, 고희 등
+									각종 경조 휴가와 경조금을 지급합니다.
+								</p>	
+							</li>
+							<li>
+								<span class="icon"><img src="../../img/4-6.png" alt="이미지"></span>
+								<div class="tit">자유로운 연차 사용</div>
+								<p class="txt">
+									상사와 동료의 눈치 보지 않고 자유롭게
+									사용할 수 있도록 합니다.
+								</p>	
+							</li>
+							<li>
+								<span class="icon"><img src="../../img/5-5.png" alt="이미지"></span>
+								<div class="tit">무제한 교육비 지원</div>
+								<p class="txt">
+									다양한 온/오프라인 교육과 컨퍼런스 등
+									무제한으로 수강할 수 있도록 지원합니다.
+								</p>	
+							</li>
+							<li>
+								<span class="icon"><img src="../../img/6-5.png" alt="이미지"></span>
+								<div class="tit">사내 동호회 지원</div>
+								<p class="txt">
+									동료와의 취미활동 공유, 자기계발 등
+									다양한 활동을 할 수 있도록 지원합니다.
+								</p>	
+							</li>
+							<li>
+								<span class="icon"><img src="../../img/7-5.png" alt="이미지"></span>
+								<div class="tit">해외 워크샵</div>
+								<p class="txt">
+									평범한 워크샵이 아닌, 해외로 가는
+									럭셔리한 워크샵을 지향합니다.
+								</p>	
+							</li>
+							<li>
+								<span class="icon"><img src="../../img/8-3.png" alt="이미지"></span>
+								<div class="tit">초과 근무 지양</div>
+								<p class="txt">
+									근로기준법상의
+									근로시간을 준수합니다.
+								</p>	
+							</li>
+							<li>
+								<span class="icon"><img src="../../img/9-3.png" alt="이미지"></span>
+								<div class="tit">생일/기념일 반차 선물 지급</div>
+								<p class="txt">
+									생일과 결혼기념일을 맞은 직원에게는
+									당일 반차와 선물을 지급합니다.
+								</p>	
+							</li>
+							<li>
+								<span class="icon"><img src="../../img/10-3.png" alt="이미지"></span>
+								<div class="tit">종합 건강 검진</div>
+								<p class="txt">
+									임직원의 건강을 위한
+									종합건강검진을 무료로 지원합니다.
+								</p>	
+							</li>
+							<li>
+								<span class="icon"><img src="../../img/11-4.png" alt="이미지"></span>
+								<div class="tit">도서 구입비 지원</div>
+								<p class="txt">
+									업무와 자기계발에 필요한
+									도서 구입비를 무제한으로 제공합니다.
+								</p>	
+							</li>
+							<li>
+								<span class="icon"><img src="../../img/12-3.png" alt="이미지"></span>
+								<div class="tit">자유 복장제</div>
+								<p class="txt">
+									자유로운 분위기 속
+									편안한 근무환경을 지향합니다.
+								</p>	
+							</li>
+							<li>
+								<span class="icon"><img src="../../img/13-1.png" alt="이미지"></span>
+								<div class="tit">포상 제도</div>
+								<p class="txt">
+									임직원의 기여에 따라 본부별, 개인별
+									성과급을 지급합니다.
+								</p>	
+							</li>
+							<li>
+								<span class="icon"><img src="../../img/14.png" alt="이미지"></span>
+								<div class="tit">자녀 입학 축하금</div>
+								<p class="txt">
+									기쁨은 함께! 임직원의 재정적 부담을
+									덜어드리기 위해 지원합니다.
+								</p>	
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div><!-- // flexGroup -->
+
+
+		<div class="flexGroup blue">
+			<div class="inner">
+				<div class="col">
+					<div class="sectionTit left">
+						<h3 class="short">
+							자유 양식으로<br />
+							<strong>이력서</strong> 와 <strong>자기소개서</strong>를<br />
+							보내주세요
+						</h3>
+						<p class="txt">일상을 바꾸는 핀테크 보안 기업, 아톤과 함께하세요!</p>
+					</div>
+				</div>
+				<div class="col left">
+					<div class="recruit_email">
+						<p class="email hr">hr@atoncorp.com</p>
+						<ul>
+							<li><p>사전 서류 검증 과정을 거쳐, 지원자께 개별적으로 연락 드립니다.</p></li>
+							<li>
+								<p>전체 인터뷰 절차는 총 3단계로 구성됩니다.<br />
+									[1단계] 서류 심사 [2단계] 실무 역량 검증(실무 담당자)<br />
+									[3단계] 조직 적합성 검증(임원진)
+								</p>
+							</li>
+							<li>
+								<p>2, 3단계 인터뷰는 아톤 여의도 본사에서 진행됩니다.</p>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div><!-- // flexGroup -->
+
+
+		<div class="flexGroup blue">
+			<div class="inner">
+				<div class="col">
+					<div class="sectionTit">
+						<h3 class="short">
+							지금 바로,<br />
+							아톤에 합류하세요!
+						</h3>
+						<p class="txt">일상을 바꾸는 핀테크 보안 기업, 아톤과 함께하세요!</p>
+					</div>
+				</div>
+				<div class="col right">
+					<a href="#g" class="btn link page"><span>채용중인 포지션</span></a>
+				</div>
+			</div>
+		</div><!-- // flexGroup -->
+
+		<div class="flexGroup blue">
+			<div class="inner">
+				<div class="col">
+					<div class="sectionTit">
+						<h3 class="short">
+							5천만 통신사 이용자를<br />
+							여러분의 고객으로 만들어보세요!
+						</h3>
+						<p class="txt">ASS 휴대폰번호 로그인 홈페이지에서 자세한 내용을 확인하세요.</p>
+					</div>
+				</div>
+				<div class="col right">
+					<a href="#g" class="btn link page"><span>PASS 휴대폰 번호 로그인 바로가기</span></a>
+				</div>
+			</div>
+		</div><!-- // flexGroup -->
+
+
+<!-- <style>
+.flip-box {background-color:transparent; width:300px; height:240px; perspective:1200px; transition:all 0.2s;}
+.flip-box .flip-box-inner {position:relative; width:100%; height:100%; text-align:center; transition:all 0.8s; transform-style:preserve-3d;}
+.flip-box .flip-box-front,
+.flip-box .flip-box-back {position:absolute; width:100%; height:100%; backface-visibility:hidden;}
+.flip-box .flip-box-front {background-color:#bbb; color:black;}
+.flip-box .flip-box-front div {display:flex; justify-content:center; align-items:center; position:absolute; top:0; left:0; width:100%; height:100%; margin:0; padding:0; background-color:rgba(25, 131, 195, 0.9); overflow:hidden;}
+.flip-box .flip-box-front div p {color:#fff; font-size:22px; line-height:1.63636em; transform:translateX(0%); transition:all 0.8s; text-shadow:0 2px 4px rgba(0,0,0,0.5); opacity:1; font-weight:600;}
+.flip-box .flip-box-back {background-color:#555; color:white; transform:rotateY(180deg);}
+
+.flip-box:hover .flip-box-inner {transform: rotateY(-180deg); box-shadow: 0 0 1em rgba(0,0,0,0.5);}
+.flip-box:hover .flip-box-front div p {transform:translateX(-100%); opacity:0; font-size:1em;}
+</style>
+
+<div class="flip-box">
+	<div class="flip-box-inner">
+		<div class="flip-box-front">
+			<div>
+				<p>신한은행<br />모바일 뱅킹 SOL</p>
+			</div>
+			<img src="../../img/dum.png" alt="Paris">
+		</div>
+		<div class="flip-box-back">
+			<img src="../../img/dum.png" alt="Paris">
+		</div>
+	</div>
+</div> -->
+
+
+
+<div class="flexGroup col">
+	<div class="sectionTit tac">
+		<strong class="tit">주요 적용 사례</strong>
+		<h3 class="long">
+			많은 이들이 '보안은 불편하다'지만,<br />
+			<strong>아톤은 안전하고 간편합니다.</strong>
+		</h3>
+	</div>
+
+	<div class="flex_row col3">
+		<div class="item">
+			<div class="flip_box_wrap">
+				<div class="flip-box">
+					<div class="flip-box-inner">
+						<div class="flip-box-front">
+							<div style="background-color:rgba(25,131,195,0.9);">
+								<p>신한은행<br />모바일 뱅킹 SOL</p>
+							</div>
+							<img src="../../img/dum.png" alt="신한은행SOL">
+						</div>
+						<div class="flip-box-back">
+							<img src="../../img/dum.png" alt="신한은행SOL">
+						</div>
+					</div>
+				</div>
+				<h3>
+					모바일OTP로 어떤 입력도 없이,<br />
+					이체 한도 5억원/일 제공
+				</h3>
+				<div class="logo"><img src="../../img/8.png" alt="신한은행"></div>
+			</div>
+		</div>
+		<div class="item">
+			<div class="flip_box_wrap">
+				<div class="flip-box">
+					<div class="flip-box-inner">
+						<div class="flip-box-front">
+							<div style="background-color:rgba(253,184,19,0.9)">
+								<p>국민은행<br />KB든든간편인증</p>
+							</div>
+							<img src="../../img/465.png" alt="국민은행 간편로그인">
+						</div>
+						<div class="flip-box-back">
+							<img src="../../img/465.png" alt="국민은행 간편로그인">
+						</div>
+					</div>
+				</div>
+				<h3>
+					간편 사설인증서를 통해<br />
+					PIN번호만으로 비대면 금융 서비스
+				</h3>
+				<div class="logo"><img src="../../img/6-1.png" alt="KB국민은행"></div>
+			</div>
+		</div>
+		<div class="item">
+			<div class="flip_box_wrap">
+				<div class="flip-box">
+					<div class="flip-box-inner">
+						<div class="flip-box-front">
+							<div style="background-color:rgba(137,81,255,0.9);">
+								<p>
+									SKT · KT · LG U+<br />
+									PASS
+								</p>
+							</div>
+							<img src="../../img/dum.png" alt="ㅇㅇㅇㅇㅇㅇ">
+						</div>
+						<div class="flip-box-back">
+							<img src="../../img/dum.png" alt="ㅇㅇㅇㅇㅇㅇ">
+						</div>
+					</div>
+				</div>
+				<h3>
+					모바일OTP로 어떤 입력도 없이,<br />
+					이체 한도 5억원/일 제공
+				</h3>
+				<div class="logo">
+					<img src="../../img/c2.png" alt="SK텔레콤">
+					<img src="../../img/c3.png" alt="KT">
+					<img src="../../img/c4.png" alt="LG U+">
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+	
+	<!-- <div class="flip-box">
+		<div class="flip-box-inner">
+			<div class="flip-box-front">
+				<div>
+					<p>신한은행<br />모바일 뱅킹 SOL</p>
+				</div>
+				<img src="../../img/dum.png" alt="Paris">
+			</div>
+			<div class="flip-box-back">
+				<img src="../../img/dum.png" alt="Paris">
+			</div>
+		</div>
+	</div> -->
+	<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+
+<style>
+table.boardTable {width:100%; font-size:1.125em;}
+table.boardTable thead tr {height:80px;}
+table.boardTable thead th {padding:1em 1em 1em 2.5em; background-color:#f9f9f9; text-align:left;}
+table.boardTable tbody tr {height:80px;}
+table.boardTable tbody tr td {border-bottom:1px solid #eee;}
+table.boardTable tbody td {padding:1em 0; background-color:#fff;}
+
+table.boardTable th.list-date,
+table.boardTable th.list-title,
+table.boardTable th.list-user,
+table.boardTable td.list-date,
+table.boardTable td.list-title,
+table.boardTable td.list-user {padding:1em 1em 1em 2.5em;}
+
+table.boardTable th.list-date {}
+table.boardTable th.list-title {width:auto;}
+table.boardTable th.list-title div.default {display:block;}
+table.boardTable th.list-title div.mobile {display:none;}
+table.boardTable th.list-user {width:200px;}
+table.boardTable th.list-other {width:170px; text-align:center;}
+
+table.boardTable td.list-date {width:200px;}
+table.boardTable td.list-title div.default {display:block;}
+table.boardTable td.list-title div.mobile {display:none;}
+@media screen and (max-width:1000px) {
+	table.boardTable th.list-date,
+	table.boardTable th.list-title,
+	table.boardTable th.list-user,
+	table.boardTable td.list-date,
+	table.boardTable td.list-title,
+	table.boardTable td.list-user {padding:1em 1em 1em 1.5em;}
+}
+@media screen and (max-width:800px) {
+	table.boardTable {border-top:1px solid #eee; font-size:1em;}
+	table.boardTable thead {display:none;}
+	table.boardTable tbody tr {display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #eee;}
+	table.boardTable tbody tr td.list-title {flex:1;}
+	table.boardTable tbody tr td {border-bottom:0 none;}
+	table.boardTable td.list-date {display:none;}
+	table.boardTable td.list-title {}
+	table.boardTable td.list-title div.default {display:none;}
+	table.boardTable td.list-title div.mobile {display:block;}
+	table.boardTable td.list-title div.mobile p.title {color:#222; font-size:0.875em; font-weight:bold;}
+	table.boardTable td.list-title div.mobile span {display:inline-block; margin-top:0.75em; color:#888; font-size:0.75em;}
+	table.boardTable td.list-user {display:none;}
+	a.btn.link {font-size:0.875em;}
+}
+@media screen and (max-width:600px) {
+	table.boardTable {font-size:1em;}
+}
+a.btn.link {display:inline-block; padding:0.75em 1.875em; color:#000; text-decoration:none; border:1px solid #222; border-radius:1px; line-height:1em; transition:all 0.2s;}
+a.btn.link:hover {background-color:var(--main-color); border-color:transparent !important; color:#fff;}
+a.btn.link span {display:block; font-size:1em; line-height:1em;}
+</style>
+		<div>
+			<table class="boardTable">
+				<thead>
+					<tr>
+						<th class="list-date">등록일</th>
+						<th class="list-title">공시제목</th>
+						<th class="list-user">제출의무자</th>
+						<th class="list-other"></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td class="list-date">2022.03.17</td>
+						<td class="list-title">
+							<div class="default">사업보고서(2021.12)</div>
+							<div class="mobile">
+								<p class="title">사업보고서(2021.12)</p>
+								<span class="date">2022.03.17</span>
+								<span class="user">아톤</span>
+							</div>
+						</td>
+						<td class="list-user">아톤</td>
+						<td class="list-other"><a href="#g" class="btn link" target="_blank"><span>바로가기</span></a></td>
+					</tr>
+					<tr>
+						<td class="list-date">2022.03.17</td>
+						<td class="list-title">
+							<div class="default">사업보고서(2021.12)</div>
+							<div class="mobile">
+								<p class="title">사업보고서(2021.12)</p>
+								<span class="date">2022.03.17</span>
+								<span class="user">아톤</span>
+							</div>
+						</td>
+						<td class="list-user">아톤</td>
+						<td class="list-other"><a href="#g" class="btn link" target="_blank"><span>바로가기</span></a></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+
+
+		<div class="service_info">
+			<ul>
+				<li>
+					<div>
+						<p>타이틀</p>
+						<span>서브타이틀</span>
+					</div>
+					<a href="#g" target="_blank"><span>버튼</span></a>
+				</li>
+				<li>
+					<div>
+						<p>PASS 휴대폰번호 로그인 소개 영상</p>
+					</div>
+					<a href="#g" target="_blank"><span>재생하기</span></a>
+				</li>
+				<li>
+					<div>
+						<p>PASS 휴대폰번호 로그인 제품 소개 요청하기</p>
+					</div>
+					<a href="#g" target="_blank"><span>요청하기</span></a>
+				</li>
+				<li>
+					<div>
+						<p>타이틀</p>
+						<span>서브타이틀</span>
+					</div>
+					<a href="http://www.atoncorp.com/aton/wp-content/uploads/2020/02/ATON_CI_JPG.zip"><span>다운받기</span></a>
+				</li>
+			</ul>
+		</div>
+	</section>
+
+	<!-- <div class="footer_floating_bnr" style="position:-webkit-sticky; position:sticky; bottom:10px; z-index:10; padding:10px;">
+		<button type="button" style="width:100%; padding:10px; background-color:#ff6600; color:#fff; text-align:center;">하단 떠있는 배너</button>
+	</div> -->
+
+	<footer class="footer">
+		<div class="row">
+			<!-- <div class="f_logo"><img src="../../img/common/logo_aton_white.png" alt="ATON 로고"></div> -->
+			<div class="f_logo">
+				<svg id="footer_logo" class="img_logo" data-name="img_logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 230.9515 58.6165">
+					<path transform="translate(-181.9035 -391.1745)" d="M241.6073,449.7068H229.9008l-5.3516-10.4522L211.755,414.1692l-12.7934,25.0854L193.61,449.7068H181.9035l5.3516-10.4522,24.5-48.08,24.5008,48.08Z" />
+					<path transform="translate(-181.9035 -391.1745)" d="M288.5161,391.2578V401.71H264.5179v48.081H254.0656V401.71h-23.999V391.2578Z" />
+					<path transform="translate(-181.9035 -391.1745)" d="M347.9673,420.4405a29.266,29.266,0,1,1-29.2664-29.266A29.2979,29.2979,0,0,1,347.9673,420.4405Zm-10.4522,0a18.8138,18.8138,0,1,0-18.8142,18.8141A18.8422,18.8422,0,0,0,337.5151,420.4405Z" />
+					<path transform="translate(-181.9035 -391.1745)" d="M412.8551,391.2578V449.791l-10.4522-8.0277-37.6284-29.0155V449.791H354.3223V391.4254l10.4522,8.0273,37.6284,29.0155V391.1745Z" />
+				</svg>
+			</div>
+
+			<div class="info">
+				<p>㈜아톤(ATON Inc.) (대표 김종서,우길수)</p>
+				<p>사업자 번호 : 107-81-71649</p>
+				<p>서울시 영등포구 여의대로 108 파크원타워1 26층</p>
+				<p>26F parc.1 Tower, 108, Yeoui-daero, <br /> Yeongdeungpo-gu, Seoul, 07335</p>
+			</div>
+
+			<div class="contact">
+				<ul>
+					<li>
+						<span>T</span>
+						<p>02-786-4273</p>
+					</li>
+					<li>
+						<span>F</span>
+						<p>02-786-4274</p>
+					</li>
+					<li>
+						<span>M</span>
+						<p>contact@atoncorp.com</p>
+					</li>
+				</ul>
+				<p>Copyright ⓒ 2019 ATON Inc. All rights reserved.</p>
+                <div>
+                    <a href="../privacy/privacy.html"><span>개인정보처리방침</span></a>
+                </div>
+			</div>
+
+			<div class="f_site">
+				<div class="select_wrap">
+					<div class="triger"><button type="button"><span>Family site</span></button></div>
+					<ul>
+						<li class="tx"><a href="http://bizinfogroup.co.kr/" target="_blank">아톤모빌리티</a></li>
+						<li class="tx"><a href="https://www.analyticsfn.com/" target="_blank">에이티애널리틱스</a></li>
+						<li class="tx"><a href="http://kfcfintech.co.kr/" target="_blank">KFC</a></li>
+					</ul>
+					<div class="select_dim"></div>
+				</div><!-- // select_wrap"> -->
+			</div><!-- // f_site -->
+		</div>
+	</footer><!-- // footer -->
+
+</div><!-- // wrap -->
+
+
+
+<!-- aside nav -->
+<div class="gnb_wrap"><!-- 활성화시 class active 추가 -->
+	<div class="nav_wrap">
+		<nav>
+			<h1 class="nav_header">
+				<svg id="nav_logo" class="img_logo" data-name="img_logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 230.9515 58.6165" title="ATON">
+					<path transform="translate(-181.9035 -391.1745)" d="M241.6073,449.7068H229.9008l-5.3516-10.4522L211.755,414.1692l-12.7934,25.0854L193.61,449.7068H181.9035l5.3516-10.4522,24.5-48.08,24.5008,48.08Z" />
+					<path transform="translate(-181.9035 -391.1745)" d="M288.5161,391.2578V401.71H264.5179v48.081H254.0656V401.71h-23.999V391.2578Z" />
+					<path transform="translate(-181.9035 -391.1745)" d="M347.9673,420.4405a29.266,29.266,0,1,1-29.2664-29.266A29.2979,29.2979,0,0,1,347.9673,420.4405Zm-10.4522,0a18.8138,18.8138,0,1,0-18.8142,18.8141A18.8422,18.8422,0,0,0,337.5151,420.4405Z" />
+					<path transform="translate(-181.9035 -391.1745)" d="M412.8551,391.2578V449.791l-10.4522-8.0277-37.6284-29.0155V449.791H354.3223V391.4254l10.4522,8.0273,37.6284,29.0155V391.1745Z" />
+				</svg>
+			</h1>
+	
+			<div class="nav_section">
+				<!-- <div class="nav_group">
+					<h2><a href="#g"><span>ㅁㅁㅁㅁㅁㅁ</span></a></h2>
+					<ul>
+						<li><a href="#g"><span>ㅇㅇㅇㅇ</span></a></li>
+						<li><a href="#g"><span>ㅇㅇㅇㅇ</span></a></li>
+						<li><a href="#g"><span>ㅇㅇㅇㅇ</span></a></li>
+						<li><a href="#g"><span>ㅇㅇㅇㅇ</span></a></li>
+						<li><a href="#g"><span>ㅇㅇㅇㅇ</span></a></li>
+						<li><a href="#g"><span>ㅇㅇㅇㅇ</span></a></li>
+					</ul>
+				</div> -->
+
+				<div class="nav_group">
+					<h2><a href="#g">아톤 소개</a></h2>
+				</div>
+		
+				<div class="nav_group">
+					<h2><a href="#g"><span>주요사업</span></a></h2>
+					<ul class="depth2">
+						<li><span>핀테크 보안 솔루션</span>
+							<ul>
+								<li><a href="../page/core_technology.html">핵심 기술 소개</a></li>
+								<li><a href="../page/msafebox.html">ATON mSafeBox</a></li>
+								<li><a href="../page/motp.html">ATON mOTP</a></li>
+								<li><a href="../page/mpki.html">ATON mPKI</a></li>
+								<!-- <li><a href="../page/u-otp.html">U-OTP</a></li> -->
+							</ul>
+						</li>
+						<li><span>핀테크 플랫폼</span>
+							<ul>
+								<li><a href="../page/service_info-2.html">서비스 소개</a></li>
+								<li><a href="../page/pass.html">PASS</a></li>
+								<li><a href="../page/pass_certificate.html">PASS 인증서</a></li>
+								<!-- <li><a href="../page/pass_login.html">PASS 휴대폰번호 로그인</a></li> -->
+							</ul>
+						</li>
+						<li><span>스마트 금융</span>
+							<ul>
+								<li><a href="../page/smart_finance.html">스마트 금융</a></li>
+								<li><a href="../page/t-money.html">티머니 솔루션</a></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+
+				<div class="nav_group">
+					<h2><a href="#g">IR.PR</a></h2>
+					<ul>
+						<li><a href="../page/investor-relations.html">Investor Relations</a></li>
+						<li><a href="../press/press_list.html">Press</a></li>
+					</ul>
+				</div>
+
+				<div class="nav_group">
+					<h2><a href="#g"><span>인재 채용</span></a></h2>
+					<ul>
+						<li><a href="../page/recruit.html">아톤이 일하는 방식</a></li>
+						<li><a href="../recruit-2/recruit_list.html">채용중인 포지션</a></li>
+					</ul>
+				</div>
+
+				<div class="nav_group">
+					<h2><a href="#g"><span>고객지원</span></a></h2>
+					<ul>
+						<!-- <li><a href="#g">English</a></li> -->
+						<li><a href="#g" class="open_ask"><span>문의하기</span></a></li>
+					</ul>
+				</div>
+			</div><!-- // nav_section -->
+	
+			<div class="nav_footer" style="display:none;">
+				<ul>
+					<li><a href="#g">이용약관</a></li>
+					<li><a href="#g">개인정보처리방침</a></li>
+				</ul>
+			</div><!-- // nav_footer -->
+		</nav>
+	
+		<div class="btn_close">
+			<button type="button"><span>닫기</span></button>
+		</div>
+	</div><!-- // nav_wrap -->
+
+</div><!-- // gnb_wrap -->
+
+
+<style>
+
+</style>
+
+
+<!-- 위로 가기 -->
+<button class="toTop"><span>위로</span></button>
+
+
+<style>
+	.popup :is(footer, .icons){
+		display:flex;
+	}
+	
+	.popup :is(.ttbs, .ttbx) span {
+		background-color: #ff6600;
+	}
+	</style>
+	<div class="popup" style="display:none;;">
+		<div class="icons">
+			<div class="ttbs">1</div>
+			<div class="ttbs"><span>2</span></div>
+			<div class="ttbs">3</div>
+			<div class="ttbx"><span>4</span></div>
+			<div class="ttbs">5</div>
+		</div>
+	</div>
+
+
+
+
+<!-- 문의하기 팝업 -->
+<div class="layer customer">
+    <div class="inner">
+        <div class="content">
+            <div class="ask">
+                <div class="icon"><img src="../../img/common/email.png" alt="이메일 아이콘"></div>
+                <div class="title">
+                    <h2>아톤에게 문의하기</h2>
+                    <p>아래 메일로 문의사항을 남겨주시면, 아톤 담당자가 빠르고 친절하게 답변 드리겠습니다.</p>
+                </div>
+                <div class="email">
+                    contact@atoncorp.com
+                </div>
+            </div>
+            <div class="btn"><button type="button" class="btn_close"><span>닫기</span></button></div>
+        </div>
+    </div>
+</div><!-- // layer customer -->
+
+
+
+<script src="../../js/temp.js"></script>
+
+<script>
+
+$(window).resize(function(){
+	resizeX();
+});
+
+$(document).ready(function(){
+	let flex_row = document.querySelectorAll(".flex_row");
+
+
+	flex_row.forEach(function(item){
+		let tempItem = item.querySelectorAll(".item");
+		item.classList.add(`col-` + tempItem.length)
+	})
+
+
+	
+	// if(flex_row_item.length == 4){
+	// 	flex_row.classList.add("1313")
+	// }
+
+	// items.forEach(function(item){
+	// 	copy.push(item);
+	// });
+})
+
+function resizeX(){
+	let headerWidth = $("header").width();
+	let bodyWidth = $("body").width();
+	if(headerWidth > 1024) {
+		let yy = $("body").width();
+		let zz = (yy - headerWidth) / 2;
+		$(".full_menu > ul").css({
+			width : headerWidth,
+			"padding-left" :  zz,
+			"padding-right" :  zz
+		})		
+	}
+}
+
+
+
+
+function test() {
+	// const stepElems = document.querySelectAll('.tx');
+	const stepElems = document.querySelectorAll('.tx')
+	for(let i = 0; i< stepElems.length; i++){
+		console.log(stepElems[i]);
+		stepElems[i].dataset.index = i;
+	}
+	
+	// const io = new IntersectionObserver((entries, observer) =>{
+	// 	console.log("entries" + entries);
+	// })
+}
+test();
+
+
+function retureTest(){
+	for(var i = 0; i < 10; i++){
+		if(i == 5){
+			return false; // function 탈출
+		}
+		console.log(i);
+	}
+	console.log("반복문중")
+}
+retureTest();
+
+
+
+
+
+
+/*
+$("nav > ul > li:nth-child(2)").on("mouseover", function(){
+	console.log("over");
+	$("div.wrap").addClass("header-fix");
+})
+
+$("nav > ul > li:nth-child(2)").on("mouseout", function(){
+	console.log("out");
+	$("div.wrap").removeClass("header-fix");
+})
+*/
+
+
+</script>
+
+
+</body>
+</html>
