@@ -1343,6 +1343,22 @@ pre.privacy a.link_privacy_list::before {content:""; display:block; position:abs
 .privacy_ver button {width:auto; height:30px; padding:0 1em; background-color:#333; border-radius:1px; color:#fff; font-size:0.875em;}
 
 
+/* 개인정보 처리 표시 라벨링 */
+.privacy_label {margin-top:1em; transform:skewX(-0.03deg);}
+.privacy_label div.tit {text-align:center;}
+.privacy_label > strong {display:inline-block;}
+.privacy_label ul {display:flex; flex-wrap:wrap; margin-top:10px; padding:40px 20px; gap:40px 0; border:1px solid #ddd;}
+.privacy_label ul li {width:33.3%; text-align:center;}
+.privacy_label ul li a {display:inline-block; line-height:1em; text-decoration:none;}
+.privacy_label ul li span.icon {display:inline-flex; align-items:center; height:88px;}
+.privacy_label ul li span.icon img {max-height:100%;}
+.privacy_label ul li span.txt {display:block; margin-top:1em; color:#333; font-size:0.875em; font-weight:bold; text-align:center;}
+@media screen and (max-width: 600px){
+	.privacy_label ul {gap:30px 0; padding:20px;}
+	.privacy_label ul li {width:50%;}
+}
+/* // 개인정보 처리 표시 라벨링 */
+
 
 
 
