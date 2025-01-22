@@ -26,7 +26,10 @@ header h1 svg {width:106px; fill:#fff;}
 header .main_nav {margin-left:50px;}
 header nav > ul {display:flex;}
 header nav > ul li + li {font-size:16px;}
-header nav > ul > li > a {display:block; padding:2px 1em 2em; line-height:24px;}
+header nav > ul > li > a {display:block; position:relative; padding:2px 1em 2em; line-height:24px;}
+header nav > ul > li > a.new::before {content:""; display:block; position:absolute; top:3px; right:7px; width:4px; height:4px; background-color:#f40000; border-radius:100%; transform-origin:50% 50%;
+	animation:ani_new_dot 1.2s ease-in-out infinite;
+}
 header nav > ul > li div span {display:block; margin-bottom:0.75em; color:#333; font-size:1.125em; font-weight:500;}
 header nav > ul > li div li + li {margin-top:0.5em;}
 header nav > ul > li div a {color:#888;}
@@ -62,7 +65,8 @@ header .main_nav {padding-top:30px;}
 .header_wrap.active nav > ul > li > button {color:#888}
 
 .header_wrap.fullMenuOver nav > ul > li > a,
-.header_wrap.fullMenuOver nav > ul > li > button {color:#888 !important;}
+.header_wrap.fullMenuOver nav > ul > li > button {color:#888;}
+.header_wrap.fullMenuOver nav > ul > li.megamenu > a {color:#009ddf;}
 .header_wrap.fullMenuOver h1 svg {fill:#222;}
 
 
@@ -560,7 +564,7 @@ footer div.privacy a span {font-size:0.875em; font-weight:bold; letter-spacing:0
 .flex_row.col3 .item span.img {display:block; margin-bottom:1.25em;}
 .flex_row.col3 .item span.img img {width:auto;}
 .flex_row.col3 .item div.txt_wrap {display:inline-block;}
-.flex_row.col3 .item div.txt_wrap div.tit {margin-bottom:0.29166em; font-size:1.5em; line-height:1.66666em; word-break:keep-all;}
+.flex_row.col3 .item div.txt_wrap div.tit {margin-bottom:0.29166em; font-size:1.5em; line-height:1.66666em; word-break:keep-all; letter-spacing:-0.05em;}
 .flex_row.col3 .item div.txt_wrap ul {margin-top:1em; text-align:left;}
 .flex_row.col3 .item div.txt_wrap ul li {}
 .flex_row.col3 .item div.txt_wrap ul li p {position:relative; padding-left:0.5em; color:#888; font-size:1em; line-height:1.875em; word-break:keep-all;}
@@ -1433,4 +1437,18 @@ pre.privacy a.link_privacy_list::before {content:""; display:block; position:abs
 @keyframes fadeIn{
 	0% {opacity:0;}
 	100% {opacity:1;}
+}
+
+@keyframes ani_new_dot {
+	0% {transform:scale(1); opacity:1;}
+	50% {transform:scale(0.8); opacity:0.6;}
+	100% {transform:scale(1); opacity:1;}
+}
+
+@keyframes ani_wiggle {
+	0% {transform:translateX(0px);}
+	25% {transform:translateX(2px);}
+	50% {transform:translateX(-2px);}
+	75% {transform:translateX(2px);}
+	100% {transform:translateX(0px);}
 }
