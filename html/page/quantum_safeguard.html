@@ -10,6 +10,16 @@
 	<script src="../../js/jquery-1.12.4.min.js"></script>
 	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=block" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css">
+<style>
+.visual div.bg div.img.quantum {
+  background-image: url("../../img/aton_img_quantum.jpg");
+}
+span.new {display:inline-block; position:relative; top:2px; margin-left:4px;; font-size:0; line-height:1em;
+	
+	animation:ani_wiggle 0.4s ease-in-out;
+}
+span.new img {display:block; width:32px; line-height:1em;}
+</style>
 </head>
 <body>
 
@@ -38,7 +48,7 @@
 				<nav>
 					<ul>
 						<li><a href="../page/aton_info.html">아톤 소개</a></li>
-						<li class="megamenu"><a href="#g">주요 사업</a>
+						<li class="megamenu"><a href="#g" class="new">주요 사업</a>
 							<div class="full_menu">
 								<div>
 									<ul>
@@ -49,6 +59,7 @@
 												<li><a href="../page/msafebox.html">ATON mSafeBox</a></li>
 												<li><a href="../page/motp.html">ATON mOTP</a></li>
 												<li><a href="../page/mpki.html">ATON mPKI</a></li>
+												<li class="current-page-item"><a href="../page/quantum_safeguard.html">Quantum SafeGuard</a><span class="new"><img src="../../img/ico_new.png" alt=""></span></li>
 												<!-- <li><a href="../page/u-otp.html">U-OTP</a></li> -->
 											</ul>
 										</li>
@@ -57,7 +68,7 @@
 											<ul>
 												<li><a href="../page/service_info-2.html">서비스 소개</a></li>
 												<li><a href="../page/pass.html">PASS</a></li>
-												<li class="current-page-item"><a href="../page/pass_certificate.html">PASS 인증서</a></li>
+												<li><a href="../page/pass_certificate.html">PASS 인증서</a></li>
 												<!-- <li><a href="../page/pass_login.html">PASS 휴대폰 번호 로그인</a></li> -->
 											</ul>
 										</li>
@@ -117,14 +128,12 @@
 
 		<div class="visual">
 			<div class="visual_txt">
-				<h3><strong>PASS 인증서</strong></h3>
-                <p class="txt">
-                    5천만 통신사 고객을 위한<br />
-                    새로운 전자서명 서비스
-                </p>
+				<h3><strong>Quantum SafeGuard</strong></h3>
+                <p class="txt">양자 컴퓨터 위협으로부터 안전한<br />
+					양자내성암호(PQC) 기술 기반의 차세대 사설인증솔루션</p>
 			</div>
 			<div class="bg">
-				<div class="img passauth">passauth 비주얼 이미지</div>
+				<div class="img quantum">Quantum SafeGuard 비주얼 이미지</div>
 			</div>
 			<!-- <video class="nectar-video-bg" preload="auto" loop="" autoplay="" muted="" playsinline="">
 				<source src="../../img/aton_intro_coretech.mp4" type="video/mp4">
@@ -132,123 +141,139 @@
 		</div><!-- // visual -->
 
 
-
-        <div class="flexGroup">
-            <div class="inner">
-                <div class="col">
-                    <div class="sectionTit ltc">
-                        <h3 class="short">
-                            <strong>휴대폰번호만 있으면</strong><br />
-                            공인인증서가 필요 없습니다
-                        </h3>
-                        <p class="txt">
-                            휴대폰번호로 공인인증서를 대체합니다.<br />PASS 앱을 통해 간단하게 전자서명하세요!
-                        </p>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="img">
-                        <img src="../../img/5-3.png" alt="">
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-
-        <div class="flexGroup gray">
-            <div class="inner">
-                <div class="col">
-                    <div class="sectionTit ltc">
-                        <h3 class="short">
-                            휴대폰 본인확인과 동일한<br />
-                            <strong>가장 간단한 전자서명</strong>
-                        </h3>
-                        <p class="txt">
-                            공인인증서의 복잡한 비밀번호 대신<br />
-                            PASS에서 PIN번호 또는 생체인증하세요!
-                        </p>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="img">
-                        <img src="../../img/6-3.png" alt="">
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-
-        <div class="flexGroup">
-            <div class="inner">
-                <div class="col">
-                    <div class="sectionTit ltc">
-                        <h3 class="short">
-                            더 안전하기 때문에,<br />
-                            <strong>더 오래 쓸 수 있습니다!</strong>
-                        </h3>
-                        <p class="txt">
-                            매년 갱신해야 하는 불편한 공인인증서!<br />
-                            PASS 인증서는 특수 보안 영역을 통해<br />
-                            인증서 갱신 주기 3년을 지원합니다.
-                        </p>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="img">
-                        <img src="../../img/7-3.png" alt="">
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-
-        <div class="flexGroup gray">
+		<div class="flexGroup">
 			<div class="sectionTit tac">
-                <strong class="tit">PASS의 핵심 강점</strong>
+                <strong class="img"><img src="../../img/page/img_quantum_logo.png" alt="QUANTUM Safeguard"></strong>
 				<h3 class="long">
-					강력한 보안과 간결한 프로세스로<br />
-                    <strong>고객 이탈률과 비용을 줄여보세요!</strong>
+					양자 컴퓨터 공격에 맞서<br />
+                    <strong>중요정보를 보호하고 안전한 전자서명을 지원하는
+						단 하나의 사설인증 솔루션 입니다.</strong>
+				</h3>
+				<p class="txt">
+                    현실로 다가온 양자 컴퓨터의 보안 위협!<br />
+					Quantum SafeGuard는 양자내성암호 알고리즘과 보안매체를 통해<br />
+					안전하게 인증서를 발급하고 관리하는 솔루션입니다.<br />
+					개인키의 유출과 전자서명의 위·변조를 방지합니다.
+				</p>
+			</div>
+		</div>
+
+        
+        
+        <div class="flexGroup gray">
+            <div class="inner">
+                <div class="col">
+                    <div class="sectionTit ltc">
+                        <h3 class="short">
+                            <strong>가장 안전한 전자서명 인증</strong><br />
+                            체계를 제공합니다.
+                        </h3>
+                        <p class="txt">
+                            NIST에서 인증한 표준 양자내성암호(PQC) 알고리즘인<br />
+							ML-DSA를 적용하여 양자 컴퓨터의 공격을 무력화합니다.
+                        </p>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="img">
+                        <img src="../../img/page/img_quantum_01.png" alt="ML-DSA">
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+        
+        <div class="flexGroup">
+            <div class="inner">
+                <div class="col">
+                    <div class="sectionTit ltc">
+                        <h3 class="short">
+                            개인키 탈취를<br />
+                            <strong>원천적으로 차단합니다.</strong>
+                        </h3>
+                        <p class="txt">
+                            화이트박스 암호화 기술이 적용된 보안 매체에서<br />
+							ML-DSA 알고리즘의 연산 과정과 개인키를 보호하여<br />
+							중요정보에 대한 접근을 통제합니다.
+                        </p>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="img">
+                        <img src="../../img/page/img_quantum_02.png" alt="화이트박스 암호화 기술">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="flexGroup gray">
+            <div class="inner">
+                <div class="col">
+                    <div class="sectionTit ltc">
+                        <h3 class="short">
+                            가장 유연하고 손쉬운<br />
+                            <strong>시스템 전환을 제공합니다.</strong>
+                        </h3>
+                        <p class="txt">
+                            양자 컴퓨터 공격에 위협받는 기존 RSA/ECC 알고리즘<br />
+							사용환경을  양자 내성을 지원하는 ML-DSA  알고리즘으로<br />
+							전환할 수 있는 유연하고 편리한 방법을 제공합니다.
+                        </p>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="img">
+                        <img src="../../img/page/img_quantum_03.png" alt="RSA/ECC, ML-DSA">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="flexGroup">
+			<div class="sectionTit tac">
+                <strong class="tit">Quantum SafeGuard의 핵심 강점</strong>
+				<h3 class="short">
+					양자 컴퓨터 보안위협에 맞서는 <br />
+                    <strong>최적의 사설인증 솔루션</strong>
 				</h3>
 			</div>
 
             <div class="colContent">
 				<div class="flex_row col3">
 					<div class="item">
-						<span class="img"><img src="../../img/ico_pass_01.png" alt="이미지"></span>
+						<span class="img"><img src="../../img/page/img_quantum_04.png" alt="이미지"></span>
 						<div class="txt_wrap">
-							<div class="tit">높은 보안성</div>
+							<div class="tit"> NIST 표준 양자내성암호(PQC) 알고리즘 적용</div>
 							<div class="txt">
-								<p class="sub_txt">
-									위조 불가, 부인 방지 제공<br />
-									금융권 수준의 최고 보안
-								</p>
+								<p class="sub_txt">NIST 인증 전자서명 <br />
+									PQC 표준 알고리즘인 <br />
+									ML-DSA적용</p>
 							</div>
 						</div>
 					</div>
 					<div class="item">
-						<span class="img"><img src="../../img/ico_pass_02.png" alt="이미지"></span>
+						<span class="img"><img src="../../img/page/img_quantum_05.png" alt="이미지"></span>
 						<div class="txt_wrap">
-							<div class="tit">쉬운 발급 절차</div>
+							<div class="tit">최신 보안매체 적용</div>
 							<div class="txt">
-								<p class="sub_txt">
-									PASS 앱에서<br />
-									발급 동의만으로 인증서 발급!
-								</p>
+								<p class="sub_txt">PQC를 지원하는 화이트박스 보안매체인<br />
+									Quantum SafeBOX 에서<br />
+									중요정보 관리 및 암호화연산 수행</p>
 							</div>
 						</div>
 					</div>
 					<div class="item">
-						<span class="img"><img src="../../img/ico_pass_03.png" alt="이미지"></span>
+						<span class="img"><img src="../../img/page/img_quantum_06.png" alt="이미지"></span>
 						<div class="txt_wrap">
-							<div class="tit">넉넉한 유효기간</div>
+							<div class="tit">완벽한 호환성 제공</div>
 							<div class="txt">
-								<p class="sub_txt">
-									인증서 유효기간<br />
-									3년 보장!
-								</p>
+								<p class="sub_txt">스마트폰 OS/버전/제조사 별 <br />
+									차이 없는 단일 단말 Lib제공</p>
 							</div>
 						</div>
 					</div>
@@ -258,46 +283,57 @@
 
 
 
-
-		<div class="flexGroup blue">
-			<div class="inner">
-				<div class="col">
-					<div class="sectionTit ltc">
-						<h3 class="short">
-                            번거로운 공인인증서는 그만,<br />
-                            PASS하세요!
-						</h3>
-						<p class="txt">PASS 인증서 홈페이지에서 자세한 내용을 확인하세요.</p>
-					</div>
-				</div>
-				<div class="col right">
-					<a href="#g" class="open_ask"><span>PASS 인증서 홈페이지</span></a>
-				</div>
+        <div class="flexGroup gray">
+			<div class="sectionTit tac">
+                <strong class="tit">주요 고객사</strong>
+				<h3 class="short">
+					항상 최상의 보안상태를 유지하는 <br />
+                    <strong>금융사와 함께하고 있습니다</strong>
+				</h3>
 			</div>
-		</div><!-- // flexGroup -->
+
+            <div class="colContent">
+				<ul class="partners">
+					<li><img src="../../img/page/img_quantum_partner_shinhan.png" alt="신한은행"></li>
+					<li><img src="../../img/page/img_quantum_partner_nonghyup.png" alt="NH농협은행"></li>
+					<li><img src="../../img/page/img_quantum_partner_kbstar.png" alt="KB국민은행"></li>
+					<li><img src="../../img/page/img_quantum_partner_ibk.png" alt="IBK기업은행"></li>
+					<li><img src="../../img/page/img_quantum_partner_kebhana.png" alt="하나은행"></li>
+					<li><img src="../../img/page/img_quantum_partner_kbanknow.png" alt="케이뱅크"></li>
+					<li><img src="../../img/page/img_quantum_partner_jejubank.png" alt="제주은행"></li>
+					<li><img src="../../img/page/img_quantum_partner_kbsec.png" alt="KB증권"></li>
+					<li><img src="../../img/page/img_quantum_partner_shinhansec.png" alt="신한투자증권"></li>
+					<li><img src="../../img/page/img_quantum_partner_koreainvestment.png" alt="한국투자증권"></li>
+					<li><img src="../../img/page/img_quantum_partner_imeritz.png" alt="메리츠증권"></li>
+					<li><img src="../../img/page/img_quantum_partner_creontrade.png" alt="대신증권"></li>
+					<li><img src="../../img/page/img_quantum_partner_ibks.png" alt="IBK투자증권"></li>
+					<li><img src="../../img/page/img_quantum_partner_samsungpop.png" alt="삼성증권"></li>
+					<li><img src="../../img/page/img_quantum_partner_hanwhawm.png" alt="한화투자증권"></li>
+					<li><img src="../../img/page/img_quantum_partner_nhqv.png" alt="NH투자증권"></li>
+					<li><img src="../../img/page/img_quantum_partner_fundsupermarket.png" alt="한국포스증권"></li>
+					<li><img src="../../img/page/img_quantum_partner_sangsanginib.png" alt="상상인증권"></li>
+					<li><img src="../../img/page/img_quantum_partner_myasset.png" alt="유안타증권"></li>
+					<li><img src="../../img/page/img_quantum_partner_ssfutures.png" alt="삼성선물"></li>
+					<li><img src="../../img/page/img_quantum_partner_shinhancard.png" alt="신한카드"></li>
+					<li><img src="../../img/page/img_quantum_partner_acuonsb.png" alt="에큐온저축은행"></li>
+					<li><img src="../../img/page/img_quantum_partner_babilloan.png" alt="SBI저축은행"></li>
+					<li><img src="../../img/page/img_quantum_partner_bank_daishin.png" alt="대신저축은행"></li>
+				</ul>
+			</div>
+		</div>
 
 
 
-        <div class="service_info">
+		<div class="service_info">
 			<ul>
 				<li>
 					<div>
-						<p>PASS 인증서 소개 영상</p>
+						<p>Quantum SafeGuard 제품 소개 요청하기</p>
 					</div>
-					<a href="https://www.youtube.com/watch?v=qkgEUcAH6ts" target="_blank"><span>재생하기</span></a>
-				</li>
-                <li>
-					<div>
-						<p>PASS 인증서 제품 소개 요청하기</p>
-					</div>
-					<a href="#g" class="open_ask"><span>요청하기</span></a>
+					<a href="../../file/QuantumSafeGuard_웹브로슈어_241227_최종.pdf" target="_blank" download="ddddd.pdf"><span>내려받기</span></a>
 				</li>
 			</ul>
 		</div>
-
-
-
-
 	</section>
 
 	<!-- <div class="footer_floating_bnr" style="position:-webkit-sticky; position:sticky; bottom:10px; z-index:10; padding:10px;">
