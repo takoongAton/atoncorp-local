@@ -26,10 +26,10 @@ header h1 svg {width:106px; fill:#fff;}
 header .main_nav {margin-left:50px;}
 header nav > ul {display:flex;}
 header nav > ul li + li {font-size:16px;}
+header nav > ul li + li span.new {display:inline-block; position:relative; top:2px; margin-left:4px;; font-size:0; line-height:1em; animation:ani_wiggle 0.4s ease-in-out;}
+header nav > ul li + li  span.new img {display:block; width:32px; line-height:1em;}
 header nav > ul > li > a {display:block; position:relative; padding:2px 1em 2em; line-height:24px;}
-header nav > ul > li > a.new::before {content:""; display:block; position:absolute; top:3px; right:7px; width:4px; height:4px; background-color:#f40000; border-radius:100%; transform-origin:50% 50%;
-	animation:ani_new_dot 1.2s ease-in-out infinite;
-}
+header nav > ul > li > a.new::before {content:""; display:block; position:absolute; top:3px; right:7px; width:4px; height:4px; background-color:#f40000; border-radius:100%; transform-origin:50% 50%;animation:ani_new_dot 1.2s ease-in-out infinite;}
 header nav > ul > li div span {display:block; margin-bottom:0.75em; color:#333; font-size:1.125em; font-weight:500;}
 header nav > ul > li div li + li {margin-top:0.5em;}
 header nav > ul > li div a {color:#888;}
@@ -146,6 +146,8 @@ header .main_nav {padding-top:30px;}
 .visual div.bg div.img.recruit3 {background-image:url('../img/aton_img_recruit3.jpg');}
 .visual div.bg div.img.coreTech {background-image:url('../img/aton_img_coretech.jpg');}
 .visual div.bg div.img.esg {background-image:url('../img/aton_img_esg.jpg');}
+.visual div.bg div.img.quantum {background-image: url("../img/aton_img_quantum.jpg"); background-color:#000;}
+
 
 
 
