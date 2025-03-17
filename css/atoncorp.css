@@ -2591,6 +2591,7 @@ div.box {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
+  overflow-x: auto;
 }
 
 .table_content_wrap > div.content > div.txt_wrap p {
@@ -2800,7 +2801,7 @@ table.dataTable tbody tr td {
 
 table.dataTable tbody td {
   width: auto;
-  padding: 1em 0;
+  padding: 1em 0.5em;
   background-color: #fff;
   text-align: center;
 }
