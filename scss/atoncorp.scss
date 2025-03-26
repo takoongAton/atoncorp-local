@@ -441,7 +441,8 @@ footer div.privacy a span {font-size:0.875em; font-weight:bold; letter-spacing:0
 /* 컨텐츠 타이틀 */
 .sectionTit.tal {text-align:left;}
 .sectionTit.tac {text-align:center;}
-.sectionTit.tac > strong.img {display:block; margin-bottom:2em;}
+.sectionTit.tac > strong.img {display:block; margin-bottom:3em;}
+.sectionTit.tac > strong.img.mb5 {margin-bottom:5em;}
 .sectionTit.tac > strong.img img {width:auto}
 
 .sectionTit.ltc {}/* left to center */
@@ -450,7 +451,7 @@ footer div.privacy a span {font-size:0.875em; font-weight:bold; letter-spacing:0
 .sectionTit > h3 strong {font-weight:800;}
 .sectionTit > h3.long_txt {}
 .sectionTit > h3.short_txt {}
-.sectionTit > p {margin-top:0.55555em; font-size:1.125em; line-height:1.77777em; word-break:keep-all;}
+.sectionTit > p {margin-top:1em; font-size:1.125em; line-height:1.77777em; word-break:keep-all;}
 .sectionTit > p.sub_txt {margin-top:0.25em; opacity:0.5;}
 .sectionTit > a {display:inline-block; padding:0.9375em 2em;}
 .sectionTit > a span {display:block; font-size:1em;}
