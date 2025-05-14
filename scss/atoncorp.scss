@@ -395,7 +395,7 @@ footer div.privacy a span {font-size:0.875em; font-weight:bold; letter-spacing:0
 .flexGroup > div.inner div.col div.img {width:100%; text-align:center;}
 .flexGroup > div.inner div.col img {max-width:100%; width:auto;}
 
-.flexGroup > div.inner div.col {display:flex; width:100%;}
+.flexGroup > div.inner div.col {display:flex; /* width:100%; */ min-width:40%;}
 .flexGroup > div.inner div.col.left {justify-content:flex-start;}
 .flexGroup > div.inner div.col.center {justify-content:center;}
 .flexGroup > div.inner div.col.right {justify-content: right;}
@@ -449,7 +449,7 @@ footer div.privacy a span {font-size:0.875em; font-weight:bold; letter-spacing:0
 
 .sectionTit.ltc {}/* left to center */
 .sectionTit > strong.tit {display:block; margin-bottom:1em; color:var(--main-color);}
-.sectionTit > h3 {font-size:2.5em; line-height:1.5em; font-weight:normal; word-break:keep-all;}
+.sectionTit > h3 {font-size:2.5em; line-height:1.5em; letter-spacing:-0.05em; font-weight:normal; word-break:keep-all;}
 .sectionTit > h3 strong {font-weight:800;}
 .sectionTit > h3.long_txt {}
 .sectionTit > h3.short_txt {}

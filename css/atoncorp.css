@@ -1404,8 +1404,8 @@ footer div.privacy a span {
 .flexGroup > div.inner div.col {
   display: -webkit-box;
   display: -ms-flexbox;
-  display: flex;
-  width: 100%;
+  display: flex; /* width:100%; */
+  min-width: 40%;
 }
 
 .flexGroup > div.inner div.col.left {
@@ -1572,6 +1572,7 @@ footer div.privacy a span {
 .sectionTit > h3 {
   font-size: 2.5em;
   line-height: 1.5em;
+  letter-spacing: -0.05em;
   font-weight: normal;
   word-break: keep-all;
 }
