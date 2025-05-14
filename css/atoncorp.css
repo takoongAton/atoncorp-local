@@ -508,6 +508,11 @@ header .main_nav {
   background-color: #000;
 }
 
+.visual div.bg div.img.quantumOTP {
+  background-image: url("../img/aton_img_quantum_safeotp.jpg");
+  background-color: #000;
+}
+
 @media screen and (max-width: 690px) {
   .visual_txt {
     padding: 10vw 1.25em;
@@ -696,6 +701,13 @@ header .main_nav {
 }
 
 .gnb_wrap .nav_wrap nav .nav_section h2 a {
+  display: inline-block;
+  color: #000;
+  font-size: 1.125em;
+  line-height: 1.5em;
+}
+
+.gnb_wrap .nav_wrap nav .nav_section h2 > span {
   display: inline-block;
   color: #000;
   font-size: 1.125em;
