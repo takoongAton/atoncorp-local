@@ -389,6 +389,18 @@ header .main_nav {
 
 .visual video {
   position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.visual video {
+  position: absolute;
   top: 50%;
   left: 0;
   width: 100%;
@@ -510,6 +522,16 @@ header .main_nav {
 
 .visual div.bg div.img.quantumOTP {
   background-image: url("../img/aton_img_quantum_safeotp.jpg");
+  background-color: #000;
+}
+
+.visual div.bg div.img.quantumPAD {
+  background-image: url("../img/aton_img_quantum_safepad.jpg");
+  background-color: #000;
+}
+
+.visual div.bg div.img.quantumLine {
+  background-image: url("../img/aton_img_quantum_safeline.jpg");
   background-color: #000;
 }
 
@@ -1341,6 +1363,10 @@ footer div.privacy a span {
 .flexGroup.blue {
   background-color: var(--main-color);
   color: #fff;
+}
+
+.flexGroup.lightblue {
+  background-color: #e4f3f8;
 }
 
 .flexGroup.top div.inner {

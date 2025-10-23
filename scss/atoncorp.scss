@@ -123,7 +123,7 @@ header .main_nav {padding-top:30px;}
 .visual_txt h3 strong.em {color:var(--main-color);}
 .visual_txt p.txt {margin-top:0.5em; font-size:1.125em; line-height:1.66666em; transition:font-size 0.2s;}
 
-// .visual video {position:absolute; top:0; left:0; width:100%; margin:0; padding:0; border:0; object-fit: cover;}
+.visual video {position:absolute; top:0; left:0; width:100%; margin:0; padding:0; border:0; object-fit: cover;}
 .visual video {position:absolute; top:50%; left:0; width:100%; margin:0; padding:0; border:0; object-fit:cover; transform:translateY(-50%);}
 .visual div.bg {position:absolute; top:0; left:0; width:100%; height:100%; color:transparent;}
 .visual div.bg div.img {position:absolute; top:0; left:0; width:100%; height:100%; background-repeat:no-repeat; background-position:center center; background-size:cover; transform:scale(1.2); animation:ani_visual 1s ease; animation-fill-mode: forwards;}
@@ -148,8 +148,8 @@ header .main_nav {padding-top:30px;}
 .visual div.bg div.img.esg {background-image:url('../img/aton_img_esg.jpg');}
 .visual div.bg div.img.quantum {background-image: url("../img/aton_img_quantum.jpg"); background-color:#000;}
 .visual div.bg div.img.quantumOTP {background-image: url("../img/aton_img_quantum_safeotp.jpg"); background-color:#000;}
-
-
+.visual div.bg div.img.quantumPAD {background-image: url("../img/aton_img_quantum_safepad.jpg"); background-color:#000;}
+.visual div.bg div.img.quantumLine {background-image: url("../img/aton_img_quantum_safeline.jpg"); background-color:#000;}
 
 
 @media screen and (max-width: 690px){
@@ -379,6 +379,7 @@ footer div.privacy a span {font-size:0.875em; font-weight:bold; letter-spacing:0
 .flexGroup {padding:8vw 90px; background-color:#fff;;}
 .flexGroup.gray {background-color: #f9f9f9;}
 .flexGroup.blue {background-color:var(--main-color); color:#fff;}
+.flexGroup.lightblue {background-color:#e4f3f8;}
 .flexGroup.top div.inner {align-items:flex-start;}
 .flexGroup.bg_img {background:url('../img/awef.png') no-repeat center center / cover}
 .flexGroup.bg_img h3,
