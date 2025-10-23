@@ -4794,6 +4794,11 @@ pre.privacy a.link_privacy_list::before {
   color: transparent;
 }
 
+.layer.customer .ask {
+  -webkit-transform: skewX(-0.03deg);
+          transform: skewX(-0.03deg);
+}
+
 .layer.customer .ask .icon img {
   width: 75px;
 }

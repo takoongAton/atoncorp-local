@@ -1383,6 +1383,7 @@ pre.privacy a.link_privacy_list::before {content:""; display:block; position:abs
 .layer.customer .inner .content div.btn button.btn_close::after {transform:translate(-50%,-50%) rotate(-45deg);}
 .layer.customer .inner .content div.btn button.btn_close span {color:transparent;}
 
+.layer.customer .ask {transform:skewX(-0.03deg);}
 .layer.customer .ask .icon img {width:75px;}
 .layer.customer .ask .title {margin-top:1em;}
 .layer.customer .ask .title h2 {font-weight:bold; font-size:1.5em;}
