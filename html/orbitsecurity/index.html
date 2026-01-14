@@ -63,7 +63,7 @@
 
 			<div class="visual_group">
 				<div class="video">
-					<video autoplay loop="true">
+					<video autoplay muted loop="true">
 						<source src="./images/intro.webm" type="video/webm">
 						<source src="./images/intro.mp4" type="video/mp4">
 					</video>
@@ -622,7 +622,7 @@
 					</li>
 					<li>
 						<span>M</span>
-						<p>hsjeong@oliveworks.io</p>
+						<p>contact@atoncorp.com</p>
 					</li>
 				</ul>
 				<p>Copyright ⓒ 2019 ATON Inc. All rights reserved.</p>
@@ -793,6 +793,11 @@ function fn_value(){
 	window.addEventListener('resize', updateSlider);
 }
 fn_value();
+
+
+window.addEventListener("load", function(){
+	document.querySelector(".orbit_flexGroup .visual_group div.video video")
+})
 
 </script>
 </body>
