@@ -7,24 +7,10 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
 
 	<link rel="stylesheet" type="text/css" href="./css/reset.css" />
-	<!-- <link rel="stylesheet" type="text/css" href="./css/slick.css"> -->
-	<!-- <link rel="stylesheet" type="text/css" href="./css/gitple_chat.css" /> -->
 	<link rel="stylesheet" type="text/css" href="./css/orbitsecurity.css" />
 	
 	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=block" rel="stylesheet">
 	<!-- <link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@400;500;700&display=swap" rel="stylesheet"> -->
-
-
-	 <style>
-	/* font-family:Pretendard */
-	/* font-weight : 100 ~ 900 */
-	@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
-	* {font-family:Pretendard !important;}
-	body {overflow-x:hidden;}
-	 </style>
-
-<style>
-</style>
 </head>
 
 <body>
@@ -177,7 +163,7 @@
 
 			<div class="solution_list_wrap">
 		
-				<div class="solution_list">
+				<div class="item_list">
 					<div class="item">
 						<div class="inner">
 							<div class="txt_wrap">
@@ -279,7 +265,7 @@
 						</div>
 					</div>
 				</div>
-				<!-- // solution_list -->
+				<!-- // item_list -->
 				
 			</div>
 			<!-- // solution_list_wrap -->
@@ -440,8 +426,8 @@
 
 			<div class="value_list_wrap">
 
-				<div class="value_list">
-					<div class="value_item active">
+				<div class="item_list">
+					<div class="item active">
 						<div class="inner">
 							<h3>기업</h3>
 							<div class="value_inner_box">
@@ -461,8 +447,8 @@
 							</div>
 						</div>
 					</div>
-					<!-- // value_item -->
-					<div class="value_item">
+					<!-- // item -->
+					<div class="item">
 						<div class="inner">
 							<h3>CISO</h3>
 							<div class="value_inner_box">
@@ -482,8 +468,8 @@
 							</div>
 						</div>
 					</div>
-					<!-- // value_item -->
-					<div class="value_item">
+					<!-- // item -->
+					<div class="item">
 						<div class="inner">
 							<h3>개발자</h3>
 							<div class="value_inner_box">
@@ -503,8 +489,8 @@
 							</div>
 						</div>
 					</div>
-					<!-- // value_item -->
-					<div class="value_item">
+					<!-- // item -->
+					<div class="item">
 						<div class="inner">
 							<h3>보안관리자</h3>
 							<div class="value_inner_box">
@@ -524,9 +510,9 @@
 							</div>
 						</div>
 					</div>
-					<!-- // value_item -->
+					<!-- // item -->
 				</div>
-				<!-- // value_list -->
+				<!-- // item_list -->
 			</div>
 			<!-- // value_list_wrap -->
 		</div>
@@ -649,156 +635,67 @@
 
 
 
-<!-- <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> -->
-<!-- <script type="text/javascript" src="./js/slick.min.js"></script> -->
+
 <script type="text/javascript" src="./js/temp.js"></script>
 
 <script>
-function solution(){
-	const solution = document.querySelector(".solution_wrap");
-	const list = solution.querySelector('.solution_list');
-	const items = list.querySelectorAll('.item');
-	const btnPrev = solution.querySelector('.btn_prev');
-	const btnNext = solution.querySelector('.btn_next');
+/**
+ * 슬라이더 초기화 함수
+ * @param {string} selector - 슬라이더 최상위 컨테이너의 클래스명
+ */
+function initSlider(selector) {
+    const wrap = document.querySelector(selector);
+    if (!wrap) return; // 요소가 없으면 종료
 
-	let currentIndex = 0; 
-	const maxIndex = items.length - 1; 
+    const list = wrap.querySelector('.item_list');
+    const items = wrap.querySelectorAll('.item');
+    const btnPrev = wrap.querySelector('.btn_prev');
+    const btnNext = wrap.querySelector('.btn_next');
 
-	function updateSlider() {
-		// 1. 이동 거리 계산 및 적용
-		const itemWidth = items[0].getBoundingClientRect().width;
-		const translateValue = -currentIndex * itemWidth;
-		list.style.transform = `translateX(${translateValue}px)`;
-		
-		// 2. 버튼 상태 업데이트 (disabled)
-		updateButtons();
+    let currentIndex = 0;
+    const maxIndex = items.length - 1;
 
-		// 3. active 클래스 업데이트
-		updateActiveClass();
-	}
+    // 슬라이더 업데이트 로직
+    const updateSlider = () => {
+        // 1. 이동 거리 계산 및 적용
+        const itemWidth = items[0].offsetWidth; // getBoundingClientRect()보다 가볍습니다.
+        const translateValue = -currentIndex * itemWidth;
+        list.style.transform = `translateX(${translateValue}px)`;
+        list.style.transition = "transform 0.3s ease-out"; // 부드러운 이동 효과 추가
 
-	function updateButtons() {
-		btnPrev.disabled = (currentIndex === 0);
-		btnNext.disabled = (currentIndex === maxIndex);
+        // 2. 버튼 및 클래스 업데이트
+        btnPrev.disabled = (currentIndex === 0);
+        btnNext.disabled = (currentIndex === maxIndex);
 
-		// 첫 페이지면 Prev 버튼 흐리게, 마지막 페이지면 Next 버튼 흐리게
-		// btnPrev.style.opacity = (currentIndex === 0) ? "0.3" : "1";
-		// btnNext.style.opacity = (currentIndex === maxIndex) ? "0.3" : "1";
-		
-		// 클릭 방지 스타일
-		// btnPrev.style.pointerEvents = (currentIndex === 0) ? "none" : "auto";
-		// btnNext.style.pointerEvents = (currentIndex === maxIndex) ? "none" : "auto";
-	}
+        // 3. active 클래스 토글 (효율적인 방식)
+        items.forEach((item, index) => {
+            item.classList.toggle('active', index === currentIndex);
+        });
+    };
 
-	function updateActiveClass() {
-		// 모든 아이템에서 active 클래스 제거 후, 현재 아이템에만 추가
-		items.forEach((item, index) => {
-			if (index === currentIndex) {
-				item.classList.add('active');
-			} else {
-				item.classList.remove('active');
-			}
-		});
-	}
+    // 이벤트 리스너 등록
+    btnNext.addEventListener('click', () => {
+        if (currentIndex < maxIndex) {
+            currentIndex++;
+            updateSlider();
+        }
+    });
 
-	btnNext.addEventListener('click', () => {
-		if (currentIndex < maxIndex) {
-			currentIndex++;
-			updateSlider();
-		}
-	});
+    btnPrev.addEventListener('click', () => {
+        if (currentIndex > 0) {
+            currentIndex--;
+            updateSlider();
+        }
+    });
 
-	btnPrev.addEventListener('click', () => {
-		if (currentIndex > 0) {
-			currentIndex--;
-			updateSlider();
-		}
-	});
-
-	// 초기 실행 (0번 아이템 active 처리 및 버튼 체크)
-	updateSlider();
-
-	// 브라우저 크기 변경 시 대응
-	window.addEventListener('resize', updateSlider);
+    // 초기 실행 및 리사이즈 대응
+    updateSlider();
+    window.addEventListener('resize', updateSlider);
 }
-solution();
 
-
-
-function fn_value(){
-	const value_wrap = document.querySelector(".value_wrap");
-	const list = value_wrap.querySelector('.value_list');
-	const items = list.querySelectorAll('.value_item');
-	const btnPrev = value_wrap.querySelector('.btn_prev');
-	const btnNext = value_wrap.querySelector('.btn_next');
-
-	let currentIndex = 0; 
-	const maxIndex = items.length - 1; 
-
-	function updateSlider() {
-		// 1. 이동 거리 계산 및 적용
-		const itemWidth = items[0].getBoundingClientRect().width;
-		const translateValue = -currentIndex * itemWidth;
-		list.style.transform = `translateX(${translateValue}px)`;
-		
-		// 2. 버튼 상태 업데이트 (disabled)
-		updateButtons();
-
-		// 3. active 클래스 업데이트
-		updateActiveClass();
-	}
-
-	function updateButtons() {
-		btnPrev.disabled = (currentIndex === 0);
-		btnNext.disabled = (currentIndex === maxIndex);
-
-		// 첫 페이지면 Prev 버튼 흐리게, 마지막 페이지면 Next 버튼 흐리게
-		// btnPrev.style.opacity = (currentIndex === 0) ? "0.3" : "1";
-		// btnNext.style.opacity = (currentIndex === maxIndex) ? "0.3" : "1";
-		
-		// 클릭 방지 스타일
-		// btnPrev.style.pointerEvents = (currentIndex === 0) ? "none" : "auto";
-		// btnNext.style.pointerEvents = (currentIndex === maxIndex) ? "none" : "auto";
-	}
-
-	function updateActiveClass() {
-		// 모든 아이템에서 active 클래스 제거 후, 현재 아이템에만 추가
-		items.forEach((item, index) => {
-			if (index === currentIndex) {
-				item.classList.add('active');
-			} else {
-				item.classList.remove('active');
-			}
-		});
-	}
-
-	btnNext.addEventListener('click', () => {
-		if (currentIndex < maxIndex) {
-			currentIndex++;
-			updateSlider();
-		}
-	});
-
-	btnPrev.addEventListener('click', () => {
-		if (currentIndex > 0) {
-			currentIndex--;
-			updateSlider();
-		}
-	});
-
-	// 초기 실행 (0번 아이템 active 처리 및 버튼 체크)
-	updateSlider();
-
-	// 브라우저 크기 변경 시 대응
-	window.addEventListener('resize', updateSlider);
-}
-fn_value();
-
-
-window.addEventListener("load", function(){
-	document.querySelector(".orbit_flexGroup .visual_group div.video video")
-})
-
+// 사용 예시
+initSlider('.solution_wrap');
+initSlider('.value_wrap');
 </script>
 </body>
 </html>

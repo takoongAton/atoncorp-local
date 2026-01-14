@@ -99,7 +99,7 @@ header nav > ul > li > a.new::before {
 }
 
 header nav > ul > li div span {
-  display: block;
+  display: inline-block;
   margin-bottom: 0.75em;
   color: #333;
   font-size: 1.125em;
@@ -153,6 +153,21 @@ header nav button:hover {
 .full_menu > div > ul > li {
   display: table-cell;
   width: 25%;
+}
+
+.full_menu > div > ul > li span.tit {
+  position: relative;
+}
+
+.full_menu > div > ul > li span.tit span.new {
+  display: block;
+  position: absolute;
+  top: -4px;
+  right: -10px;
+  width: 4px;
+  height: 4px;
+  border-radius: 4px;
+  background-color: #f40000;
 }
 
 header nav > ul > li:hover .full_menu {

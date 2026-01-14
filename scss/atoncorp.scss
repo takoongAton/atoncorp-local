@@ -30,7 +30,7 @@ header nav > ul li + li span.new {display:inline-block; position:relative; top:2
 header nav > ul li + li  span.new img {display:block; width:32px; line-height:1em;}
 header nav > ul > li > a {display:block; position:relative; padding:2px 1em 2em; line-height:24px;}
 header nav > ul > li > a.new::before {content:""; display:block; position:absolute; top:3px; right:7px; width:4px; height:4px; background-color:#f40000; border-radius:100%; transform-origin:50% 50%;animation:ani_new_dot 1.2s ease-in-out infinite;}
-header nav > ul > li div span {display:block; margin-bottom:0.75em; color:#333; font-size:1.125em; font-weight:500;}
+header nav > ul > li div span {display:inline-block; margin-bottom:0.75em; color:#333; font-size:1.125em; font-weight:500;}
 header nav > ul > li div li + li {margin-top:0.5em;}
 header nav > ul > li div a {color:#888;}
 header nav a,
@@ -42,6 +42,9 @@ header nav button:hover {color:#009ddf;}
 .full_menu > div {padding:30px 90px; background-color:#fff;}
 .full_menu > div > ul {box-sizing:content-box; display:table; width:100%; max-width:1300px; margin:0 auto;}
 .full_menu > div > ul > li {display:table-cell; width:25%;}
+.full_menu > div > ul > li span.tit {position:relative}
+.full_menu > div > ul > li span.tit span.new {display:block; position:absolute; top:-4px; right:-10px; width:4px; height:4px; border-radius:4px; background-color:#f40000;}
+// .full_menu > div > ul > li span.tit span.new::after {content:""; }
 
 .itemmenu {}
 .itemmenu ul {}
