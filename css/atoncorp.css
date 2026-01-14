@@ -389,18 +389,6 @@ header .main_nav {
 
 .visual video {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  margin: 0;
-  padding: 0;
-  border: 0;
-  -o-object-fit: cover;
-     object-fit: cover;
-}
-
-.visual video {
-  position: absolute;
   top: 50%;
   left: 0;
   width: 100%;
@@ -532,6 +520,11 @@ header .main_nav {
 
 .visual div.bg div.img.quantumLine {
   background-image: url("../img/aton_img_quantum_safeline.jpg");
+  background-color: #000;
+}
+
+.visual div.bg div.img.security {
+  background-image: url("../img/aton_img_security.jpg");
   background-color: #000;
 }
 
@@ -1413,6 +1406,14 @@ footer div.privacy a span {
   margin: 0 auto;
 }
 
+.flexGroup > div.inner.col {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 40px;
+}
+
 .flexGroup > div.inner.left {
   margin: unset;
 }
@@ -1537,16 +1538,18 @@ footer div.privacy a span {
 }
 @media screen and (max-width: 800px) {
   .flexGroup > div.inner {
-    display: block;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    gap: 2em 0;
+    width: 100%;
   }
   .flexGroup > div.inner div {
     width: 100%;
     margin: unset;
   }
   .flexGroup > div.inner div.img,
-  .flexGroup > div.inner div.col {
-    margin-top: 1.5em;
-  }
   .flexGroup > div.inner div.col.right {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
@@ -5003,3 +5006,158 @@ pre.privacy a.link_privacy_list::before {
             transform: translateX(0px);
   }
 }
+/* security center 이미지 크기 수정 */
+.flexGroup > div.inner div.col img {
+  -webkit-transition: width 0.2s ease;
+  transition: width 0.2s ease;
+}
+
+.flexGroup > div.inner div.col img.security_01 {
+  width: 465px;
+}
+
+.flexGroup > div.inner div.col img.security_02 {
+  width: 630px;
+}
+
+.flexGroup > div.inner div.col img.security_03 {
+  width: 627px;
+}
+
+.flexGroup > div.inner div.col img.security_04 {
+  width: 970px;
+}
+
+@media only screen and (max-width: 800px) {
+  .flexGroup > div.inner div.col img.security_01 {
+    width: 300px;
+  }
+  .flexGroup > div.inner div.col img.security_02 {
+    width: 500px;
+  }
+  .flexGroup > div.inner div.col img.security_03 {
+    width: 500px;
+  }
+}
+@media only screen and (max-width: 540px) {
+  .flexGroup > div.inner div.col img.security_01 {
+    width: 155px;
+  }
+}
+/* orbit 서비스 리스트 */
+.orbit_service_wrap .item_list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  gap: 90px 0;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.orbit_service_wrap .item_list .item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 33.3333333333%;
+  text-align: center;
+}
+
+.orbit_service_wrap .item_list .item span.ico {
+  display: inline-block;
+  width: 82px;
+  height: 82px;
+}
+
+.orbit_service_wrap .item_list .item div.txt_wrap {
+  margin-top: 28px;
+}
+
+.orbit_service_wrap .item_list .item div.txt_wrap div.tit {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.orbit_service_wrap .item_list .item div.txt_wrap div.tit strong {
+  display: inline-block;
+  color: #000;
+  font-size: 24px;
+  line-height: 1.25em;
+  font-weight: 900;
+}
+
+.orbit_service_wrap .item_list .item div.txt_wrap div.tit em {
+  display: inline-block;
+  color: #009DDF;
+  font-size: 18px;
+  line-height: 1.55555em;
+  font-weight: 700;
+}
+
+.orbit_service_wrap .item_list .item div.txt_wrap p.txt {
+  margin-top: 1.66666em;
+  font-size: 18px;
+  line-height: 1.77777em;
+}
+
+.orbit_service_wrap .item_list .item div.txt_wrap ul.txt_list {
+  margin-top: 20px;
+}
+
+.orbit_service_wrap .item_list .item div.txt_wrap ul.txt_list li {
+  color: #888;
+  font-size: 18px;
+  line-height: 1.77777em;
+}
+
+@media only screen and (max-width: 800px) {
+  .orbit_service_wrap .item_list {
+    gap: 76px 0;
+  }
+  .orbit_service_wrap .item_list .item {
+    width: 50%;
+  }
+  .orbit_service_wrap .item_list .item span.ico {
+    width: 60px;
+    height: 60px;
+  }
+  .orbit_service_wrap .item_list .item div.txt_wrap div.tit em {
+    font-size: 14px;
+  }
+  .orbit_service_wrap .item_list .item div.txt_wrap p.txt {
+    font-size: 14px;
+  }
+  .orbit_service_wrap .item_list .item div.txt_wrap ul.txt_list li {
+    font-size: 14px;
+  }
+}
+@media only screen and (max-width: 720px) {
+  .orbit_service_wrap .item_list .item {
+    width: 100%;
+  }
+}
+/* // orbit 서비스 리스트 */
