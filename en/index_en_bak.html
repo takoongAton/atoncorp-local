@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>아톤 홈페이지</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=block" rel="stylesheet">
+
+<style type="text/css">
+body {margin:0; padding:30px 20px 20px 20px; font-family:Tahoma, Sans-Serif; font-size:12px; color:#333; line-height:1;}
+h1, p, ul, th, td {margin:0; padding:0;}
+ul, li {list-style-type:none;}
+
+h1 {margin:0 0 10px 0; font-size:17px;}
+h1 > span {margin-left:10px; font-size:13px; font-weight:normal;}
+.quick *{float:left; vertical-align:middle;}
+.quick {position:fixed; right:0; top:0; padding:5px 10px; background-color:#ddd;}
+.quick p {font-weight:bold;}
+.quick li {margin:0 0 0 8px;}
+.quick li span {display:block; width:5px; padding:0 0 0 8px;}
+.link-guide {display:block; margin-bottom:10px; text-decoration:underline; font-size:13px;}
+a {color:#009DDF; text-decoration:underline;}
+a:hover {color:#009DDF; text-decoration:none;}
+a.active {color:red; font-weight:bold;}
+table {width:100%; border-collapse:collapse; border:1px solid #666;}
+tr.line1 {border-top:2px solid #666;}
+th, td {vertical-align:middle; padding:5px 0; font-size:13px;}
+th {padding:6px; font-size:12px; text-align:center; color:#fff; border:1px solid #666; background-color:var(--main-color); font-weight:normal;}
+td {padding:4px 4px 4px 10px; text-align:left; border:1px solid #eee; background-color:#fff; line-height:1.4;}
+td.chk {padding:4px 4px 4px 4px; text-align:center;}
+td p {margin:10px 0 5px 0;}
+tr:hover td{background-color:#eee;}
+.done {color:#ca0404;}
+.em {color:#ca0404;}
+.ing {color:#009DDF;}
+.notice {padding:3px 0 10px 0; text-align:right; color:#ff0303; line-height:1.4;}
+
+:root {
+	--main-color:#009DDF;
+}
+</style>
+	<script type="text/javascript" src="/js/lib/jquery-1.8.2.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			var $lists = $('.menulist td').addClass('dir');
+			$lists
+				.find('td a')
+				.each(function(index){
+					var links = $(this).text();
+					$(this).attr('href', links).attr('target','_blank');
+
+				})
+				.end();
+			
+			//선택한거 파일 확인
+			$('a').on('click', function(){
+				$('a').removeClass('active');
+				$(this).addClass('active');
+			});
+		});
+	</script>
+</head>
+<!-- html body -->
+<body>
+<h1>아톤 홈페이지</h1>
+
+
+<table class="menulist">
+	<colgroup>
+		<col width="10%">
+		<col width="15%">
+		<col width="15%">
+		<col width="15%">
+		<col width="15%">
+		<col width="">
+		<col width="">
+	</colgroup>
+	<thead>
+		<tr>
+			<th scope="col">화면ID</th>
+			<th scope="col">Depth 1</th>
+			<th scope="col">Depth 2</th>
+			<th scope="col">Depth 3</th>
+			<th scope="col">Depth 4</th>
+			<th scope="col">파일명</th>
+			<th scope="col">비고</th>
+		</tr>
+	</thead>
+	<tbody>
+	<!-- <tr>
+		<td colspan="9" class="chk done dir"><strong>0924 : 디자인 검수 요청</strong> 0926 : 디자인 검수 완료 <br> 1004 : 기획 변경 및 추가 수정완료</td>
+	</tr> -->
+<!-- 
+		<tr class="line1">
+			<td>GSSSSSS</td>
+			<td>ㅇㅇㅇ</td>
+			<td>ㅇㅇㅇ</td>
+			<td>ㅇㅇㅇ</td>
+			<td><a target="_blank" href="./page/ㅇㅇㅇㅇ.html">ㅇㅇㅇ.html</a></td>
+			<td>-</td>
+		</tr>
+-->
+
+		<tr class="line1">
+			<td>-</td>
+			<td>메인</td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td><a target="_blank" href="./html/index.html">index.html</a></td>
+			<td>-</td>
+		</tr>
+		<tr>
+			<td>-</td>
+			<td>아톤소개</td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td><a target="_blank" href="./html/page/aton_info.html">aton_info.html</a></td>
+			<td>-</td>
+		</tr>
+
+		<tr>
+			<td>-</td>
+			<td>주요사업</td>
+			<td>핀테크보안솔루션</td>
+			<td>Core Technology</td>
+			<td></td>
+			<td><a target="_blank" href="./html/page/core_technology.html">core_technology.html</a></td>
+			<td>-</td>
+		</tr>
+		<tr>
+			<td>-</td>
+			<td></td>
+			<td></td>
+			<td>ATON mSafeBox</td>
+			<td></td>
+			<td><a target="_blank" href="./html/page/msafebox.html">msafebox.html</a></td>
+			<td>-</td>
+		</tr>
+		<tr>
+			<td>-</td>
+			<td></td>
+			<td></td>
+			<td>ATON mOTP</td>
+			<td></td>
+			<td><a target="_blank" href="./html/page/motp.html">motp.html</a></td>
+			<td>-</td>
+		</tr>
+		<tr>
+			<td>-</td>
+			<td></td>
+			<td></td>
+			<td>ATON mPKI</td>
+			<td></td>
+			<td><a target="_blank" href="./html/page/mpki.html">mpki.html</a></td>
+			<td>-</td>
+		</tr>
+		<tr>
+			<td>-</td>
+			<td></td>
+			<td></td>
+			<td><del>U-OTP</del></td>
+			<td></td>
+			<td><del><a target="_blank" href="./html/page/u-otp.html">u-otp.html</a></del></td>
+			<td>-</td>
+		</tr>
+		<tr>
+			<td>-</td>
+			<td></td>
+			<td></td>
+			<td>Quantum SafeGuard</td>
+			<td></td>
+			<td><a target="_blank" href="./html/page/quantum_safeguard.html">quantum_safeguard.html</a></td>
+			<td>-</td>
+		</tr>
+		<tr>
+			<td>-</td>
+			<td></td>
+			<td></td>
+			<td>Quantum SafeOTP</td>
+			<td></td>
+			<td><a target="_blank" href="./html/page/quantum_safeotp.html">quantum_safeotp.html</a></td>
+			<td>-</td>
+		</tr>
+
+		<tr>
+			<td>-</td>
+			<td></td>
+			<td>Fintech Platform</td>
+			<td>Service Overview</td>
+			<td></td>
+			<td><a target="_blank" href="./html/page/service_info-2.html">service_info-2.html</a></td>
+			<td>-</td>
+		</tr>
+		<tr>
+			<td>-</td>
+			<td></td>
+			<td></td>
+			<td>PASS</td>
+			<td></td>
+			<td><a target="_blank" href="./html/page/pass.html">pass.html</a></td>
+			<td>-</td>
+		</tr>
+		<tr>
+			<td>-</td>
+			<td></td>
+			<td></td>
+			<td>PASS Certificate</td>
+			<td></td>
+			<td><a target="_blank" href="./html/page/pass_certificate.html">pass_certificate.html</a></td>
+			<td>-</td>
+		</tr>
+		<tr>
+			<td>-</td>
+			<td></td>
+			<td></td>
+			<td>PASS 휴대폰번호 로그인</td>
+			<td></td>
+			<td><a target="_blank" href="./html/page/pass_login.html">pass_login.html</a></td>
+			<td>-</td>
+		</tr>
+
+
+
+		<tr>
+			<td>-</td>
+			<td></td>
+			<td>DefendUs</td>
+			<td>DefendUs</td>
+			<td>목록</td>
+			<td><a target="_blank" href="./html/page/smart_finance.html">smart_finance.html</a></td>
+			<td>-</td>
+		</tr>
+		<tr>
+			<td>-</td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td>온라인상담채널 시스템(OK저축은행)</td>
+			<td><a target="_blank" href="./html/portfolio/ok_online.html">ok_online.html</a></td>
+			<td>-</td>
+		</tr>
+		<tr>
+			<td>-</td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td>스타샷(KB국민은행)</td>
+			<td><a target="_blank" href="./html/portfolio/kb_starshot.html">kb_starshot.html</a></td>
+			<td>-</td>
+		</tr>
+
+		<tr>
+			<td>-</td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td>리브똑똑(KB국민은행)</td>
+			<td><a target="_blank" href="./html/portfolio/kb_liivtalktalk.html">kb_liivtalktalk.html</a></td>
+			<td>-</td>
+		</tr>
+
+		<tr>
+			<td>-</td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td>Liiv Tong (KB국민은행)</td>
+			<td><a target="_blank" href="./html/portfolio/kb_liivtong.html">kb_liivtong.html</a></td>
+			<td>-</td>
+		</tr>
+
+		<tr>
+			<td>-</td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td>쇼핑과 지갑(SK플래닛)</td>
+			<td><a target="_blank" href="./html/portfolio/skp_shoping.html">skp_shoping.html</a></td>
+			<td>-</td>
+		</tr>
+
+		<tr>
+			<td>-</td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td>Syrup Wallet(SK플래닛)</td>
+			<td><a target="_blank" href="./html/portfolio/skp_syrup.html">skp_syrup.html</a></td>
+			<td>-</td>
+		</tr>
+
+		<tr>
+			<td>-</td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td>TAM(SK텔레콤)</td>
+			<td><a target="_blank" href="./html/portfolio/skt_tam.html">skt_tam.html</a></td>
+			<td>-</td>
+		</tr>
+
+		<tr>
+			<td>-</td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td>TEE FIDO Authenticator(ETRI)</td>
+			<td><a target="_blank" href="./html/portfolio/etri_fido.html">etri_fido.html</a></td>
+			<td>-</td>
+		</tr>
+
+		<tr>
+			<td>-</td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td>보안박스(SK텔레콤)</td>
+			<td><a target="_blank" href="./html/portfolio/skt_safebox.html">skt_safebox.html</a></td>
+			<td>-</td>
+		</tr>
+
+		<tr>
+			<td>-</td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td>SmartM(현대증권)</td>
+			<td><a target="_blank" href="./html/portfolio/kbsec_smartm.html">kbsec_smartm.html</a></td>
+			<td>-</td>
+		</tr>
+
+		<tr>
+			<td>-</td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td>U+ 인증(LG유플러스)</td>
+			<td><a target="_blank" href="./html/portfolio/lgt_Uplus.html">lgt_Uplus.html</a></td>
+			<td>-</td>
+		</tr>
+
+		<tr>
+			<td>-</td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td>Paypin(SK플래닛)</td>
+			<td><a target="_blank" href="./html/portfolio/skp_paypin.html">skp_paypin.html</a></td>
+			<td>-</td>
+		</tr>
+
+		<tr>
+			<td>-</td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td>BC카드 모바일 어플리케이션(BC카드)</td>
+			<td><a target="_blank" href="./html/portfolio/bc_card.html">bc_card.html</a></td>
+			<td>-</td>
+		</tr>
+
+		<tr>
+			<td>-</td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td>KB스타뱅킹 미니(KB국민은행)</td>
+			<td><a target="_blank" href="./html/portfolio/kb_starmini.html">kb_starmini.html</a></td>
+			<td>-</td>
+		</tr>
+
+		<tr>
+			<td>-</td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td>KB스타알림(KB국민은행)</td>
+			<td><a target="_blank" href="./html/portfolio/kb_staralram.html">kb_staralram.html</a></td>
+			<td>-</td>
+		</tr>
+
+		<tr>
+			<td>-</td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td>IC카드인증서(KB국민은행)</td>
+			<td><a target="_blank" href="./html/portfolio/kb_iccard.html">kb_iccard.html</a></td>
+			<td>-</td>
+		</tr>
+
+		<tr>
+			<td>-</td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td>T-OTP(KEB하나은행)</td>
+			<td><a target="_blank" href="./html/portfolio/keb_t-otp.html">keb_t-otp.html</a></td>
+			<td>-</td>
+		</tr>
+
+		<tr>
+			<td>-</td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td>Liiv Mate(KB국민카드)</td>
+			<td><a target="_blank" href="./html/portfolio/kb_liivmate.html">kb_liivmate.html</a></td>
+			<td>-</td>
+		</tr>
+
+		<tr>
+			<td>-</td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td>Liiv(KB국민은행)</td>
+			<td><a target="_blank" href="./html/portfolio/kb_liiv.html">kb_liiv.html</a></td>
+			<td>-</td>
+		</tr>
+
+		<tr>
+			<td>-</td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td>KB스타뱅킹(KB국민은행)</td>
+			<td><a target="_blank" href="./html/portfolio/kb_starbank.html">kb_starbank.html</a></td>
+			<td>-</td>
+		</tr>
+		
+
+		<tr>
+			<td>-</td>
+			<td></td>
+			<td></td>
+			<td>티머니 솔루션</td>
+			<td></td>
+			<td><a target="_blank" href="./html/page/t-money.html">t-money.html</a></td>
+			<td>-</td>
+		</tr>
+		
+		<tr>
+			<td>-</td>
+			<td>IR·PR</td>
+			<td>Investor Relations</td>
+			<td>공시정보</td>
+			<td></td>
+			<td><a target="_blank" href="./html/page/investor-relations.html">investor-relations.html</a></td>
+			<td>-</td>
+		</tr>
+
+		<tr>
+			<td>-</td>
+			<td></td>
+			<td></td>
+			<td>재무정보</td>
+			<td></td>
+			<td><a target="_blank" href="./html/page/investor-relations-2.html">investor-relations-2.html</a></td>
+			<td>-</td>
+		</tr>
+
+		<tr>
+			<td>-</td>
+			<td></td>
+			<td></td>
+			<td>IR소식</td>
+			<td></td>
+			<td><a target="_blank" href="./html/page/investor-relations-3.html">investor-relations-3.html</a></td>
+			<td>-</td>
+		</tr>
+
+		<tr>
+			<td>-</td>
+			<td></td>
+			<td>Press</td>
+			<td>보도자료</td>
+			<td>목록</td>
+			<td><del><a target="_blank" href="./html/press/press_list.html">press_list.html</a></del><br />
+				<a target="_blank" href="./html/press/press_list_new.html">press_list_new.html</a></td>
+			<td>-</td>
+		</tr>
+
+		<tr>
+			<td>-</td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td>기사</td>
+			<td><a target="_blank" href="./html/press/press_view_new.html">press_view_new.html</a></td>
+			<td>24.02.13</td>
+		</tr>
+
+
+		<tr>
+			<td>-</td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td>기사1</td>
+			<td><a target="_blank" href="./html/press/press_view1.html">press_view1.html</a></td>
+			<td>최근기사3개만 작업함.</td>
+		</tr>
+		<tr>
+			<td>-</td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td>기사2</td>
+			<td><a target="_blank" href="./html/press/press_view2.html">press_view2.html</a></td>
+			<td>-</td>
+		</tr>
+		<tr>
+			<td>-</td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td>기사3</td>
+			<td><a target="_blank" href="./html/press/press_view3.html">press_view3.html</a></td>
+			<td>-</td>
+		</tr>
+
+		<tr>
+			<td>-</td>
+			<td>Recruit</td>
+			<td>아톤이 일하는 방식</td>
+			<td></td>
+			<td></td>
+			<td><a target="_blank" href="./html/page/recruit.html">recruit.html</a></td>
+			<td>-</td>
+		</tr>
+
+
+		<tr>
+			<td>-</td>
+			<td></td>
+			<td>채용 중인 포지션</td>
+			<td>목록</td>
+			<td></td>
+			<td><a target="_blank" href="./html/recruit-2/recruit_list.html">recruit_list.html</a></td>
+			<td>-</td>
+		</tr>
+
+
+		<tr>
+			<td>-</td>
+			<td></td>
+			<td></td>
+			<td>보기</td>
+			<td>Android 개발자 (경력)</td>
+			<td><a target="_blank" href="./html/recruit-2/recruit_view1.html">recruit_view1.html</a></td>
+			<td>-</td>
+		</tr>
+
+		<tr>
+			<td>-</td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td>iOS 개발자 (경력)</td>
+			<td><a target="_blank" href="./html/recruit-2/recruit_view2.html">recruit_view2.html</a></td>
+			<td>-</td>
+		</tr>
+		<tr>
+			<td>-</td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td>서비스기획 (경력)</td>
+			<td><a target="_blank" href="./html/recruit-2/recruit_view3.html">recruit_view3.html</a></td>
+			<td>-</td>
+		</tr>
+		<tr>
+			<td>-</td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td>사업기획 (경력)</td>
+			<td><a target="_blank" href="./html/recruit-2/recruit_view4.html">recruit_view4.html</a></td>
+			<td>-</td>
+		</tr>
+		<tr>
+			<td>-</td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td>서버 개발 (경력)</td>
+			<td><a target="_blank" href="./html/recruit-2/recruit_view5.html">recruit_view5.html</a></td>
+			<td>-</td>
+		</tr>
+
+
+		<tr>
+			<td>-</td>
+			<td>개인정보처리방침</td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td><a target="_blank" href="./html/privacy/privacy.html">privacy.html</a></td>
+			<td>-</td>
+		</tr>
+		<tr>
+			<td>-</td>
+			<td>개인정보 제3자제공 리스트</td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td><a target="_blank" href="./html/privacy/privacy_list.html">privacy_list.html</a></td>
+			<td>-</td>
+		</tr>
+
+
+		<tr>
+			<td>-</td>
+			<td>문의하기</td>
+			<td>팝업</td>
+			<td></td>
+			<td></td>
+			<td><a target="_blank" href="./html/index.html">index.html</a></td>
+			<td>상단 문의하기 버튼 클릭(팝업)</td>
+		</tr>
+
+		
+
+		<!-- <tr>
+			<td>-</td>
+			<td></td>
+			<td>ㅇㅇㅇㅇ</td>
+			<td></td>
+			<td></td>
+			<td><a target="_blank" href="./html/ddddd/ㅇㅇㅇㅇ.html">ㅇㅇㅇㅇ.html</a></td>
+			<td>-</td>
+		</tr> -->
+		
+		
+		<!-- <tr>
+			<td>-</td>
+			<td>ㅇㅇㅇㅇ</td>
+			<td>ㅇㅇㅇㅇ</td>
+			<td>ㅇㅇㅇㅇ</td>
+			<td><a target="_blank" href="./ㅇㅇㅇㅇ/ㅇㅇㅇㅇ.html">ㅇㅇㅇㅇ.html</a></td>
+			<td>-</td>
+		</tr> -->
+		
+		<!-- <tr>
+			<td>화면아이디</td>
+			<td>ㅇㅇㅇㅇ</td>
+			<td>ㅇㅇㅇㅇ</td>
+			<td>ㅇㅇㅇㅇ</td>
+			<td><a target="_blank" href="./ㅇㅇㅇㅇ/ㅇㅇㅇㅇ.html">ㅇㅇㅇㅇ.html</a></td>
+			<td>-</td>
+		</tr> -->
+
+
+		
+
+
+
+		
+<!--
+		<tr class="line1">
+			<td>GSSSSSS</td>
+			<td>ㅇㅇㅇ</td>
+			<td>ㅇㅇㅇ</td>
+			<td>ㅇㅇㅇ</td>
+			<td><a target="_blank" href="./page/ㅇㅇㅇㅇ.html">ㅇㅇㅇ.html</a></td>
+			<td>-</td>
+		</tr>
+-->
+
+	</tbody>
+</table>
+</body>
+<!-- //html body -->
+</html>
