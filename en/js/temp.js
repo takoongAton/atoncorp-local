@@ -469,20 +469,19 @@ if(page_list) {
 // 언어 전환 함수
 function switchLanguage(lang) {
     const currentUrl = new URL(window.location.href);
-    let path = currentUrl.pathname; // 예: /en/html/press/press_list_new.html
+    let path = currentUrl.pathname;
 
     if (lang === 'ko') {
-        // 영문 -> 국문: 경로 시작 부분의 /en/을 /로 변경
-        if (path.startsWith('/en/')) {
-            currentUrl.pathname = path.replace('/en/', '/');
+        // 영문 -> 국문: '/en/html/'을 찾아 '/html/'로 변경
+        if (path.includes('/en/html/')) {
+            currentUrl.pathname = path.replace('/en/html/', '/html/');
+            window.location.href = currentUrl.toString();
         }
     } else if (lang === 'eng') {
-        // 국문 -> 영문: 경로가 /en/으로 시작하지 않을 때만 추가
-        if (!path.startsWith('/en/')) {
-            currentUrl.pathname = '/en' + path;
+        // 국문 -> 영문: '/en/html/'이 없을 때만 '/html/'을 '/en/html/'로 변경
+        if (!path.includes('/en/html/')) {
+            currentUrl.pathname = path.replace('/html/', '/en/html/');
+            window.location.href = currentUrl.toString();
         }
     }
-
-    // 변경된 URL로 이동
-    window.location.href = currentUrl.toString();
 }
