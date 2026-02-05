@@ -460,3 +460,28 @@ if(page_list) {
 		alert("기본 9개 오픈, 더보기 클릭시 + 6")
 	})
 }
+
+
+
+
+
+/* 영문 국문 페이지 이동 샘플 */
+// 언어 전환 함수
+function switchLanguage(lang) {
+    const currentUrl = new URL(window.location.href);
+    let path = currentUrl.pathname;
+
+    if (lang === 'ko') {
+        // 영문 -> 국문: '/en/html/'을 찾아 '/html/'로 변경
+        if (path.includes('/en/html/')) {
+            currentUrl.pathname = path.replace('/en/html/', '/html/');
+            window.location.href = currentUrl.toString();
+        }
+    } else if (lang === 'eng') {
+        // 국문 -> 영문: '/en/html/'이 없을 때만 '/html/'을 '/en/html/'로 변경
+        if (!path.includes('/en/html/')) {
+            currentUrl.pathname = path.replace('/html/', '/en/html/');
+            window.location.href = currentUrl.toString();
+        }
+    }
+}
