@@ -1,0 +1,1042 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+	<title>atoncorp</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+	<link rel="stylesheet" href="../css/reset.css">
+	<!-- <link rel="stylesheet" href="../css/atoncorp.css"> -->
+	 <link rel="stylesheet" href="../css/summit2026.css" />
+	<!-- <script src="../js/jquery-1.12.4.min.js"></script> -->
+
+
+		<link rel="preconnect" href="https://cdn.jsdelivr.net" />
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+	
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=block" rel="stylesheet">
+
+<style>
+
+/* secureByAction */
+.secureByAction {display:flex; flex-direction:column; gap:40px 0; width:100%; margin-top:50px; padding:0 20px;}
+.secureByAction .tit_wrap {display:flex; flex-direction:column; align-items:center; gap:8px;}
+.secureByAction .tit_wrap .tit {color:#31FF98; font-size:26px; line-height:1em; font-weight:700;}
+.secureByAction .tit_wrap .txt {color:#fff; font-size:14px; line-height:1.42857em; font-weight:300;}
+
+.secureByAction_wrap {display:flex; flex-direction:column; gap:24px 0; width:100%;}
+
+.secureByAction_wrap .item {display:flex; flex-direction:column; gap:24px; width:100%; padding:24px 24px 0 24px; border-radius:24px;}
+.secureByAction_wrap .action_01 {height:288px; background:url('../images/img_action_01.png') no-repeat right top / cover;}
+.secureByAction_wrap .action_02 {height:288px; background:url('../images/img_action_02.png') no-repeat right top / cover;}
+.secureByAction_wrap .action_03 {height:368px; background:url('../images/img_action_03.png') no-repeat right top / cover;}
+
+.secureByAction_wrap .item div.label {display:inline-flex; justify-content:center; align-items:center; width:48px; height:48px; box-shadow:inset 0 0 0 2px #fff; border-radius:100%;}
+.secureByAction_wrap .item div.label span.label_txt {display:block; color:#fff; font-size:18px; line-height:1em; font-weight:500;}
+.secureByAction_wrap .item div.txt_wrap {display:flex; flex-direction:column; gap:8px;}
+.secureByAction_wrap .item div.txt_wrap div.tit {color:#fff; font-size:16px; line-height:1.5em;}
+.secureByAction_wrap .item div.txt_wrap p.txt {color:#fff; font-size:14px; line-height:1.42857em; font-weight:300; word-break:keep-all;}
+.secureByAction_wrap .item div.txt_wrap p.txt strong {display:block; font-weight:700;}
+.secureByAction_wrap .item div.txt_wrap p.em {color:#31FF98; font-size:18px; line-height:1.44444em;}
+
+@media screen and (min-width:720px) {
+
+	.secureByAction_wrap .action_01 {height:488px;}
+	.secureByAction_wrap .action_02 {height:488px;}
+	.secureByAction_wrap .action_03 {height:528px;}
+
+
+	.secureByAction_wrap {gap:90px 0;}
+	.secureByAction_wrap .group {display:flex; flex-direction:row; gap:0 36px;}
+	.secureByAction_wrap .item {padding:36px 36px;}
+	.secureByAction_wrap .item div.label {width:72px; height:72px; min-height:72px;}
+	.secureByAction_wrap .item div.label span.label_txt {font-size:24px;}
+	.secureByAction_wrap .item div.txt_wrap {gap:12px 0;}
+	.secureByAction_wrap .item div.txt_wrap div.tit {font-size:26px;}
+	.secureByAction_wrap .item div.txt_wrap p.txt {font-size:19px; word-break:break-all;}
+	.secureByAction_wrap .item div.txt_wrap p.em {font-size:30px;}
+}
+
+@media screen and (min-width:1024px) {
+	.secureByAction {gap:56px 0; margin-top:80px;}
+	.secureByAction .tit_wrap {gap:24px 0;;}
+	.secureByAction .tit_wrap .tit {font-size:64px;}
+	.secureByAction .tit_wrap .txt {font-size:40px; font-weight:300;}
+	.secureByAction_wrap {gap:186px 0;}
+	.secureByAction_wrap .group {display:flex; flex-direction:row; gap:0 48px;}
+	.secureByAction_wrap .item {padding:48px 48px;}
+	.secureByAction_wrap .item div.label {width:96px; height:96px; min-height:96px;}
+	.secureByAction_wrap .item div.label span.label_txt {font-size:36px;}
+	.secureByAction_wrap .item div.txt_wrap {gap:12px 0;}
+	.secureByAction_wrap .item div.txt_wrap div.tit {font-size:36px;}
+	.secureByAction_wrap .item div.txt_wrap p.txt {font-size:24px; word-break:break-all;}
+	.secureByAction_wrap .item div.txt_wrap p.em {font-size:40px;}
+}
+/* // secureByAction */
+
+
+/* 프로그램 */
+#programTimetable {position:relative; background:#000 url('../images/programTimetable_bg.png') no-repeat center top / cover;}
+
+.timetable_wrap {display:flex; flex-direction:column; gap:4px 0; width:100%; max-width:1140px; margin:0 auto;}
+.timeline_group {display:flex; flex-direction:column; gap:4px 0; width:100%;}
+.timeline_group .timeline_group_section {display:flex; flex-direction:column; gap:24px 0; position:relative; padding:12px 24px; background-color:rgba(0,69,255,0.5); border-radius:16px;}
+.timeline_group .timeline_group_section .label {display:flex; justify-content:space-between; align-items:center;}
+.timeline_group .timeline_group_section .label .label_txt {color:#fff; font-size:16px; line-height:1.5em; font-weight:500;}
+.timeline_group .timeline_group_section .time {color:#A7A7A7; font-size:14px; line-height:1em; font-weight:300;}
+
+
+.timeline_group .timeline_item {display:flex; flex-direction:column; gap:24px 0; position:relative; padding:28px 24px; background-color:rgba(0,0,0,0.5); border-radius:16px;}
+.timeline_group .timeline_item .label {display:flex; justify-content:space-between; align-items:center; width:100%}
+.timeline_group .timeline_item .label.keynote {}
+.timeline_group .timeline_item .label span.label_txt {display:inline-flex; height:24px; padding:0 12px;  border-radius:12px; color:#fff; font-size:14px; line-height:24px; font-weight:500;}
+.timeline_group .timeline_item .label span.label_txt.blue {background-color:#1F98FF;}
+.timeline_group .timeline_item .label span.label_txt.green {background-color:#2CA769;}
+.timeline_group .timeline_item .label span.label_txt.white {background-color:#fff; color:#000}
+.timeline_group .timeline_item .label span.label_txt.purple {background-color:#813DDD;}
+.timeline_group .timeline_item .label span.label_txt.orange {background-color:#C74B4B;}
+.timeline_group .timeline_item .label span.time {color:#A7A7A7; font-size:14px; line-height:1em; font-weight:300;}
+.timeline_group .timeline_item .txt_wrap {}
+.timeline_group .timeline_item .txt_wrap .tit {color:#fff; font-size:16px; line-height:1.5em; font-weight:500;}
+.timeline_group .timeline_item .txt_wrap .txt {color:#fff; font-size:14px; line-height:1.42857em; font-weight:300;}
+.timeline_group .timeline_item .time {color:#fff; font-size:14px; line-height:1.42857em; font-weight:300;}
+
+@media screen and (min-width:720px) {
+	.timetable_wrap,
+	.timeline_group {gap:8px}
+
+	.timeline_group .timeline_group_section .label .label_txt {font-size:24px; line-height:1.45833em;}
+	.timeline_group .timeline_group_section .time {font-size:20px; line-height:1.45em;}
+
+	.timeline_group .timeline_item .txt_wrap {display:flex; align-items:center; gap:8px 12px;}
+	.timeline_group .timeline_item .txt_wrap .tit {font-size:24px; white-space:nowrap;}
+	.timeline_group .timeline_item .txt_wrap .txt {font-size:20px; white-space:nowrap;}
+}
+@media screen and (min-width:1024px) {
+	#programTimetable::before,
+	#programTimetable::after {content:""; display:block; position:absolute; width:100%; height:120px; background-color:#ff6600;
+
+/* background: #000; */
+background: linear-gradient(0deg,rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%);
+}
+#programTimetable::before {top:0; transform:rotate(180deg);}
+#programTimetable::after {bottom:0; height:90px;}
+.timeline_group .timeline_item  {display:flex; flex-direction:row; align-items:center; gap:24px; position:relative;}
+.timeline_group .timeline_item .label {width:auto;}
+.timeline_group .timeline_item .label span.time {position:absolute; right:24px; top:28px; font-size:20px; line-height:36px;}
+}
+/* // 프로그램 */
+
+
+
+
+
+/* 연사소개 */
+#speakers {background-color:#0045FF;}
+.speakers_list {display:flex;  justify-content:center; align-items:center; flex-wrap:wrap; gap:24px; width:100%; transition:gap 0.2s ease-in-out;}
+.speaker_item {display:flex; flex-direction:column; position:relative; width:320px; min-width:320px; height:305px; background-color:#0045FF; border-radius:24px; overflow:hidden;}
+.speaker_item .txt_wrap {display:flex; flex-direction:column; justify-content:space-between; gap:4px; position:absolute; top:0; left:0; width:100%; height:100%; padding:24px; z-index:1;}
+.speaker_item .txt_wrap .label .label_txt {display:inline-flex; align-items:center; height:24px; padding:0 12px; border:1px solid #fff; border-radius:36px; color:#fff; font-size:12px; line-height:1.41666em; font-weight:500;}
+.speaker_item .txt_wrap .speaker_name {margin-top:4px;}
+.speaker_item .txt_wrap .speaker_name span.name {display:block; color:#fff; font-size:24px; line-height:1.45833em; font-weight:700;}
+.speaker_item .txt_wrap .speaker_info {margin-top:auto; text-align:right;}
+.speaker_item .txt_wrap .speaker_info p {color:#fff; font-size:12px; line-height:17px; font-weight:300;}
+.speaker_item .img_wrap {position:relative;}
+.speaker_item .img_wrap img {position:relative;}
+.speaker_item .img_wrap::after {content:""; display:block; top:50%; right:0; bottom:0; left:0; position:absolute; z-index:0; background:#000; background: linear-gradient(0deg,rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%);}
+
+@media screen and (min-width:1024px) {
+	#speakers {background-color:#000;}
+	.speakers_list {gap:48px 32px;}
+}
+/* // 연사소개 */
+</style>
+</head>
+<body>
+<style>
+.header_wrap { position:fixed; top:0; z-index:2; width:100%;}
+
+header { display:flex; justify-content:space-between; align-items:center; width:100%; max-width:1140px; margin:0 auto; padding:0 0px 0; transition:all 0.2s;}
+header h1 svg { width:106px; fill:#fff;}
+header .main_nav { margin-left:50px;}
+header nav > ul { display:flex;} 
+
+
+
+
+@media screen and (min-width:1024px) {
+	header {display:flex; justify-content:space-between; width:100% ;}
+	header h1 a {display:inline-block; line-height:1em;}
+	header h1 a img {display:inline-block; width:150px; height:auto;}
+	.open_aside {display:none;}
+
+	.main_nav {}
+	.main_nav nav {}
+	.main_nav nav ul {display:flex; gap:0 46px;}
+	.main_nav nav ul li {}
+	.main_nav nav ul li a {display:inline-block; color:#fff; font-size:24px; line-height:38px; font-weight:400; text-decoration:none;}
+}
+</style>
+<div class="wrap">
+	<!-- <div class="header_mobile">
+		<h1><img src="../img/common/logo_aton.png" alt="ATON 로고"></h1>
+		<button class="aside_triger"><span>열기</span></button>
+	</div> -->
+	<div class="header_wrap">
+		<header>
+			<!-- <h1><img src="../img/common/logo_aton.png" alt="ATON 로고"></h1> -->
+			<h1>
+				<a href="./index.html"><img src="../images/img_aton_ci_top.png" alt="ATON"></a>
+			</h1>
+
+			<a href="#sidewidgetarea" class="open_aside"><span>메뉴보기</span></a>
+
+			<div class="main_nav">
+				<nav>
+					<ul>
+						<li><a href="#g">서밋 소개</a></li>
+						<li><a href="#g">프로그램</a></li>
+						<li><a href="#g">연사소개</a></li>
+						<li><a href="#g">등록신청</a></li>
+						<li><a href="#g">오시는길</a></li>
+					</ul>
+				</nav>
+			</div>
+		</header>
+		<!-- // header -->
+	</div>
+	<!-- // header_wrap -->
+
+
+<style>
+.visual.main {
+	position:relative;
+	display:flex; flex-direction:column; justify-content:center; gap:60px 0;
+	height:100vh;
+	padding:60px 20px;
+	background:#000 url('../images/img_bg_main.png') no-repeat center top / cover;
+}
+.visual.main .visual_txt {display:flex; flex-direction:column; width:100%; gap:8px; max-width:1140px; margin:0 auto;}
+.visual.main .visual_txt div.tit {color:#fff; font-size:28px; line-height:1.21428em; font-weight:800;}
+.visual.main .visual_txt p.txt {color:#fff; font-size:24px; line-height:1.45833em; font-weight:300;}
+.visual.main .date_wrap {display:flex; flex-direction:column; gap:8px;}
+.visual.main .date_wrap div {display:flex; align-items:center; gap:0.5em;}
+.visual.main .date_wrap div span.ico {display:inline-flex; width:24px; height:24px;}
+.visual.main .date_wrap div span.txt {color:#fff; font-size:16px; line-height:1.5em;}
+.visual.main div.btn_summit {display:flex; justify-content:center; align-items:center; position:absolute; bottom:30px; left:20px; right:20px;}
+.visual.main div.btn_summit button {width:100%; height:48px; background-color:#31FF98; border-radius:30px;}
+.visual.main div.btn_summit button span.txt {display:block; color:#000; font-size:18px; line-height:1em; font-weight:800;}
+@media screen and (min-width:720px) {
+  
+}
+
+@media screen and (min-width:1024px) {
+	.visual.main .visual_txt div.tit {font-size:64px;}
+	.visual.main .visual_txt div.tit br ~ br {display:none;}
+	.visual.main .visual_txt p.txt {font-size:36px;}
+	.visual.main .date_wrap {width:100%; max-width:1140px; margin:0 auto; text-align: left;}
+	.visual.main div.btn_summit {display:inline-block; position:unset; top:unset; right:unset; bottom:unset; left:unset; width:100%; max-width:1140px; margin:0 auto;}
+	.visual.main div.btn_summit button {display:inline-flex; justify-content:center; align-items:center; width:340px; height:60px; background-color:#0045FF;;}
+	.visual.main div.btn_summit button span.txt {position:relative; color:#fff; font-size:24px; top:0.1em}
+}
+
+
+
+
+/* 행사 장소 */
+#venue {display:flex; flex-direction:column; gap:40px 0; width:100%;  background-color:#0045FF;}
+
+.venue_wrap {}
+.venue_item {display:flex; flex-direction:column; justify-content:center; align-items:center; gap:24px; width:100%; max-width:1140px; margin:0 auto;}
+
+.venue_item .venue_map { width:100%;}
+.venue_item .venue_map iframe {width:100%; height:248px; border-radius:24px; overflow:hidden; box-shadow:0 0 3px rgba(0, 0, 0, 0.15);}
+
+.venue_item .venue_info {display:flex; flex-direction:column; gap:13px; text-align: center;}
+.venue_item .venue_info .venue_name .name {color:#fff; font-size:17px; line-height:1.47058em; font-weight:bold;}
+.venue_item .venue_info .venue_address span.address {color:#fff; font-size:13px; line-height:1.46153em;}
+
+@media screen and (min-width:720px) {
+	#venue  {background-color:#000;}
+	.venue_wrap .venue_item {flex-direction:row-reverse; gap:0;}
+	.venue_wrap .venue_item .venue_map {width:50%; height:440px;}
+	.venue_wrap .venue_item .venue_map iframe {height:440px;}
+	.venue_wrap .venue_item .venue_info {width:50%; text-align:left;}
+	.venue_item .venue_info .venue_name .name {color:#fff; font-size:32px; line-height:1.47058em;}
+	.venue_item .venue_info .venue_address span.address {color:#fff; font-size:24px; line-height:1.46153em;}
+}
+/* // 행사 장소 */
+
+
+
+
+
+/* 파트너 */
+#partners {padding:50px 0 40px;}
+#partners .section_inner {padding:0;}
+.partners_list {display:flex; gap:8px; overflow: hidden;}
+.partners_list .partners_item {width:120px; min-width:120px;}
+@media screen and (min-width:720px) {
+	/* .partners_list .partners_item {min-width:344px; width:344px; height:160px; border-radius:32px; overflow:hidden;} */
+}
+@media screen and (min-width:1024px) {
+.partners_list {gap:0 56px;}
+.partners_list .partners_item {min-width:344px; width:344px; height:160px; border-radius:32px; overflow:hidden;}
+}
+/* // 파트너 */
+
+
+
+
+
+/* 경품 */
+#prizes {background-color:#0045FF;}
+.prizes_list {display:flex; flex-direction:column; gap:24px;}
+.prizes_item {display:flex; flex-direction:column; justify-content:center; align-items:center; gap:16px;}
+.prizes_item .prizes_logo {width:176px; height:176px;}
+.prizes_item .prizes_info {display:flex; flex-direction:column; align-items:center; gap:10px; text-align:center;}
+.prizes_item .prizes_info div {display:flex; align-items:center; gap:8px;}
+.prizes_item .prizes_info .prizes_name {display:inline-flex; align-items:center; color:#fff; font-size:16px; line-height:1; font-weight:700;}
+.prizes_item .prizes_info .prizes_count {display:inline-flex; justify-content:center; align-items:center; min-width:34px; height:21px; border-radius:100px; background-color:#0045FF; color:#fff; font-size:12px; line-height:1; font-weight:500;}
+.prizes_item .prizes_info .prizes_price {display:block; color:#999999; font-size:16px; line-height:1; font-weight:300;}
+@media screen and (min-width:720px) {
+#prizes  {background-color:#000;}
+.prizes_list {flex-wrap:wrap; flex-direction:row; justify-content:center;}
+.prizes_list .prizes_item {}
+.prizes_list .prizes_item .prizes_logo {width:298px; height:auto;}
+.prizes_item .prizes_info .prizes_name {font-size:24px; line-height:35px;;}
+.prizes_item .prizes_info .prizes_count {width:56px; height:32px; font-size:16px;}
+.prizes_item .prizes_info .prizes_price {font-size:18px;}
+}
+/* // 경품 */
+</style>
+	<section>
+
+		<div class="visual main" style="height:100vh; background-color:#000;">
+			<div class="visual_txt">
+				<div class="tit">
+					ATON<br />
+					Security Summit <br />2026
+				</div>
+				<p class="txt">아톤 시큐리티 서밋 2026</p>
+			</div>
+			<div class="date_wrap">
+				<div>
+					<span class="ico"><img src="../images/ico_calendar.png" alt="달력 아이콘"></span>
+					<span class="txt">2026년 5월 13일 (수) 09:30 ~ 17:00</span>
+				</div>
+				<div>
+					<span class="ico"><img src="../images/ico_location.png" alt="장소 아이콘"></span>
+					<span class="txt">여의도 FKI 타워 그랜드 볼륨</span>
+				</div>
+			</div>
+			<div class="btn_summit">
+				<button type="button" class=""><span class="txt">등록하기</span></button>
+			</div>
+		</div><!-- // visual -->
+
+	</section>
+<style>
+.section {background-color:#000;}
+.section01 {background-color:#000;}
+.section02 {background-color:#000;}
+.section_tit {display:flex; flex-direction:column; align-items:center; gap:8px;}
+.section_tit div.tit {color:#fff; font-size:28px; line-height:1em; font-weight:700;}
+.section_tit p.txt {color:#fff; font-size:24px; line-height:1.45833em; font-weight:300;}
+</style>
+
+
+<style>
+	section {background-color:#000;}
+	section .section_inner {width:100%; max-width:1140px; margin:0 auto; padding:50px 20px 40px;}
+	section .service_wrap {display:flex; flex-direction:column; gap:40px 0; width:100%;;}
+
+	@media screen and (min-width:720px) {
+
+	}
+
+	@media screen and (min-width:1024px) {
+		section .service_wrap  {gap:56px 0;}
+		section .section_inner {padding:100px 20px 80px;}
+		.section_tit {display:flex; flex-direction:column; align-items:center; gap:8px;}
+		.section_tit div.tit {font-size:32px;}
+		.section_tit p.txt {font-size:24px;}
+	}
+</style>
+
+
+	<section>
+		<div class="section_inner">
+			<div class="service_wrap" id="service_wrap">
+				<div class="section_tit">
+					<div class="tit">ATON Security Summit</div>
+					<p class="txt">아톤 시큐리티 서밋</p>
+				</div>
+
+				<div class="section_con">
+					<div>
+						<picture>
+							<source media="(min-width:720px)" srcset="../images/img_info_pc.png">
+							<img src="../images/img_info_mo.png" alt="">
+						</picture>
+					</div>
+
+					<div class="secureByAction">
+						<div class="tit_wrap">
+							<div class="tit">Secure by Action</div>
+							<p class="txt">“실행하는 보안, 실현하는 전략”</p>
+						</div>
+
+						<div class="secureByAction_wrap">
+							<div class="group">
+								<div class="item action_01">
+									<div class="label"><span class="label_txt">위기</span></div>
+									<div class="txt_wrap">
+										<div class="tit">보안의 경계가 무너지고 있다</div>
+										<p class="txt">2025년 대형 통신사·플랫폼·금융사·공공기관의 연쇄 해킹, 천문학적 비용을 투자했음에도 보안 사고는 멈추지 않았고,  AI가 만들어내는 정교한 공격은 위협의 속도와 정밀도를 사람의 대응 능력 너머로 끌어올리고 있습니다.</p>
+									</div>
+								</div>
+
+								<div class="item action_02">
+									<div class="label"><span class="label_txt">전환</span></div>
+									<div class="txt_wrap">
+										<div class="tit">기술만으로는 막을 수 없다</div>
+										<p class="txt">N2SF(국가망보안체계) 도입, PQC 전환 의무화 등 규제 환경이 급변하고 있지만, 보안 사고의 90%는 기술이 아닌 사람·프로세스·전략의 빈틈에서 발생합니다. 최신 솔루션을 도입해도 이를 관통하는 전략과 실행 체계가 없으면 보안은 완성되지 않습니다.</p>
+									</div>
+								</div>
+							</div>
+
+							<div class="item action_03">
+								<div class="label"><span class="label_txt">제안</span></div>
+								<div class="txt_wrap">
+									<div class="tit">Secure By Action, 실행이 답이다</div>
+									<p class="txt">
+										아톤 시큐리티 서밋 2026은 질문합니다.
+										<strong>“도입한 보안, 정말 실행되고 있습니까?”</strong>
+										26년간 금융·핀테크 보안 최전선에서 쌓아온 경험과 글로벌 보안 파트너의 실전인사이트,<br />
+										그리고 업계 최고 전문가들의 시각을 한자리에 모았습니다.<br />
+										현란한 기술 키워드가 아닌,
+									</p>
+									<p class="em">지금 당장 실행할 수 있는 보안 전략을 제시합니다.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- // secureByAction-->
+
+				</div>
+			</div>
+			<!-- // service_wrap -->
+		</div>
+		<!-- // section_inner -->
+	</section>
+
+
+
+	<section id="programTimetable">
+		<div class="section_inner">
+			<div class="service_wrap">
+				<div class="section_tit">
+					<div class="tit">Program Timetable</div>
+					<p class="txt">프로그램</p>
+				</div>
+
+				<div class="section_con">
+
+					<div class="timetable_wrap">
+						<div class="timeline_group">
+							<div class="timeline_group_section">
+								<div class="label">
+									<span class="label_txt">등록 및 입장</span>
+									<span class="time">09:30~10:00</span>
+								</div>
+							</div>
+
+							<div class="timeline_item">
+								<div class="label">
+									<span class="label_txt blue">Keynote</span>
+									<span class="time">10:00~10:30</span>
+								</div>
+								<div class="txt_wrap">
+									<div class="tit">국내기업에게 N2SF가 어려운 이유?</div>
+									<p class="txt">김승주 고려대 정보보호대학원 교수</p>
+								</div>
+							</div>
+
+							<div class="timeline_item">
+								<div class="label">
+									<span class="label_txt blue">Keynote</span>
+									<span class="time">10:30~11:00</span>
+								</div>
+								<div class="txt_wrap">
+									<div class="tit">AI시대 보안은 비즈니스의 핵심역량</div>
+									<p class="txt">김홍선 김앤장 고문</p>
+								</div>
+							</div>
+
+							<div class="timeline_item">
+								<div class="label">
+									<span class="label_txt blue">Keynote</span>
+									<span class="time">11:00~11:30</span>
+								</div>
+								<div class="txt_wrap">
+									<div class="tit">AI시대 보안 우선 순위 ABC</div>
+									<p class="txt">정현석 아톤 시큐리티센터장</p>
+								</div>
+								<!-- <span class="time">timetime</span> -->
+							</div>
+
+							<div class="timeline_item">
+								<div class="label">
+									<span class="label_txt green">양자컴퓨팅</span>
+									<span class="time">11:30~12:00</span>
+								</div>
+								<div class="txt_wrap">
+									<div class="tit">당신의 암호, 유통기한이 있습니다 - PQC 전환의 골든타임</div>
+									<p class="txt"> 홍재용 아톤 금융∙인증 사업본부장</p>
+								</div>
+								<!-- <span class="time">timetime</span> -->
+							</div>
+						</div>
+
+
+
+						<div class="timeline_group">
+							<div class="timeline_group_section">
+								<div class="label">
+									<span class="label_txt">Lunch Time</span>
+									<span class="time">12:00~13:30</span>
+								</div>
+							</div>
+
+							<div class="timeline_item">
+								<div class="label">
+									<span class="label_txt white">패널토론</span>
+									<span class="time">13:30~13:55</span>
+								</div>
+								<div class="txt_wrap">
+									<div class="tit">CISO에게 당면한 어려움은 무엇인가</div>
+									<p class="txt">토론좌장 : 김인순 인싸이트아웃 대표</p>
+								</div>
+								<!-- <span class="time">timetime</span> -->
+							</div>
+
+							<div class="timeline_item">
+								<div class="label">
+									<span class="label_txt green">제로트러스트</span>
+									<span class="time">13:55~14:20</span>
+								</div>
+								<div class="txt_wrap">
+									<div class="tit">제로트러스트의 시작은 IDP로부터</div>
+									<p class="txt">고지형 옥타 기술리더</p>
+								</div>
+								<!-- <span class="time">timetime</span> -->
+							</div>
+
+							<div class="timeline_item">
+								<div class="label">
+									<span class="label_txt green">제로트러스트</span>
+									<span class="time">14:20~14:45</span>
+								</div>
+								<div class="txt_wrap">
+									<div class="tit">EndPoint 트렌드, AI 기반 EDR의 역할</div>
+									<p class="txt">김용수 센티넬원 기술이사</p>
+								</div>
+								<!-- <span class="time">timetime</span> -->
+							</div>
+
+							<div class="timeline_item">
+								<div class="label">
+									<span class="label_txt green">제로트러스트</span>
+									<span class="time">14:45~15:00</span>
+								</div>
+								<div class="txt_wrap">
+									<div class="tit">AI 시대 없어서는 안 될 SASE</div>
+									<p class="txt">조성윤 클라우드플레어 기술리더</p>
+								</div>
+								<!-- <span class="time">timetime</span> -->
+							</div>
+						</div>
+
+
+
+						<div class="timeline_group">
+							<div class="timeline_group_section">
+								<div class="label">
+									<span class="label_txt">Coffee Break</span>
+									<span class="time">15:00~15:25</span>
+								</div>
+							</div>
+
+							<div class="timeline_item">
+								<div class="label">
+									<span class="label_txt purple">클라우드보안</span>
+									<span class="time">15:25~15:50</span>
+								</div>
+								<div class="txt_wrap">
+									<div class="tit">AI 인프라 핵심, 컨테이너의 완벽한 보안 방법</div>
+									<p class="txt">선찬규 올리브웍스 CTO</p>
+								</div>
+								<!-- <span class="time">timetime</span> -->
+							</div>
+
+							<div class="timeline_item">
+								<div class="label">
+									<span class="label_txt orange">AI보안</span>
+									<span class="time">15:50~16:15</span>
+								</div>
+								<div class="txt_wrap">
+									<div class="tit">AI 기반 해킹의 현실, 최신 공격·취약점 트렌드</div>
+									<p class="txt">박세준 티오리 대표</p>
+								</div>
+								<!-- <span class="time">timetime</span> -->
+							</div>
+
+							<div class="timeline_item">
+								<div class="label">
+									<span class="label_txt orange">AI보안</span>
+									<span class="time">16:15~16:40</span>
+								</div>
+								<div class="txt_wrap">
+									<div class="tit">AI를 활용한 전사 통합보안 전략</div>
+									<p class="txt">이진구 수모로직 한국 지사장</p>
+								</div>
+								<!-- <span class="time">timetime</span> -->
+							</div>
+
+							<div class="timeline_item">
+								<div class="label">
+									<span class="label_txt white">정책</span>
+									<span class="time">16:40~17:00</span>
+								</div>
+								<div class="txt_wrap">
+									<div class="tit">보이스피싱의 진화와 행위 기반 인증의 대응 전략</div>
+									<p class="txt">김귀현 아톤 신상품개발 이사</p>
+								</div>
+								<!-- <span class="time">timetime</span> -->
+							</div>
+						</div>
+
+						<div class="timeline_group">
+							<div class="timeline_group_section">
+								<div class="label">
+									<span class="label_txt">경품 추첨 및 클로징</span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- // timetable_wrap -->
+				</div>
+
+			</div>
+			<!-- // service_wrap -->
+		</div>
+		<!-- // section_inner -->
+	</section>
+
+
+
+	<section id="speakers">
+		<div class="section_inner">
+			<div class="service_wrap">
+				<div class="section_tit">
+					<div class="tit">Speakers</div>
+					<p class="txt">연사 소개</p>
+				</div>
+
+				<div class="section_con">
+					<div class="speakers_list">
+						<div class="speaker_item">
+							<div class="txt_wrap">
+								<div class="label">
+									<span class="label_txt">기조연설</span>
+								</div>
+								<div class="speaker_name">
+									<span class="name">김승주 교수</span>
+								</div>
+								<div class="speaker_info">
+									<p>現) 고려대학교 정보보호대학원 교수</p>
+									<p>現) 대통령직속 국가인공지능전략위원회 자문위원</p>
+									<p>現) 한국국방혁신기술보안협회 협회장</p>
+								</div>
+							</div>
+							<div class="img_wrap">
+								<img src="../images/img_speakers_01.png" alt="김승주 교수">
+							</div>
+						</div>
+						<!-- // speaker_item -->
+
+						<div class="speaker_item">
+							<div class="txt_wrap">
+								<div class="label">
+									<span class="label_txt">기조연설</span>
+								</div>
+								<div class="speaker_name">
+									<span class="name">김홍선 고문</span>
+								</div>
+								<div class="speaker_info">
+									<p>現) 김앤장 고문</p>
+									<p>前) 한국스탠다드차티드은행CISO</p>
+									<p>前) 안랩 대표이사</p>
+								</div>
+							</div>
+							<div class="img_wrap">
+								<img src="../images/img_speakers_02.png" alt="김홍선 고문">
+							</div>
+						</div>
+						<!-- // speaker_item -->
+
+						<div class="speaker_item">
+							<div class="txt_wrap">
+								<div class="label">
+									<span class="label_txt">기조연설</span>
+								</div>
+								<div class="speaker_name">
+									<span class="name">정현석 센터장</span>
+								</div>
+								<div class="speaker_info">
+									<p>現) 아톤시큐리티센터 센터장</p>
+									<p>現) 올리브웍스 대표이</p>
+									<p>前) 베스핀글로벌 보안사업 본부장</p>
+								</div>
+							</div>
+							<div class="img_wrap">
+								<img src="../images/img_speakers_03.png" alt="정현석 센터장">
+							</div>
+						</div>
+						<!-- // speaker_item -->
+
+						<div class="speaker_item">
+							<div class="txt_wrap">
+								<div class="label">
+									<span class="label_txt">연사</span>
+								</div>
+								<div class="speaker_name">
+									<span class="name">박세준 대표</span>
+								</div>
+								<div class="speaker_info">
+									<p>現) 티오리 대표</p>
+									<p>前) SK그룹 정보보호혁신특별위원회 자문위원</p>
+									<p>前) 록히드마틴 연구원</p>
+								</div>
+							</div>
+							<div class="img_wrap">
+								<img src="../images/img_speakers_04.png" alt="박세준 대표">
+							</div>
+						</div>
+						<!-- // speaker_item -->
+
+						<div class="speaker_item">
+							<div class="txt_wrap">
+								<div class="label">
+									<span class="label_txt">진행</span>
+								</div>
+								<div class="speaker_name">
+									<span class="name">김인순 대표</span>
+								</div>
+								<div class="speaker_info">
+									<p>現) 인싸이트아웃 대표</p>
+									<p>前) 더밀크 대표</p>
+									<p>前) 전자신문 기자</p>
+								</div>
+							</div>
+							<div class="img_wrap">
+								<img src="../images/img_speakers_05.png" alt="김인순 대표">
+							</div>
+						</div>
+						<!-- // speaker_item -->
+					</div>
+					<!-- // speakers_list -->
+				</div>
+			</div>
+			<!-- // service_wrap -->
+		</div>
+		<!-- // section_inner -->
+	</section>
+
+
+
+	<section id="venue">
+		<div class="section_inner">
+			<div class="service_wrap">
+				<div class="section_tit">
+					<div class="tit">Venue Information</div>
+					<p class="txt">행사 장소</p>
+				</div>
+				<div class="section_con">
+					<div class="venue_wrap">
+						<div class="venue_item">
+							<div class="venue_map">
+								<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3164.394807531226!2d126.91768127613628!3d37.522189572049975!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c9f186dc4992f%3A0xf8cb3180d6209d09!2zRktJ7YOA7JuM!5e0!3m2!1sko!2skr!4v1775451430483!5m2!1sko!2skr" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+							</div>
+							<div class="venue_info">
+								<div class="venue_name">
+									<span class="name">FKI타워 컨퍼런스센터 그랜드볼룸 (1F)</span>
+								</div>
+								<div class="venue_address">
+									<span class="address">
+										서울 영등포구 여의도동 여의대로 24 FKI TOWER<br />
+										(지번) 서울 영등포구 여의도동 28-1</span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- // venue_wrap -->
+				</div>
+			</div>
+			<!-- // service_wrap -->
+		</div>
+		<!-- // section_inner -->
+	</section>
+
+
+
+	<section id="partners">
+		<div class="section_inner">
+			<div class="service_wrap">
+				<div class="section_tit">
+					<div class="tit">VePartners</div>
+					<p class="txt">파트너</p>
+				</div>
+
+				<div class="section_con">
+					<div class="partners_wrap">
+						<div class="partners_list">
+							<div class="partners_item">
+								<span class="partners_logo"><img src="../images/img_partners_theori.png" alt="티오리 로고"></span>
+							</div>
+							<div class="partners_item">
+								<span class="partners_logo"><img src="../images/img_partners_okta.png" alt="옥타 로고"></span>
+							</div>
+							<div class="partners_item">
+								<span class="partners_logo"><img src="../images/img_partners_cloudflare.png" alt="클라우드플레어 로고"></span>
+							</div>
+							<div class="partners_item">
+								<span class="partners_logo"><img src="../images/img_partners_sentinelone.png" alt="세티넬원 로고"></span>
+							</div>
+							<div class="partners_item">
+								<span class="partners_logo"><img src="../images/img_partners_oliveworks.png" alt="올리브웍스 로고"></span>
+							</div>
+							<div class="partners_item">
+								<span class="partners_logo"><img src="../images/img_partners_sumologic.png" alt="수모로직 로고"></span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- // service_wrap -->
+		</div>
+		<!-- // section_inner -->
+	</section>
+
+
+
+	<section id="prizes">
+		<div class="section_inner">
+			<div class="service_wrap">
+				<div class="section_tit">
+					<div class="tit">Prizes</div>
+					<p class="txt">경품</p>
+				</div>
+
+				<div class="section_con">
+					<div class="prizes_wrap">
+						<div class="prizes_list">
+							<div class="prizes_item">
+								<span class="prizes_logo"><img src="../images/img_macbook.png" alt="맥북 에어"></span>
+								<div class="prizes_info">
+									<div>
+										<span class="prizes_name">맥북 에어</span>
+										<span class="prizes_count">1명</span>
+									</div>
+									<span class="prizes_price">990,000원</span>
+								</div>
+							</div>
+							<div class="prizes_item">
+								<span class="prizes_logo"><img src="../images/img_airpods.png" alt="에어팟"></span>
+								<div class="prizes_info">
+									<div>
+										<span class="prizes_name">Apple AirPods  Pro3</span>
+										<span class="prizes_count">2명</span>
+									</div>
+									<span class="prizes_price">738,000원</span>
+								</div>
+							</div>
+							<div class="prizes_item">
+								<span class="prizes_logo"><img src="../images/img_giftcard.png" alt="기프트카드"></span>
+								<div class="prizes_info">
+									<div>
+										<span class="prizes_name">신세계 상품권 10만원</span>
+										<span class="prizes_count">3명</span>
+									</div>
+									<span class="prizes_price">300,000원</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- // service_wrap -->
+		</div>
+		<!-- // section_inner -->
+	</section>
+
+
+
+
+
+
+	<!-- <div class="footer_floating_bnr" style="position:-webkit-sticky; position:sticky; bottom:10px; z-index:10; padding:10px;">
+		<button type="button" style="width:100%; padding:10px; background-color:#ff6600; color:#fff; text-align:center;">하단 떠있는 배너</button>
+	</div> -->
+
+	<footer class="footer">
+		<div class="summit_info">
+			<p><strong>ATON Security Summit 2026</strong></p>
+			<p>2026. 5. 13(수)</p>
+			<p>여의도 FKI타워 그랜드볼룸</p>
+		</div>
+
+		<div class="f_logo">
+			<img src="../images/img_aton_ci_footer.png" alt="ATON로고">
+		</div>
+
+		<div class="info">
+			<p>㈜아톤(ATON Inc.) (대표 우길수)</p>
+			<p>사업자 번호 : 107-81-71649</p>
+			<p>서울시 영등포구 여의대로 108 파크원타워1 26층</p>
+			<p class="copyright">Copyright ⓒ 2019 ATON Inc. All rights reserved.</p>
+		</div>
+	</footer><!-- // footer -->
+
+</div><!-- // wrap -->
+
+
+<!-- aside nav -->
+<div class="gnb_wrap"><!-- 활성화시 class active 추가 -->
+	<div class="nav_wrap">
+		<nav>
+			<h1 class="nav_header">
+				<svg id="nav_logo" class="img_logo" data-name="img_logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 230.9515 58.6165" title="ATON">
+					<path transform="translate(-181.9035 -391.1745)" d="M241.6073,449.7068H229.9008l-5.3516-10.4522L211.755,414.1692l-12.7934,25.0854L193.61,449.7068H181.9035l5.3516-10.4522,24.5-48.08,24.5008,48.08Z" />
+					<path transform="translate(-181.9035 -391.1745)" d="M288.5161,391.2578V401.71H264.5179v48.081H254.0656V401.71h-23.999V391.2578Z" />
+					<path transform="translate(-181.9035 -391.1745)" d="M347.9673,420.4405a29.266,29.266,0,1,1-29.2664-29.266A29.2979,29.2979,0,0,1,347.9673,420.4405Zm-10.4522,0a18.8138,18.8138,0,1,0-18.8142,18.8141A18.8422,18.8422,0,0,0,337.5151,420.4405Z" />
+					<path transform="translate(-181.9035 -391.1745)" d="M412.8551,391.2578V449.791l-10.4522-8.0277-37.6284-29.0155V449.791H354.3223V391.4254l10.4522,8.0273,37.6284,29.0155V391.1745Z" />
+				</svg>
+			</h1>
+	
+			<div class="nav_section">
+				<!-- <div class="nav_group">
+					<h2><a href="#g"><span>ㅁㅁㅁㅁㅁㅁ</span></a></h2>
+					<ul>
+						<li><a href="#g"><span>ㅇㅇㅇㅇ</span></a></li>
+						<li><a href="#g"><span>ㅇㅇㅇㅇ</span></a></li>
+						<li><a href="#g"><span>ㅇㅇㅇㅇ</span></a></li>
+						<li><a href="#g"><span>ㅇㅇㅇㅇ</span></a></li>
+						<li><a href="#g"><span>ㅇㅇㅇㅇ</span></a></li>
+						<li><a href="#g"><span>ㅇㅇㅇㅇ</span></a></li>
+					</ul>
+				</div> -->
+
+				<div class="nav_group">
+					<h2><a href="#g">아톤 소개</a></h2>
+				</div>
+		
+				<div class="nav_group">
+					<h2><span>주요사업</span></h2>
+					<ul class="depth2">
+						<li><span>핀테크 보안 솔루션</span>
+							<ul>
+								<li><a href="./page/core_technology.html">핵심 기술 소개</a></li>
+								<li><a href="./page/msafebox.html">ATON mSafeBox</a></li>
+								<li><a href="./page/motp.html">ATON mOTP</a></li>
+								<li><a href="./page/mpki.html">ATON mPKI</a></li>
+								<!-- <li><a href="./page/u-otp.html">U-OTP</a></li> -->
+								<li><a href="./page/quantum_safeguard.html">Quantum SafeGuard</a></li>
+								<li><a href="./page/quantum_safeotp.html">Quantum SafeOTP</a></li>
+								<li><a href="./page/quantum_safepad.html">Quantum SafePAD</a></li>
+								<li><a href="./page/quantum_safeline.html">Quantum SafeLine</a></li>
+							</ul>
+						</li>
+						<li><span>핀테크 플랫폼</span>
+							<ul>
+								<li><a href="./page/service_info-2.html">서비스 소개</a></li>
+								<li><a href="./page/pass.html">PASS</a></li>
+								<li><a href="./page/pass_certificate.html">PASS 인증서</a></li>
+								<!-- <li><a href="../page/pass_login.html">PASS 휴대폰번호 로그인</a></li> -->
+							</ul>
+						</li>
+						<li><span>스마트 금융</span>
+							<ul>
+								<li><a href="./page/smart_finance.html">스마트 금융</a></li>
+								<li><a href="./page/t-money.html">티머니 솔루션</a></li>
+							</ul>
+						</li>
+						<li>
+							<span class="tit">디지털컨택센터</span>
+							<ul>
+								<li><a href="./gitplechatK/index.html" target="_blank">깃플챗K</a></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+
+				<div class="nav_group">
+					<h2><span>IR.PR</span></h2>
+					<ul>
+						<li><a href="./page/investor-relations.html">Investor Relations</a></li>
+						<li><a href="./press/press_list.html">Press</a></li>
+					</ul>
+				</div>
+
+				<div class="nav_group">
+					<h2><span>인재 채용</span></h2>
+					<ul>
+						<li class="current-page-item"><a href="#g"><span>아톤이 일하는 방식</span></a></li>
+						<li><a href="./recruit-2/recruit_list.html">채용중인 포지션</a></li>
+					</ul>
+				</div>
+
+				<div class="nav_group">
+					<h2><a href="#g"><span>고객지원</span></a></h2>
+					<ul>
+						<!-- <li><a href="#g">English</a></li> -->
+						<li><a href="#g" class="open_ask"><span>문의하기</span></a></li>
+					</ul>
+				</div>
+			</div><!-- // nav_section -->
+	
+			<div class="nav_footer">
+				<ul>
+					<li><a href="#g">이용약관</a></li>
+					<li><a href="#g">개인정보처리방침</a></li>
+				</ul>
+			</div><!-- // nav_footer -->
+		</nav>
+	
+		<div class="btn_close">
+			<button type="button"><span>닫기</span></button>
+		</div>
+	</div><!-- // nav_wrap -->
+
+</div><!-- // gnb_wrap -->
+
+
+
+<!-- 위로 가기 -->
+<button class="toTop"><span>위로</span></button>
+
+
+
+
+
+
+<!-- <script src="../js/temp.js"></script> -->
+
+
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+@charset "UTF-8";
+/* * {font-family:'Pretendard';}
+body {font-family:'Pretendard';} */
+.header_wrap { position:fixed; top:0; z-index:2; width:100%;}
+
+header { display:flex; justify-content:space-between; align-items:center; width:100%; max-width:1140px; margin:0 auto; padding:0 0px 0; transition:all 0.2s;}
+header h1 svg { width:106px; fill:#fff;}
+header .main_nav { margin-left:50px;}
+header nav > ul { display:flex;}
+
+
+
+
+
+
+/* 하단 정보 */
+.footer {display:flex; flex-direction:column; gap:16px; padding:40px 20px; background-color:#2F3038; color:#fff;}
+
+.footer .summit_info {}
+.footer .summit_info p {position:relative; color:#fff; font-size:16px; line-height:1.5em; font-weight:400;}
+.footer .summit_info p strong {font-weight:700;}
+.footer .f_logo {order:-1; width:56px;}
+.footer .info {margin-top:8px;}
+.footer .info p {color:#A7A7A7; font-size:14px; line-height:1.42857em; font-weight:400;}
+.footer .info p.copyright {margin-top:1.14285em;}
+
+@media screen and (min-width:720px) {
+  .footer  {display:block;}
+  .footer .summit_info {display:flex; flex-direction:row; align-items:center; margin-bottom:24px;}
+  .footer .summit_info p {font-size:18px;}
+  .footer .summit_info p + p {margin-left:1em; padding-left:1em;}
+  .footer .summit_info p + p::before {content:""; display:block; position:absolute; top:46%; left:0; width:1px; height:50%; background-color:#fff; transform:translate(-50%,-50%);}
+  .footer .f_logo  {float:left; width:96px; margin-right:56px;}
+  .footer .info  {margin-top:0;}
+  .footer .info p {font-size:20px;}
+  .footer .info p.copyright {margin-top:1em;}
+}
+@media screen and (min-width:1024px) {
+	.footer .summit_info p {font-size:24px;}
+}
+/* // 하단 정보 */
