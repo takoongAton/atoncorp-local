@@ -120,8 +120,8 @@ pre {word-break:break-all; white-space:pre-line;}
 
 :focus {outline:0;}
 
-a, a:* {text-decoration:none;}
-a:link, a:visited, a:hover, a:active {color:;}
+a,
+a:link, a:visited, a:hover, a:active { text-decoration:none;}
 
 html,body {height:100%;}
 html{overflow-y:auto;}
@@ -139,7 +139,7 @@ input,textarea,button,select {
 	border-radius:0;
 	font-size:1em;
 	line-height:1;
-	font-family:Sans-serif !important;
+	/* font-family:Sans-serif !important; */
 }
 
 button {
@@ -188,55 +188,6 @@ body{
 	-webkit-text-size-adjust: none;
 }
 
-
-
-/* 텍스트 및 숫자 관련 입력 폼 */
-input[type="text"] {}
-input[type="password"] {}
-input[type="search"] {}
-input[type="number"] {}
-input[type="tel"] {}
-input[type="url"] {}
-input[type="email"] {}
-
-input[type="checkbox"] {}
 input[type="radio"] {
 	border-radius:100%;
 }
-
-input[type="month"] {}
-input[type="week"] {}
-input[type="date"] {}
-input[type="datetime-local"] {}
-input[type="time"] {}
-
-input[type="color" value="#ff6600"] {}
-
-input[type="file"] {}
-input[type="hidden"] {}
-input[type="image"] {}
-input[type="button"] {}
-input[type="submit"] {}
-input[type="range"] {}
-input[type="reset"] {}
-
-
-/* 선택, 입력 비활성화 */
-select[disabled],select[readonly],
-input[disabled],input[readonly] {
-}
-
-
-/* 버튼 비활성화 
-button.css와 button[disabled]는 같은 뎁스.
-강제성이 필요한게 뒤에 나옴.
-예) <button type="button" class="" disabled>버튼</button>
-*/
-button.next {}
-/* button.disabled,button.false,button[disabled] {
-	background: #a7a7a7;
-	border-color:#a7a7a7;
-	color:#fff;
-} */
-
-

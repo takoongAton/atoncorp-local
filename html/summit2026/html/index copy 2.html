@@ -22,7 +22,7 @@
 	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap" rel="stylesheet">
 
 <style>
-
+* {font-family:'Noto Sans KR', ;}
 /* secureByAction */
 .secureByAction {display:flex; flex-direction:column; gap:40px 0; width:100%; margin-top:50px;}
 .secureByAction .tit_wrap {display:flex; flex-direction:column; align-items:center; gap:8px;}
@@ -175,7 +175,50 @@
 </style>
 </head>
 <body>
+<style>
+.header_wrap { position:fixed; top:0; z-index:2; width:100%; transition:background-color 0.2s ease-in-out;}
+.header_wrap.active {background-color:#000; box-shadow:0 0 10px rgba(0,0,0,0.2);}
 
+header { display:flex; justify-content:space-between; align-items:center; width:100%; max-width:1140px; height:60px; margin:0 auto; padding:0 20px 0; transition:all 0.2s;}
+header h1 svg { width:106px; fill:#fff;}
+header h1 a {display:inline-block; line-height:1em;}
+header h1 a img {display:inline-block; width:80px; height:auto;}
+header .main_nav { margin-left:50px;}
+.main_nav nav ul {display:flex; gap:0 46px; transition:gap 0.2s ease-in-out;}
+.main_nav nav ul li {}
+.main_nav nav ul li a {display:inline-block; color:#fff; font-size:12px; line-height:1.58333em; font-weight:400; text-decoration:none; text-shadow:0 1px 3px rgba(0, 0, 0, 0.15);}
+
+
+.main_nav {display:none;}
+.header_wrap .open_aside {display:block; position:relative; width:24px; height:24px;}
+.header_wrap .open_aside img {display:block;}
+.header_wrap .open_aside::before,
+.header_wrap .open_aside::after {content:""; display:block;}
+
+@media screen and (min-width:720px) {
+	header {height:90px;}
+	header h1 a img {width:115px}
+	.main_nav {display:block;}
+	.main_nav nav ul {gap:0 36px;}
+	.main_nav nav ul li a {font-size:18px;}
+
+	.header_wrap .open_aside {display:none;}
+}
+
+
+@media screen and (min-width:1024px) {
+	header {display:flex; justify-content:space-between; width:100%; height:120px;}
+	header h1 a {display:inline-block; line-height:1em;}
+	header h1 a img {display:inline-block; width:150px; height:auto;}
+	.open_aside {display:none;}
+
+	.main_nav {}
+	.main_nav nav {}
+	.main_nav nav ul {display:flex; gap:0 46px;}
+	.main_nav nav ul li {}
+	.main_nav nav ul li a {display:inline-block; color:#fff; font-size:24px; font-weight:400; text-decoration:none;}
+}
+</style>
 <div class="wrap">
 	<!-- <div class="header_mobile">
 		<h1><img src="../img/common/logo_aton.png" alt="ATON 로고"></h1>
@@ -196,7 +239,7 @@
 						<li><a href="#about">서밋소개</a></li>
 						<li><a href="#program">프로그램</a></li>
 						<li><a href="#speaker">연사소개</a></li>
-						<li><a href="https://docs.google.com/forms/d/e/1FAIpQLSc6e4UlxAaZds3Rg5pSg2U-_EAb33VhhbAXASESWmgMXHFWZw/viewform" target="_blank">등록신청</a></li>
+						<li><a href="#apply">등록신청</a></li>
 						<li><a href="#location">오시는길</a></li>
 					</ul>
 				</nav>
@@ -206,6 +249,27 @@
 	</div>
 	<!-- // header_wrap -->
 
+<style>
+/* 모바일 메뉴 */
+#mobileMenu {display:none; position:fixed; inset:0; z-index:1000; background:rgba(0, 0, 0, 0.8); -webkit-box-orient:vertical; -webkit-box-direction:normal; -ms-flex-direction:column; flex-direction:column;}
+#mobileMenu.on {display:-webkit-box; display:-ms-flexbox; display:flex;}
+#mobileMenu .mm-head {display:-webkit-box; display:-ms-flexbox; display:flex; -webkit-box-align:center; -ms-flex-align:center; align-items:center; -webkit-box-pack:justify; -ms-flex-pack:justify; justify-content:space-between; gap:24px; height:60px; padding:0 20px;}
+#mobileMenu .mm-head img {display:inline-block; width:80px; height:auto;}
+#mobileMenu .mm-head .btn-close {width:24px; height:24px;}
+#mobileMenu .mm-nav {}
+#mobileMenu .mm-nav ul {width:100%;}
+#mobileMenu .mm-nav ul li {display:flex; flex-direction:column; align-items:flex-end; gap:3.5px 0; width:100%;}
+#mobileMenu .mm-nav ul li a {display:inline-flex; flex-direction:column; gap:3.5px 0; width:100%; padding:26.5px 20px 24px; text-align:right; text-decoration:none;}
+#mobileMenu .mm-nav ul li a span {display:inline-block; color:#fff;}
+#mobileMenu .mm-nav ul li span.name-en {font-size:18px; line-height:1em; font-weight:700;}
+#mobileMenu .mm-nav ul li span.name-ko {font-size:18px; line-height:1.5em; font-weight:400;}
+#mobileMenu .mm-nav ul li.reg-item a .n-en {color: var(--color-secondary);}
+#mobileMenu .mm-nav ul li.reg-item a span {color:#31FF98;}
+@media screen and (min-width:720px) {
+	#mobileMenu {display:none !important;}
+}
+/* // 모바일 메뉴 */
+</style>
 	<div id="mobileMenu">
 		<div class="mm-head">
 			<img src="../images/img_aton_ci_top.png" alt="ATON">
@@ -238,7 +302,7 @@
 					</a>
 				</li>
 				<li class="reg-item">
-					<a href="https://docs.google.com/forms/d/e/1FAIpQLSc6e4UlxAaZds3Rg5pSg2U-_EAb33VhhbAXASESWmgMXHFWZw/viewform" target="_blank" class="mm-link">
+					<a href="#register" class="mm-link">
 						<span class="name-en">Registration</span>
 						<span class="name-ko">등록신청</span>
 					</a>
@@ -263,9 +327,9 @@
 .visual.main .date_wrap div {display:flex; align-items:center; gap:0.5em;}
 .visual.main .date_wrap div span.ico {display:inline-flex; width:24px; height:24px;}
 .visual.main .date_wrap div span.txt {color:#fff; font-size:16px; line-height:1.5em;}
-.visual.main div.btn_wrap {display:flex; justify-content:center; align-items:center; position:absolute; bottom:30px; left:20px; right:20px;}
-.visual.main div.btn_wrap button {width:100%; height:48px; background-color:#31FF98; border-radius:30px;}
-.visual.main div.btn_wrap button span.txt {display:block; color:#000; font-size:18px; line-height:1em; font-weight:800;}
+.visual.main div.btn_summit {display:flex; justify-content:center; align-items:center; position:absolute; bottom:30px; left:20px; right:20px;}
+.visual.main div.btn_summit button {width:100%; height:48px; background-color:#31FF98; border-radius:30px;}
+.visual.main div.btn_summit button span.txt {display:block; color:#000; font-size:18px; line-height:1em; font-weight:800;}
 @media screen and (min-width:720px) {
   .visual.main .visual_txt div.tit {font-size:48px;}
   .visual.main .visual_txt div.tit br ~ br {display:none;}
@@ -277,9 +341,9 @@
 	.visual.main .visual_txt p.txt {font-size:36px;}
 	.visual.main .date_wrap {width:100%; max-width:1140px; margin:0 auto; text-align: left;}
 	.visual.main .date_wrap div span.txt {font-size:20px;}
-	.visual.main div.btn_wrap {display:inline-block; position:unset; top:unset; right:unset; bottom:unset; left:unset; width:100%; max-width:1140px; margin:0 auto;}
-	.visual.main div.btn_wrap button {display:inline-flex; justify-content:center; align-items:center; width:340px; height:60px; background-color:#0045FF;}
-	.visual.main div.btn_wrap button span.txt {position:relative; color:#fff; font-size:24px;}
+	.visual.main div.btn_summit {display:inline-block; position:unset; top:unset; right:unset; bottom:unset; left:unset; width:100%; max-width:1140px; margin:0 auto;}
+	.visual.main div.btn_summit button {display:inline-flex; justify-content:center; align-items:center; width:340px; height:60px; background-color:#0045FF;}
+	.visual.main div.btn_summit button span.txt {position:relative; color:#fff; font-size:24px;}
 }
 
 
@@ -380,12 +444,35 @@
 					<span class="txt">여의도 FKI 타워 그랜드 볼륨</span>
 				</div>
 			</div>
-			<div class="btn_wrap">
-				<button type="button" class="btn_summit" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSc6e4UlxAaZds3Rg5pSg2U-_EAb33VhhbAXASESWmgMXHFWZw/viewform?usp=header','_blank')"><span class="txt">등록하기</span></button>
+			<div class="btn_summit">
+				<button type="button" class=""><span class="txt">등록하기</span></button>
 			</div>
 		</div><!-- // visual -->
 
 	</section>
+
+<style>
+/* 섹션 공통 */
+	section {background-color:#000;}
+	section .section_inner {width:100%; max-width:1140px; margin:0 auto; padding:50px 20px 40px;}
+	section .section_inner .service_wrap {display:flex; flex-direction:column; gap:40px 0; width:100%;}
+
+	.section_tit {display:flex; flex-direction:column; align-items:center; gap:8px;}
+	.section_tit div.tit {color:#fff; font-size:28px; line-height:1em; font-weight:700;}
+	.section_tit p.txt {color:#fff; font-size:24px; line-height:1.45833em; font-weight:300;}
+
+	@media screen and (min-width:720px) {
+	}
+
+	@media screen and (min-width:1024px) {
+		section .section_inner {padding:100px 20px 80px;}
+		section .section_inner .service_wrap  {gap:56px 0;}
+		.section_tit {display:flex; flex-direction:column; align-items:center; gap:8px;}
+		.section_tit div.tit {font-size:32px;}
+		.section_tit p.txt {font-size:24px;}
+	}
+/* // 섹션 공통 */
+</style>
 
 
 	<section id="about">
@@ -963,7 +1050,7 @@
 <!-- 위로 가기 -->
 <div class="floating_wrap">
 	<button type="button" class="toTop"><span><img src="../images/btn_top.png" alt="맨위로가기"></span></button>
-	<button type="button" class="btn_floating_apply" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSc6e4UlxAaZds3Rg5pSg2U-_EAb33VhhbAXASESWmgMXHFWZw/viewform?usp=header','_blank')"><span>등록하기</span></button>
+	<button type="button" class="btn_floating_apply"><span>등록하기</span></button>
 </div>
 
 
@@ -1006,50 +1093,14 @@ header = {
 let open_aside = document.querySelector(".open_aside");
 open_aside?.addEventListener("click", function(){
 	document.querySelector("#mobileMenu").classList.add("on");
-	// document.querySelector("body").style.overflow = "hidden";
+	document.querySelector("body").style.overflow = "hidden";
 });
 
-let close_aside = document.querySelector("#mobileMenu .btn-close");
+let close_aside = document.querySelector(".btn-close");
 close_aside?.addEventListener("click", function(){
 	document.querySelector("#mobileMenu").classList.remove("on");
-	// document.querySelector("body").style.overflow = "auto";
+	document.querySelector("body").style.overflow = "auto";
 })
-
-
-/* 부드러운 앵커 스크롤 */
-function smoothScrollTo(targetId) {
-	const target = document.querySelector(targetId);
-	if (!target) return;
-
-	const headerHeight = document.querySelector('.header_wrap')?.offsetHeight || 0;
-	const targetTop = target.getBoundingClientRect().top + window.scrollY - headerHeight;
-
-	window.scrollTo({ top: targetTop, behavior: 'smooth' });
-}
-
-// .main_nav 링크
-document.querySelectorAll('.main_nav a[href^="#"]').forEach(function(link) {
-	link.addEventListener('click', function(e) {
-		e.preventDefault();
-		smoothScrollTo(this.getAttribute('href'));
-	});
-});
-
-// .toTop 버튼
-document.querySelector('.toTop')?.addEventListener('click', function() {
-	window.scrollTo({ top: 0, behavior: 'smooth' });
-});
-
-// #mobileMenu 링크
-document.querySelectorAll('#mobileMenu a[href^="#"]').forEach(function(link) {
-	link.addEventListener('click', function(e) {
-		e.preventDefault();
-		const targetId = this.getAttribute('href');
-		document.querySelector('#mobileMenu').classList.remove('on');
-		// document.querySelector('body').style.overflow = 'auto';
-		smoothScrollTo(targetId);
-	});
-});
 </script>
 
 
