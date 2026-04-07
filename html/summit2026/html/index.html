@@ -47,6 +47,10 @@
 
 @media screen and (min-width:720px) {
 
+	.secureByAction .tit_wrap {gap:24px 0;;}
+	.secureByAction .tit_wrap .tit {font-size:40px;}
+	.secureByAction .tit_wrap .txt {font-size:24px;}
+
 	.secureByAction_wrap .action_01 {height:488px;}
 	.secureByAction_wrap .action_02 {height:488px;}
 	.secureByAction_wrap .action_03 {height:528px;}
@@ -111,6 +115,11 @@
 	.timetable_wrap,
 	.timeline_group {gap:8px}
 
+	#programTimetable::before,
+	#programTimetable::after {content:""; display:block; position:absolute; width:100%; height:50px; background-color:#000; background: linear-gradient(0deg,rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%);}
+	#programTimetable::before {top:0; transform:rotate(180deg);}
+	#programTimetable::after {bottom:0; height:40px;}
+
 	.timeline_group .timeline_group_section .label .label_txt {font-size:24px; line-height:1.45833em;}
 	.timeline_group .timeline_group_section .time {font-size:20px; line-height:1.45em;}
 
@@ -153,9 +162,13 @@
 .speaker_item .img_wrap img {position:relative;}
 .speaker_item .img_wrap::after {content:""; display:block; top:50%; right:0; bottom:0; left:0; position:absolute; z-index:0; background:#000; background: linear-gradient(0deg,rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%);}
 
+@media screen and (min-width:720px) {
+	#speakers {background-color:#000;}
+}
 @media screen and (min-width:1024px) {
 	#speakers {background-color:#000;}
 	.speakers_list {gap:48px 32px;}
+	.speaker_item {width:348px; height:322px;}
 }
 /* // 연사소개 */
 </style>
@@ -373,8 +386,11 @@ header .main_nav { margin-left:50px;}
 	0%   { transform: translateX(0); }
 	100% { transform: translateX(-50%); }
 }
-@media screen and (min-width:720px) {}
+@media screen and (min-width:720px) {
+	#partners {background-color:#000;}
+}
 @media screen and (min-width:1024px) {
+	#partners {background-color:#000;}
 	#partners .section_inner {max-width:unset;}
 	.partners_track {gap:0 56px;}
 	.partners_track .partners_item {min-width:344px; width:344px; height:160px; border-radius:32px; overflow:hidden;}
@@ -891,7 +907,7 @@ header .main_nav { margin-left:50px;}
 		<div class="section_inner">
 			<div class="service_wrap">
 				<div class="section_tit">
-					<div class="tit">VePartners</div>
+					<div class="tit">Partners</div>
 					<p class="txt">파트너</p>
 				</div>
 
