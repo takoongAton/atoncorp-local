@@ -1523,3 +1523,20 @@ pre.privacy a.link_privacy_list::before {content:""; display:block; position:abs
 	.orbit_service_wrap .item_list .item {width:100%;}
 }
 /* // orbit 서비스 리스트 */
+
+
+
+
+
+/* 급하게 만든 팝업 소스 정리필요 */
+.layer.banner .inner {position:absolute; top:0; z-index: 10;}
+.layer.banner .inner .content {position:fixed; top:50%; left:50%; transform:translate(-50%,-50%); width:312px;}
+.layer.banner .banner_wrap a {display:block;}
+.layer.banner .banner_footer {display:flex; justify-content:space-between; width:100%; padding:8px 24px;  background-color:#000;}
+.layer.banner .banner_footer label {position:relative; cursor:pointer;}
+.layer.banner .banner_footer label input {position:absolute; top:0; left:0; width:0; height:0; opacity:0;}
+.layer.banner .banner_footer span.txt {display:inline-block; color:#aaa; font-size:14px; line-height:1em;}
+@media screen and (min-width:720px) {
+	.layer.banner .inner .content {width:600px;}
+}
+/* 급하게 만든 팝업 소스 정리필요 */

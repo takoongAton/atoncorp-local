@@ -403,46 +403,11 @@
 <!-- 위로 가기 -->
 <button class="toTop"><span>위로</span></button>
 
-<style>
-	.layer.banner {}
-	.layer.banner .inner {position:absolute; top:0; z-index: 10;}
-	.layer.banner .inner .content {position:fixed; top:50%; left:50%; transform:translate(-50%,-50%); width:312px;}
 
-	.banner_wrap a {display:block;}
-	.banner_footer {display:flex; justify-content:space-between; width:100%; padding:8px 24px;  background-color:#000;}
-	.banner_footer label {position:relative; cursor:pointer;}
-	.banner_footer label input {position:absolute; top:0; left:0; width:0; height:0; opacity:0;}
-	.banner_footer span.txt {display:inline-block; color:#aaa; font-size:14px; line-height:1em;}
-@media screen and (min-width:720px) {
-	.layer.banner .inner .content {width:600px;}
-}
-</style>
-<div class="layer banner">
-	<div class="inner">
-		<div class="content">
-			<div class="banner_wrap">
-				<div class="banner_img">
-					<a href="#g" target="_blank">
-						<picture>
-							<source media="(min-width:720px)" srcset="./summit2026/images/bnr_summit_pc.png">
-							<img src="./summit2026/images/bnr_summit_mobile.png" alt="배너 이미지">
-						</picture>
-					</a>
-				</div>
-			</div>
-			<div class="banner_footer">
-				<label>
-					<input type="checkbox" id="chk_banner"><span class="txt">오늘 하루 보지 않기</span>
-				</label>
-				<button type="button" class="btn_close"><span class="txt">닫기</span></button>
-			</div>
-		</div>
-	</div>
-</div>
 
 
 <!-- 문의하기 팝업 -->
-<div class="layer customer" style="display:none">
+<div class="layer customer">
     <div class="inner">
         <div class="content">
             <div class="ask">
@@ -466,44 +431,6 @@
 
 
 <script src="../js/temp.js"></script>
-
-<script>
-/* 배너 - 오늘 하루 보지 않기 */
-(function() {
-	var STORAGE_KEY = 'bannerHideDate';
-	var today = new Date();
-	var dateStr = today.getFullYear() + '-' +
-		String(today.getMonth() + 1).padStart(2, '0') + '-' +
-		String(today.getDate()).padStart(2, '0');
-
-	var banner = document.querySelector('.layer.banner');
-	if (!banner) return;
-
-	// 오늘 날짜로 숨기기 설정된 경우 배너 즉시 숨기기
-	if (localStorage.getItem(STORAGE_KEY) === dateStr) {
-		banner.style.display = 'none';
-	}
-
-	// 오늘 하루 보지 않기 클릭 시 즉시 저장 후 닫기
-	var chkBanner = document.getElementById('chk_banner');
-	if (chkBanner) {
-		chkBanner.addEventListener('change', function() {
-			if (this.checked) {
-				localStorage.setItem(STORAGE_KEY, dateStr);
-				banner.style.display = 'none';
-			}
-		});
-	}
-
-	// 배너 닫기 버튼 클릭 처리
-	var closeBtn = banner.querySelector('.btn_close');
-	if (closeBtn) {
-		closeBtn.addEventListener('click', function() {
-			banner.style.display = 'none';
-		});
-	}
-})();
-</script>
 
 
 
