@@ -368,7 +368,7 @@ section .section_inner .service_wrap {display:flex; flex-direction:column; gap:4
 
 /* 하단 정보 */
 #footer {background-color:#2F3038; color:#fff;}
-#footer .footer {display:flex; flex-direction:column; gap:16px; width:100%; max-width:1140px; margin:0 auto; padding:40px 20px;}
+#footer .footer {display:flex; flex-direction:column; gap:16px; width:100%; max-width:1140px; margin:0 auto; padding:40px 20px 100px;}
 
 #footer .footer .summit_info {}
 #footer .footer .summit_info p {position:relative; color:#fff; font-size:16px; line-height:1.5em; font-weight:400;}
