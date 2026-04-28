@@ -178,6 +178,7 @@ section .section_inner .service_wrap {display:flex; flex-direction:column; gap:4
 .timeline_group .timeline_item .label {display:flex; justify-content:space-between; align-items:center; width:100%}
 .timeline_group .timeline_item .label.keynote {}
 .timeline_group .timeline_item .label span.label_txt {display:inline-flex; height:24px; padding:0 12px;  border-radius:12px; color:#fff; font-size:14px; line-height:24px; font-weight:500;}
+.timeline_group .timeline_item .label span.label_txt.light_orange {background-color:#FF751F;}
 .timeline_group .timeline_item .label span.label_txt.blue {background-color:#1F98FF;}
 .timeline_group .timeline_item .label span.label_txt.green {background-color:#2CA769;}
 .timeline_group .timeline_item .label span.label_txt.white {background-color:#fff; color:#000}
@@ -360,6 +361,7 @@ section .section_inner .service_wrap {display:flex; flex-direction:column; gap:4
 
 /* 경품 */
 #prizes {background-color:#000;}
+#prizes .section_inner { max-width:unset}
 .prizes_list {display:flex; flex-direction:column; gap:24px;}
 .prizes_item {display:flex; flex-direction:column; justify-content:center; align-items:center; gap:16px;}
 .prizes_item .prizes_logo {width:176px; height:176px;}
@@ -370,9 +372,9 @@ section .section_inner .service_wrap {display:flex; flex-direction:column; gap:4
 .prizes_item .prizes_info .prizes_price {display:block; color:#999999; font-size:16px; line-height:1; font-weight:300;}
 @media screen and (min-width:720px) {
 #prizes  {background-color:#000;}
-.prizes_list {flex-wrap:wrap; flex-direction:row; justify-content:center;}
+.prizes_list {flex-wrap:wrap; flex-direction:row; justify-content:center; gap:60px 0;}
 .prizes_list .prizes_item {}
-.prizes_list .prizes_item .prizes_logo {width:298px; height:auto;}
+.prizes_list .prizes_item .prizes_logo {box-sizing:content-box; width:296px; height:auto; padding:0 60px;}
 .prizes_item .prizes_info .prizes_name {font-size:24px; line-height:35px;}
 .prizes_item .prizes_info .prizes_count {width:56px; height:32px; font-size:16px;}
 .prizes_item .prizes_info .prizes_price {font-size:18px;}
