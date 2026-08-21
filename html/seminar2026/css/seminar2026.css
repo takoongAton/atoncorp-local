@@ -1,0 +1,144 @@
+@charset "UTF-8";
+/*
+ * 금융사 정보보호 책임자 초청 조찬 세미나 (eDM)
+ * Figma : eDM_01_조찬세미나 / 720 x 2015.5
+ *
+ * --u = 시안 1px 에 해당하는 실제 길이.
+ *   720px 이상에서는 1px 이므로 calc(N * var(--u)) 값이 시안값과 그대로 일치하고,
+ *   720px 미만에서는 화면 폭에 비례해 함께 줄어든다.
+ *   본문·버튼 등 가독성이 필요한 값에만 max() 로 최소 크기를 걸어 둔다.
+ */
+
+:root {
+	--u:min(1px, 100vw / 720);
+	--c-bg-top:#050d20;
+	--c-bg-btm:#151941;
+	--c-accent:#a8e5ff;
+	--c-time:#bababa;
+	--c-cta:#00a0f0;
+	--c-line:rgba(255,255,255,0.3);
+	/* 시안 제목에 Ria Sans 가 적용되어 있다. 사내 웹폰트 등록 시 자동 반영되고, 미등록 상태에서는 Pretendard 로 대체된다. */
+	--f-title:'Ria Sans','Pretendard','Noto Sans KR',sans-serif;
+	--f-base:'Pretendard','Noto Sans KR',sans-serif;
+}
+
+html {background-color:var(--c-bg-top);}
+body {min-height:100dvh; overflow-x:hidden; background-image:linear-gradient(180deg, var(--c-bg-top) 30.122%, var(--c-bg-btm) 100%); background-repeat:no-repeat; background-size:100% 100%; color:#fff; font-family:var(--f-base); word-break:keep-all;}
+img {max-width:100%;}
+.br_pc {display:none;}
+
+
+/* 레이아웃 */
+.edm {position:relative; width:100%; max-width:720px; margin:0 auto; padding:max(70px, calc(120 * var(--u))) max(20px, calc(36 * var(--u))) max(44px, calc(70 * var(--u)));}
+.edm__inner {display:flex; flex-direction:column; gap:max(48px, calc(80 * var(--u))) 0; position:relative; z-index:1;}
+.edm__logo {position:absolute; left:max(20px, calc(36 * var(--u))); top:max(24px, calc(36 * var(--u))); z-index:2; width:max(58px, calc(72 * var(--u))); line-height:0;}
+.edm__logo img {display:block; width:100%; height:auto;}
+/* // 레이아웃 */
+
+
+/* 메인 비주얼 : 카드 폭에 비례해 확대·축소된다(% 마진은 컨테이닝 블록의 폭을 기준으로 계산) */
+.edm__visual {position:absolute; inset:0; z-index:0; overflow:hidden; pointer-events:none;}
+.visual__photo {display:block; position:absolute; left:-22.2222%; top:0; width:260.5556%; max-width:none; height:auto; margin-top:-52.6389%;}
+.visual__fade {display:block; position:absolute; left:0; top:0; width:100%; margin-top:-16.9444%; aspect-ratio:720 / 697; background-image:linear-gradient(180deg, rgba(5,13,32,0) 0%, var(--c-bg-top) 100%);}
+.visual__lines {display:block; position:absolute; left:0; top:0; width:100%; margin-top:29.3056%; aspect-ratio:720 / 1070.78; overflow:hidden;}
+.visual__lines img {display:block; position:absolute; left:113.4361%; top:71.7952%; width:260.4028%; max-width:none; aspect-ratio:1874.9 / 522.019; transform:translate(-50%,-50%) rotate(-32deg);}
+/* // 메인 비주얼 */
+
+
+/* 타이틀 */
+.content {display:flex; flex-direction:column; gap:max(40px, calc(70 * var(--u))) 0;}
+.title {display:flex; flex-direction:column; gap:max(9px, calc(13 * var(--u))) 0;}
+.title__eyebrow {color:var(--c-accent); font-size:max(16px, calc(24 * var(--u))); line-height:normal; font-weight:600;}
+.title__main {font-family:var(--f-title); font-size:max(26px, calc(50 * var(--u))); line-height:1.36; font-weight:700; letter-spacing:-0.02em;}
+.title__main em {background-image:linear-gradient(125.5995deg, #7feaff 4.418%, #f7b9ff 95.582%); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; color:transparent; font-style:normal;}
+.title__main em.title__main--line2 {background-image:linear-gradient(165.6539deg, #7feaff 4.418%, #f7b9ff 95.582%);}
+.title__sub {color:var(--c-accent); font-size:max(15px, calc(22 * var(--u))); line-height:normal; font-weight:300;}
+/* // 타이틀 */
+
+
+/* 일시 / 장소 / 대상 */
+.info {display:flex; flex-direction:column; gap:max(10px, calc(12 * var(--u))) 0;}
+.info__row {display:flex; align-items:center; gap:0 max(10px, calc(12 * var(--u)));}
+.info__label {flex:none; width:max(66px, calc(90 * var(--u))); padding:max(4px, calc(5 * var(--u))) max(8px, calc(10 * var(--u))); border-radius:calc(18 * var(--u)); background-color:var(--c-accent); color:var(--c-bg-top); font-size:max(14px, calc(19 * var(--u))); line-height:normal; font-weight:600; letter-spacing:max(8px, calc(11.4 * var(--u))); text-align:center;}
+.info__value {font-size:max(16px, calc(22 * var(--u))); line-height:normal; font-weight:600;}
+.info__value span {font-size:0.8181em;}
+/* // 일시 / 장소 / 대상 */
+
+
+/* 본문 */
+.desc {display:flex; flex-direction:column; gap:max(14px, calc(16 * var(--u))) 0;}
+.desc p {font-size:max(14px, calc(18 * var(--u))); line-height:1.4444; font-weight:400;}
+/* // 본문 */
+
+
+/* 주최 / 파트너사 : 480px 미만에서는 파트너사 로고 폭이 부족해 위아래로 쌓는다. */
+.orgs {display:flex; flex-direction:column; align-items:flex-start; gap:24px 0;}
+.orgs__col {display:flex; flex-direction:column; align-items:center; gap:max(16px, calc(24 * var(--u))) 0; width:100%;}
+.orgs__tit {width:100%; padding:max(8px, calc(10 * var(--u))) 0; border-bottom:0.5px solid var(--c-accent); color:var(--c-accent); font-size:max(15px, calc(18 * var(--u))); line-height:1.4444; font-weight:700; text-align:center;}
+/* 로고 행은 시안과 동일하게 높이를 고정하고, 각 로고는 개별 offset 만큼 넘치도록 둔다. */
+.orgs__logos {display:flex; align-items:flex-start; justify-content:center; height:max(13px, calc(16 * var(--u))); line-height:0;}
+.orgs__logos img {display:block; width:auto; max-width:none;}
+.logo_aton {height:max(13px, calc(16 * var(--u)));}
+.partners {height:max(19px, calc(24 * var(--u))); gap:0 max(10px, calc(14 * var(--u)));}
+.partners .logo_okta {height:max(19px, calc(24 * var(--u))); margin-top:max(4px, calc(5 * var(--u)));}
+.partners .logo_cloudflare {height:max(26px, calc(32 * var(--u))); margin-top:calc(-1 * max(4px, calc(5 * var(--u))));}
+.partners .logo_theori {height:max(14px, calc(18 * var(--u))); margin-top:max(6px, calc(7 * var(--u)));}
+.partners__dot {height:4px; margin-top:max(11px, calc(14 * var(--u)));}
+/* // 주최 / 파트너사 */
+
+
+/* 프로그램 */
+.program {display:flex; flex-direction:column; gap:max(18px, calc(24 * var(--u))) 0;}
+.program__tit {font-size:max(20px, calc(26 * var(--u))); line-height:1; font-weight:700;}
+.timetable {display:flex; flex-direction:column;}
+.timetable__row {display:flex; flex-direction:column; gap:calc(4 * var(--u)) 0; padding:max(12px, calc(15 * var(--u))) 0; border-bottom:0.5px solid var(--c-line);}
+.timetable__row:first-child {border-top:1.5px solid #fff;}
+.timetable__time {flex:none; color:var(--c-time); font-size:max(12px, calc(14 * var(--u))); line-height:1.8571; font-weight:500;}
+.timetable__desc {display:flex; flex-direction:column; justify-content:center; gap:calc(4 * var(--u)) 0; min-width:0;}
+.timetable__name {display:flex; align-items:flex-start; gap:0 calc(8 * var(--u)); font-size:max(15px, calc(18 * var(--u))); line-height:1.4444; font-weight:700;}
+.timetable__subject {flex:1 1 auto; min-width:0;}
+.timetable__speaker {color:var(--c-accent); font-size:max(13px, calc(16 * var(--u))); line-height:1.625; font-weight:500;}
+.badge {flex:none; margin-top:calc(2 * var(--u)); padding:max(2px, calc(3 * var(--u))) max(4px, calc(5 * var(--u))); border:0.5px solid var(--c-line); border-radius:max(5px, calc(6 * var(--u))); background-color:rgba(255,255,255,0.2); font-size:max(12px, calc(14 * var(--u))); line-height:normal; font-weight:600; white-space:nowrap;}
+/* // 프로그램 */
+
+
+/* 참석 등록 */
+.cta {display:flex; flex-direction:column; gap:max(14px, calc(18 * var(--u))) 0;}
+.cta__btn {display:flex; align-items:center; justify-content:center; width:100%; padding:max(20px, calc(28 * var(--u))); border-radius:max(12px, calc(16 * var(--u))); background-color:var(--c-cta); color:#fff; font-size:max(17px, calc(22 * var(--u))); line-height:1.1818; font-weight:700; text-align:center; text-decoration:none; transition:background-color 0.2s ease-in-out;}
+.cta__btn:hover,
+.cta__btn:focus-visible {background-color:#0b8ed3;}
+.cta__contact {display:flex; flex-wrap:wrap; align-items:center; justify-content:flex-end; gap:0 max(8px, calc(10 * var(--u))); font-size:max(13px, calc(16 * var(--u))); line-height:1.625;}
+.cta__contact strong {color:var(--c-accent); font-weight:700;}
+.cta__contact a {color:#fff; text-decoration:underline; text-underline-position:from-font; word-break:break-all;}
+/* // 참석 등록 */
+
+
+@media screen and (min-width:480px) {
+	/* 주최 / 파트너사 2단 구성 */
+	.orgs {flex-direction:row; gap:0 calc(24 * var(--u));}
+	.orgs__col--host {flex:none; width:calc(236 * var(--u));}
+	.orgs__col--partner {flex:1 1 0; width:auto; min-width:0;}
+
+	/* 프로그램 : 시간 / 내용 2단 구성 */
+	.timetable__row {flex-direction:row; align-items:stretch; gap:0; padding:0;}
+	.timetable__time {width:calc(140 * var(--u)); padding:max(12px, calc(15 * var(--u))) 0;}
+	.timetable__desc {flex:1 1 0; padding:max(12px, calc(15 * var(--u))) 0;}
+}
+
+
+@media screen and (min-width:720px) {
+	/* 시안(720px) 기준의 줄바꿈과 자간 */
+	.br_pc {display:inline;}
+	.title__main {letter-spacing:-1px;}
+	.timetable__name .is-tight {letter-spacing:-0.36px;}
+	.info__value span {font-size:18px;}
+}
+
+
+@media screen and (min-width:721px) {
+	/*
+	 * 화면이 카드(720px)보다 넓어지면 eDM 프레임에서 잘린 비주얼의 좌·우 경계가 그대로 드러난다.
+	 * 이 구간에서만 양쪽을 페이드 처리해 배경 그라데이션으로 자연스럽게 이어지게 한다.
+	 */
+	.edm__visual {-webkit-mask-image:linear-gradient(90deg, rgba(0,0,0,0) 0, #000 56px, #000 calc(100% - 56px), rgba(0,0,0,0) 100%); mask-image:linear-gradient(90deg, rgba(0,0,0,0) 0, #000 56px, #000 calc(100% - 56px), rgba(0,0,0,0) 100%);}
+}
