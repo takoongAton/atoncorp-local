@@ -39,9 +39,11 @@ em {font-style:normal;}
  * 히어로
  * =================================================================== */
 .hero {position:relative; overflow:hidden; background-color:var(--c-hero);}
-.hero__visual {position:absolute; inset:0; z-index:0; pointer-events:none; background:url('../images/img_hero.png') no-repeat center top / cover;}
-.hero__photo {display:block; position:absolute; top:0; left:0; right:0; inset:0; height:100%; opacity:0.42; margin:0 auto;}
-
+.hero__visual {position:absolute; inset:0; z-index:0; pointer-events:none; background:url('../images/img_hero.png') no-repeat center center / cover;}
+/* .hero__photo {display:block; position:absolute; top:0; left:0; right:0; inset:0; height:100%; opacity:0.42; margin:0 auto;} */
+@media screen and (min-width:720px) {
+	.hero__visual {position:absolute; inset:0; z-index:0; pointer-events:none; background:url('../images/img_hero.jpg') no-repeat center top / cover; opacity:0.5;}
+}
 /*
  * 시안은 사진 위·아래에 배경색과 같은 그라데이션을 겹쳐 가운데 띠만 보이게 한다.
  * 컨테이너 높이가 화면마다 달라지므로 %% 기준 그라데이션으로 같은 비례를 유지한다.
